@@ -1,0 +1,9 @@
+.selectButton {
+	justify-content: space-between;
+	cursor: pointer;
+}
+
+.dropdown {
+	max-height: 300px;
+	overflow-y: auto;
+}
