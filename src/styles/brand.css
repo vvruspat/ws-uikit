@@ -1,0 +1,109 @@
+/* src/styles/brand.css
+   Raw semantic-agnostic palette. No semantic meaning assigned here.
+   All values scoped to :root — always available regardless of theme/platform.
+   Wide spectrum intentionally: unused steps exist for future semantic assignment.
+*/
+:root {
+  /* ── Primary ─────────────────────────────────────── */
+  --palette-primary-50:   rgba(245, 245, 246, 1);
+  --palette-primary-100:  rgba(245, 245, 246, 1);
+  --palette-primary-200:  rgba(235, 236, 236, 1);
+  --palette-primary-300:  rgba(215, 217, 217, 1);
+  --palette-primary-400:  rgba(175, 178, 179, 1);
+  --palette-primary-500:  rgba(136, 140, 141, 1);
+  --palette-primary-600:  rgba(96, 101, 103, 1);
+  --palette-primary-700:  rgba(56, 63, 65, 1);
+  --palette-primary-800:  rgba(39, 44, 46, 1);
+  --palette-primary-900:  color-mix(in srgb, var(--palette-primary-800), black 10%);
+  --palette-primary-1000: color-mix(in srgb, var(--palette-primary-800), black 20%);
+
+  /* ── Secondary ───────────────────────────────────── */
+  --palette-secondary-50:   rgba(240, 230, 232, 1);
+  --palette-secondary-100:  rgba(224, 206, 208, 1);
+  --palette-secondary-200:  rgba(194, 156, 162, 1);
+  --palette-secondary-300:  rgba(163, 107, 115, 1);
+  --palette-secondary-400:  rgba(133, 57, 69, 1);
+  --palette-secondary-500:  rgba(102, 8, 22, 1);
+  --palette-secondary-600:  color-mix(in srgb, var(--palette-secondary-500), black 10%);
+  --palette-secondary-700:  color-mix(in srgb, var(--palette-secondary-500), black 20%);
+  --palette-secondary-800:  color-mix(in srgb, var(--palette-secondary-500), black 30%);
+  --palette-secondary-900:  color-mix(in srgb, var(--palette-secondary-500), black 40%);
+  --palette-secondary-1000: color-mix(in srgb, var(--palette-secondary-500), black 50%);
+
+  /* ── Tertiary ────────────────────────────────────── */
+  --palette-tertiary-50:   rgba(243, 238, 245, 1);
+  --palette-tertiary-100:  color-mix(in srgb, var(--palette-tertiary-200), white 10%);
+  --palette-tertiary-200:  rgba(164, 96, 188, 1);
+  --palette-tertiary-300:  rgba(104, 59, 120, 1);
+  --palette-tertiary-400:  color-mix(in srgb, var(--palette-tertiary-300), black 10%);
+  --palette-tertiary-500:  color-mix(in srgb, var(--palette-tertiary-300), black 20%);
+  --palette-tertiary-600:  color-mix(in srgb, var(--palette-tertiary-300), black 30%);
+  --palette-tertiary-700:  color-mix(in srgb, var(--palette-tertiary-300), black 40%);
+  --palette-tertiary-800:  color-mix(in srgb, var(--palette-tertiary-300), black 50%);
+  --palette-tertiary-900:  color-mix(in srgb, var(--palette-tertiary-300), black 60%);
+  --palette-tertiary-1000: color-mix(in srgb, var(--palette-tertiary-300), black 70%);
+
+  /* ── Base / Neutral ──────────────────────────────── */
+  --palette-base-0:    rgba(255, 255, 255, 1);
+  --palette-base-50:   rgba(251, 251, 251, 1);
+  --palette-base-100:  rgba(245, 245, 245, 1);
+  --palette-base-200:  rgba(230, 231, 231, 1);
+  --palette-base-300:  rgba(216, 217, 217, 1);
+  --palette-base-400:  rgba(123, 132, 132, 1);
+  --palette-base-500:  rgba(75, 79, 79, 1);
+  --palette-base-600:  rgba(34, 38, 38, 1);
+  --palette-base-700:  rgba(24, 28, 28, 1);
+  --palette-base-800:  rgba(14, 18, 18, 1);
+  --palette-base-900:  rgba(0, 12, 11, 1);
+  --palette-base-1000: rgba(0, 0, 0, 1);
+
+  /* ── Success ─────────────────────────────────────── */
+  --palette-success-100:  rgba(247, 255, 230, 1);
+  --palette-success-200:  rgba(210, 242, 155, 1);
+  --palette-success-300:  rgba(182, 230, 110, 1);
+  --palette-success-400:  rgba(153, 217, 69, 1);
+  --palette-success-500:  rgba(124, 204, 33, 1);
+  --palette-success-600:  rgba(96, 192, 0, 1);
+  --palette-success-700:  rgba(71, 153, 0, 1);
+  --palette-success-800:  rgba(50, 115, 0, 1);
+  --palette-success-900:  rgba(31, 77, 0, 1);
+  --palette-success-1000: rgba(14, 38, 0, 1);
+
+  /* ── Error ───────────────────────────────────────── */
+  --palette-error-50:   rgba(255, 242, 242, 1);
+  --palette-error-100:  rgba(254, 202, 202, 1);
+  --palette-error-200:  color-mix(in srgb, var(--palette-error-300), white 10%);
+  --palette-error-300:  rgba(218, 33, 33, 1);
+  --palette-error-400:  rgba(191, 0, 13, 1);
+  --palette-error-500:  color-mix(in srgb, var(--palette-error-400), black 10%);
+  --palette-error-600:  color-mix(in srgb, var(--palette-error-400), black 20%);
+  --palette-error-700:  color-mix(in srgb, var(--palette-error-400), black 30%);
+  --palette-error-800:  color-mix(in srgb, var(--palette-error-400), black 40%);
+  --palette-error-900:  color-mix(in srgb, var(--palette-error-400), black 50%);
+  --palette-error-1000: color-mix(in srgb, var(--palette-error-400), black 60%);
+
+  /* ── Warning ─────────────────────────────────────── */
+  --palette-warning-50:   rgba(254, 227, 173, 1);
+  --palette-warning-100:  rgba(254, 227, 173, 1);
+  --palette-warning-200:  color-mix(in srgb, var(--palette-warning-300), white 10%);
+  --palette-warning-300:  rgba(240, 151, 0, 1);
+  --palette-warning-400:  rgba(204, 102, 0, 1);
+  --palette-warning-500:  color-mix(in srgb, var(--palette-warning-400), black 10%);
+  --palette-warning-600:  color-mix(in srgb, var(--palette-warning-400), black 20%);
+  --palette-warning-700:  color-mix(in srgb, var(--palette-warning-400), black 30%);
+  --palette-warning-800:  color-mix(in srgb, var(--palette-warning-400), black 40%);
+  --palette-warning-900:  color-mix(in srgb, var(--palette-warning-400), black 50%);
+  --palette-warning-1000: color-mix(in srgb, var(--palette-warning-400), black 60%);
+
+  /* ── Info ────────────────────────────────────────── */
+  --palette-info-100:  rgba(232, 253, 255, 1);
+  --palette-info-200:  rgba(191, 249, 255, 1);
+  --palette-info-300:  rgba(150, 241, 255, 1);
+  --palette-info-400:  rgba(110, 231, 255, 1);
+  --palette-info-500:  rgba(69, 218, 255, 1);
+  --palette-info-600:  rgba(27, 200, 255, 1);
+  --palette-info-700:  rgba(13, 162, 217, 1);
+  --palette-info-800:  rgba(2, 125, 179, 1);
+  --palette-info-900:  rgba(0, 94, 140, 1);
+  --palette-info-1000: rgba(0, 65, 102, 1);
+}
