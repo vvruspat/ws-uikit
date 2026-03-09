@@ -15,8 +15,8 @@
 	content: "";
 	display: flex;
 	justify-content: center;
-	border: 1px solid var(--input-checkbox-indeterminate-background-disabled);
-	border-radius: var(--checkbox-borderRadius-default);
+	border: 1px solid var(--color-action-disabled);
+	border-radius: var(--radius-2);
 }
 
 .switch:focus-within .slider {
@@ -42,26 +42,26 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: var(--input-checkbox-unchecked-background-enabled);
+	background-color: var(--color-control-track);
 	width: var(--input-checkbox-switch-width);
 	height: var(--input-checkbox-switch-height);
 }
 
 input:disabled + .slider {
-	background-color: var(--input-checkbox-indeterminate-background-disabled);
+	background-color: var(--color-action-disabled);
 }
 
 input:disabled + .slider:before {
-	background-color: var(--input-checkbox-unchecked-background-disabled);
+	background-color: var(--color-surface-overlay);
 	cursor: not-allowed;
 }
 
 .rectangular {
-	border-radius: var(--input-checkbox-rectangular-border-radius);
+	border-radius: var(--radius-4);
 }
 
 .round {
-	border-radius: var(--input-checkbox-round-border-radius);
+	border-radius: var(--radius-24);
 }
 
 .control {
@@ -81,7 +81,7 @@ input:disabled + .slider:before {
 		2
 	);
 	bottom: var(--input-checkbox-switch-offset);
-	background-color: var(--input-checkbox-checked-icon-enabled);
+	background-color: var(--color-control-thumb);
 	-webkit-transition: 0.3s;
 	transition: transform ease-in 0.3s;
 	border-radius: 50%;
@@ -98,7 +98,7 @@ input:disabled + .slider:before {
 }
 
 input:checked + .slider {
-	background-color: var(--input-checkbox-checked-background-active);
+	background-color: var(--color-control-checked);
 }
 
 input[type="checkbox"] + .slider > .control > .customSwitchIconLeft {
