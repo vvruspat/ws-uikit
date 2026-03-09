@@ -2,21 +2,22 @@
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
-	gap: var(--badge-whiteSpace-gap, 4px);
-	color: var(--badge-primary-font-color, #1e222a);
-	font-family: var(--font-family, Poppins);
-	font-size: var(--badge-font-size, 16px);
+	gap: var(--space-2);
+	color: var(--color-text-primary);
+	font-family: var(--font-family-primary);
+	font-size: var(--font-size-lg);
 	font-style: normal;
 	font-weight: 500;
 	line-height: normal;
 	cursor: default;
 
-	padding: var(--badge-primary-padding, 6px);
-	border-radius: var(--badge-primary-border-radius, 8px);
+	padding: var(--space-3);
+	border-radius: var(--radius-4);
 }
 
 .badge.primary {
-	background: var(--badge-primary-background-color, #f4f5f7);
+	background: var(--color-action-subtle-foreground);
+	color: var(--color-text-inverse);
 }
 
 .badge.transparent {
@@ -25,25 +26,25 @@
 }
 
 .badge.info {
-	background: var(--badge-info-background-color);
-	border: 1px solid var(--badge-info-border-color);
-	color: var(--badge-info-font-color);
+	background: var(--color-status-info-surface);
+	border: 1px solid var(--color-status-info-border);
+	color: var(--color-status-info);
 }
 
 .badge.success {
-	background: var(--badge-success-background-color);
-	border: 1px solid var(--badge-success-border-color);
-	color: var(--badge-success-font-color);
+	background: var(--color-status-success-surface);
+	border: 1px solid var(--color-status-success-border);
+	color: var(--color-status-success);
 }
 
 .badge.warning {
-	background: var(--badge-warning-background-color);
-	border: 1px solid var(--badge-warning-border-color);
-	color: var(--badge-warning-font-color);
+	background: var(--color-status-warning-surface);
+	border: 1px solid var(--color-status-warning-border);
+	color: var(--color-status-warning);
 }
 
 .badge.error {
-	background: var(--badge-error-background-color);
-	border: 1px solid var(--badge-error-border-color);
-	color: var(--badge-error-font-color);
+	background: var(--color-status-error-surface);
+	border: 1px solid var(--color-status-error-border);
+	color: var(--color-status-error);
 }
