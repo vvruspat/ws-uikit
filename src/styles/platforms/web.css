@@ -1,9 +1,9 @@
-/* src/styles/platforms/web.css — Desktop web
-   Semantic size/spacing/radius/shadow/size tokens.
-   Wide spectrum intentionally: unused steps exist for future use.
-   tablet.css and mobile.css carry the same token names (different layout padding).
+/* src/styles/platforms/web.css — Base platform tokens (always applied via :root)
+   Spacing, radius, shadow, and size tokens are platform-invariant.
+   Only --layout-screen-padding-h differs between platforms:
+     web (default): 48px | tablet: 24px | mobile: 16px
 */
-:root[data-platform="web"] {
+:root {
 
   /* ── Spacing ──────────────────────────────────────── */
   --space-1:  0.125rem;  /*  2px */
@@ -66,5 +66,5 @@
   --size-64: 8rem;
 
   /* ── Layout ───────────────────────────────────────── */
-  --layout-screen-padding-h: var(--space-24); /* 48px */
+  --layout-screen-padding-h: var(--space-24); /* 48px — web default */
 }
