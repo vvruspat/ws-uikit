@@ -3,15 +3,15 @@
 }
 
 .inputWrapper.regular {
-	color: var(--input-field-font-color);
+	color: var(--color-input-text);
 }
 
 .inputWrapper.invalid {
-	color: var(--input-field-invalid-font-color);
+	color: var(--color-status-error);
 }
 
 .inputWrapper.valid {
-	color: var(--input-field-valid-color);
+	color: var(--color-status-success);
 }
 
 .filesList {

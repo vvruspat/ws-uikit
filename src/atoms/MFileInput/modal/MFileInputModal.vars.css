@@ -1,7 +1,6 @@
 :root {
-	--drop-area-border-width: 2px;
-	--drop-area-border-radius: var(--border-radius-2xl);
-	--drop-area-padding: var(--whiteSpace-general-4x);
+	--drop-area-border-radius: var(--radius-12);
+	--drop-area-padding: var(--space-16);
 }
 
 :root[data-theme="light"] {

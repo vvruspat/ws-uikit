@@ -11,6 +11,6 @@
 }
 
 .tabContent {
-	border-radius: var(--radius-4);
+	border-radius: var(--radius-2);
 	background-color: var(--color-surface);
 }

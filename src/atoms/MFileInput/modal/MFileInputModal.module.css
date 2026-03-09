@@ -18,7 +18,7 @@
 }
 
 .dropArea {
-	border: var(--drop-area-border-width) dashed var(--drop-area-border-color);
+	border: 2px dashed var(--drop-area-border-color);
 	padding: var(--drop-area-padding);
 	cursor: pointer;
 	border-radius: var(--drop-area-border-radius);

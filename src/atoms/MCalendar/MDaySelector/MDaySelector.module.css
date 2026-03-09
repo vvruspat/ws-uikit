@@ -1,24 +1,24 @@
 .day {
-	width: var(--calendar-day-button-width);
-	height: var(--calendar-day-button-height);
+	width: var(--space-20);
+	height: var(--space-20);
 	border-radius: 50%;
-	font-weight: var(--calendar-day-button-font-weight);
+	font-weight: 500;
 }
 
 .selected {
-	background-color: var(--calendar-day-button-selected-background-color);
-	color: var(--calendar-day-button-selected-color);
+	background-color: var(--palette-base-1000);
+	color: var(--color-surface);
 }
 
 .day.selected:hover {
-	background-color: var(--calendar-day-button-selected-hover-background-color);
+	background-color: var(--palette-base-900);
 }
 
 .today {
-	background-color: var(--calendar-day-button-today-background-color);
-	color: var(--calendar-day-button-today-color);
+	background-color: var(--palette-success-700);
+	color: var(--color-surface);
 }
 
 .day.today:hover {
-	background-color: var(--calendar-day-button-today-hover-background-color);
+	background-color: var(--palette-success-600);
 }

@@ -1,30 +1,29 @@
 .descriptionList {
-	padding: var(--description-list-padding-vertical)
-		var(--description-list-padding-horizontal);
+	padding: 0 var(--space-8);
 	display: grid;
 	width: 100%;
 	grid-template-columns: repeat(12, 1fr);
-	row-gap: var(--description-list-row-gap);
-	column-gap: var(--description-list-column-gap);
-	font-size: var(--font-size-m);
+	row-gap: var(--space-4);
+	column-gap: var(--space-8);
+	font-size: var(--font-size-md);
 	box-sizing: border-box;
 }
 
 .descriptionList dt {
 	grid-area: auto / 1 / auto / 3;
-	padding: var(--description-list-title-padding);
+	padding: var(--space-2) 0;
 	margin: 0;
-	color: var(--description-list-title-font-color);
-	background-color: var(--description-list-title-background-color);
+	color: var(--color-text-secondary);
+	background-color: var(--color-surface);
 }
 
 .descriptionList dd {
 	grid-area: auto / 4 / auto / 12;
-	padding: var(--description-list-description-padding);
+	padding: var(--space-2) 0;
 	margin: 0;
-	color: var(--description-list-description-font-color);
-	background-color: var(--description-list-description-background-color);
-	font-size: var(--font-size-l);
+	color: var(--color-text-primary);
+	background-color: var(--color-surface);
+	font-size: var(--font-size-lg);
 	font-weight: 500;
 }
 
