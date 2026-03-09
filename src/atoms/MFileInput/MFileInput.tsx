@@ -10,7 +10,6 @@ import {
 import { MButton } from "../MButton";
 import { MFlex } from "../MFlex";
 import styles from "./MFileInput.module.css";
-import "./MFileInput.vars.css";
 
 import type { TComponentStatus } from "../../types/TComponentStatus";
 import { MFileInputModal } from "./modal";
