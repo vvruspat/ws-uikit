@@ -1,21 +1,21 @@
 /** TODO: use variables */
 .label {
-	color: var(--label-font-color);
-	font-family: var(--font-family);
-	font-size: var(--font-size-l);
+	color: var(--color-text-secondary);
+	font-family: var(--font-family-primary);
+	font-size: var(--font-size-lg);
 	font-style: normal;
 	font-weight: 500;
 	line-height: normal;
 }
 
 .label.regular {
-	color: var(--label-font-color);
+	color: var(--color-text-secondary);
 }
 
 .label.valid {
-	color: var(--label-valid-font-color);
+	color: var(--color-status-success);
 }
 
 .label.invalid {
-	color: var(--label-invalid-font-color);
+	color: var(--color-status-error);
 }
