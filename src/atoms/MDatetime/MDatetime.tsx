@@ -1,6 +1,8 @@
 "use client";
 
-import { MDatepicker, MFlex, MTimepicker } from "@repo/uikit";
+import { MDatepicker } from "../MDatepicker";
+import { MFlex } from "../MFlex";
+import { MTimepicker } from "../MTimepicker";
 import { type ChangeEvent, type ComponentProps, useState } from "react";
 import type { InputProps } from "../MInput";
 

@@ -10,9 +10,9 @@
 	},
 	"include": [
 		"jest.config.ts",
-		"src/*.test.ts",
-		"src/*.test.tsx",
-		"src/*.spec.ts",
-		"src/*.d.ts"
+		"src/**/*.test.ts",
+		"src/**/*.test.tsx",
+		"src/**/*.spec.ts",
+		"src/**/*.d.ts"
 	]
 }
