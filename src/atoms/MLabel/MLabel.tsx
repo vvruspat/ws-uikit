@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import type { ComponentProps, ReactNode } from "react";
 import MText from "../MText/MText";
-import "./MLabel.vars.css";
 import type { TComponentStatus } from "../../types/TComponentStatus";
 import { MFlex } from "../MFlex";
 import styles from "./MLabel.module.css";

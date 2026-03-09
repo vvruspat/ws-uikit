@@ -1,7 +1,6 @@
 import { MFlex } from "../MFlex";
 import { MIconPerson } from "../MIcon";
 import styles from "./MAvatarFallback.module.css";
-import "./MAvatarFallback.vars.css";
 
 type MAvatarFallbackProps = {
 	name: string;

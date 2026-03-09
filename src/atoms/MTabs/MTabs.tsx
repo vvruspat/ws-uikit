@@ -4,7 +4,6 @@ import { type FC, useState } from "react";
 import MFlex from "../MFlex/MFlex";
 import MTab, { type MTabProps } from "../MTab/MTab";
 import styles from "./MTabs.module.css";
-import "./MTabs.vars.css";
 
 interface MTabsProps {
 	items?: MTabProps[];

@@ -6,7 +6,6 @@ import type {
 	ReactNode,
 } from "react";
 import styles from "./MListItem.module.css";
-import "./MListItem.vars.css";
 import { MFlex } from "../MFlex";
 
 export type ListItemProps = DetailedHTMLProps<

@@ -5,7 +5,6 @@ import MDivider from "../MDivider/MDivider";
 import MFlex, { type MFlexProps } from "../MFlex/MFlex";
 import MHeading from "../MHeading/MHeading";
 import style from "./MCard.module.css";
-import "./MCard.vars.css";
 
 type CardProps = ComponentProps<"div"> &
 	MFlexProps & {

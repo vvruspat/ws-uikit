@@ -1,7 +1,6 @@
 import { useMemo } from "react";
 
 import styles from "./MWeekdays.module.css";
-import "./MWeekdays.vars.css";
 
 type MWeekdayListProps = {
 	locale?: Intl.LocalesArgument;

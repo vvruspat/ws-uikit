@@ -12,7 +12,6 @@ import {
 import { MButton } from "../MButton/MButton";
 import { MFlex } from "../MFlex/MFlex";
 import styles from "./MExpandableText.module.css";
-import "./MExpandableText.vars.css";
 
 type MExpandableTextProps = DetailedHTMLProps<
 	HTMLAttributes<HTMLDivElement>,

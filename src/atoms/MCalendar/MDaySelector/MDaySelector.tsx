@@ -5,7 +5,6 @@ import { MGrid } from "../../MGrid";
 import { MWeekdayList } from "../MWeekdays";
 
 import styles from "./MDaySelector.module.css";
-import "./MDaySelector.vars.css";
 
 type MDaySelectorProps = {
 	locale?: Intl.LocalesArgument;

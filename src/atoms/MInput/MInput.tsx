@@ -2,7 +2,6 @@
 import clsx from "clsx";
 import type { ReactNode } from "react";
 import MFlex from "../MFlex/MFlex";
-import "./MInput.vars.css";
 
 import type { BasicInputProps } from "../../types/BasicInputProps";
 import type { TComponentSize } from "../../types/TComponentSize";

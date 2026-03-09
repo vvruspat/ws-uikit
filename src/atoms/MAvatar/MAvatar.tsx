@@ -4,7 +4,6 @@ import clsx from "clsx";
 import { type ComponentProps, useState } from "react";
 import { MFlex } from "../../atoms/MFlex";
 import type { TComponentSize } from "../../types/TComponentSize";
-import "./MAvatar.vars.css";
 import { MSkelleton } from "../MSkelleton";
 import styles from "./MAvatar.module.css";
 import { MAvatarFallback } from "./MAvatarFallback";

@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import type { DetailedHTMLProps, HTMLAttributes, ReactNode } from "react";
 import styles from "./MBadge.module.css";
-import "./MBadge.vars.css";
 
 type BadgeProps = DetailedHTMLProps<
 	HTMLAttributes<HTMLDivElement>,

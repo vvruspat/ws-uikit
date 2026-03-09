@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import { type ComponentProps, Fragment, type ReactNode } from "react";
 import styles from "./MDescriptionList.module.css";
-import "./MDescriptionList.vars.css";
 
 type MDescriptionListProps = Omit<ComponentProps<"dl">, "children"> & {
 	options: MDescriptionListItem[];

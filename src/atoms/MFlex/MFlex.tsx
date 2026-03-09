@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import styles from "./MFlex.module.css";
-import "./MFlex.vars.css";
 import type React from "react";
 
 export type MFlexProps<T extends React.ElementType = "div"> = {

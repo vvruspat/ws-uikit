@@ -2,7 +2,6 @@ import clsx from "clsx";
 import type { ComponentProps } from "react";
 import { MFlex } from "../MFlex";
 import { MGrid } from "../MGrid";
-import "./MStepProgress.vars.css";
 import styles from "./MStepProgress.module.css";
 
 export type MStepProgressProps = ComponentProps<typeof MFlex> & {

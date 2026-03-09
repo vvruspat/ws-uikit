@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import type { FC, ReactNode } from "react";
 import styles from "./MTab.module.css";
-import "./MTab.vars.css";
 
 export interface MTabProps {
 	key: string;

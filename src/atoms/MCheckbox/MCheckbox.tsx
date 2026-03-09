@@ -8,7 +8,6 @@ import MFlex from "../MFlex/MFlex";
 import MLabel from "../MLabel/MLabel";
 
 import styles from "./MCheckbox.module.css";
-import "./MCheckbox.vars.css";
 import { MIconCheck } from "../MIcon/icons/MIconCheck";
 
 type CheckboxProps = BasicInputProps & {

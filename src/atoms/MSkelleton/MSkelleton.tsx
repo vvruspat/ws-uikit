@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import type { ComponentProps } from "react";
 import type { TComponentSize } from "../../types/TComponentSize";
-import "./MSkelleton.vars.css";
 import styles from "./MSkelleton.module.css";
 
 export type MSkelletonProps = ComponentProps<"div"> & {

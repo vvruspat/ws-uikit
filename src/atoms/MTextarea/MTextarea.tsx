@@ -17,7 +17,6 @@ import MFlex from "../MFlex/MFlex";
 import MLabel from "../MLabel/MLabel";
 
 import styles from "./MTextarea.module.css";
-import "./MTextarea.vars.css";
 import type { BasicInputProps } from "../../types/BasicInputProps";
 
 type TextareaProps = ComponentProps<"textarea"> &

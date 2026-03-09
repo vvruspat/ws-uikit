@@ -1,5 +1,4 @@
 import type { ComponentProps } from "react";
-import "./MSpinner.vars.css";
 import clsx from "clsx";
 import type { TComponentSize } from "../../types/TComponentSize";
 import styles from "./MSpinner.module.css";

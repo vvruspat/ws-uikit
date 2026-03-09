@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import type { DetailedHTMLProps, HTMLAttributes } from "react";
 import style from "./MDivider.module.css";
-import "./MDivider.vars.css";
 
 type MDividerProp = DetailedHTMLProps<
 	HTMLAttributes<HTMLHRElement>,

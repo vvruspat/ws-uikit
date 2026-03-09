@@ -3,7 +3,6 @@ import { type ReactNode, useId, useMemo } from "react";
 import MFieldDescription from "../MFieldDescription/MFieldDescription";
 import MFlex from "../MFlex/MFlex";
 
-import "./MRadio.vars.css";
 import type { BasicInputProps } from "../../types/BasicInputProps";
 import MLabel from "../MLabel/MLabel";
 import styles from "./MRadio.module.css";

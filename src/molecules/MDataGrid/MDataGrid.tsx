@@ -16,7 +16,6 @@ import type {
 	MDataGridPaginationConfig,
 	MDataGridRowType,
 } from "./types";
-import "./MDataGrid.vars.css";
 
 type MDataGridProps = ComponentProps<"table"> & {
 	emptyMessage?: ReactNode;

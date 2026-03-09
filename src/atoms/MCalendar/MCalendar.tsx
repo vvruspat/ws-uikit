@@ -5,7 +5,6 @@ import styles from "./MCalendar.module.css";
 import { MDaySelector } from "./MDaySelector";
 import { MMonthSelector } from "./MMonthSelector";
 import { MYearSelector } from "./MYearSelector";
-import "./MCalendar.vars.css";
 
 type MCalendarProps = {
 	startDate?: Date;

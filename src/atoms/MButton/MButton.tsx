@@ -3,7 +3,6 @@ import type { ComponentProps } from "react";
 import { MFlex } from "../../atoms/MFlex";
 import styles from "./MButton.module.css";
 import type { CommonButtonProps } from "./types";
-import "./MButton.vars.css";
 
 type ButtonProps = ComponentProps<"button"> & CommonButtonProps;
 
