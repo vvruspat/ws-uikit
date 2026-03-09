@@ -30,19 +30,26 @@ type Story = StoryObj<typeof MRadio>;
 
 const argTypes = {
 	status: {
-		control: {
-			type: "select",
-		},
+		control: { type: "select" },
 		options: ["regular", "active", "invalid"],
 	},
 	disabled: { control: { type: "boolean" } },
 	checked: { control: { type: "boolean" } },
-	label: {
-		control: { type: "text" },
-	},
-	description: {
-		control: { type: "text" },
-	},
+	label: { control: { type: "text" } },
+	description: { control: { type: "text" } },
+};
+
+export const AllStatuses: Story = {
+	name: "All Statuses",
+	render: () => (
+		<div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+			<MRadio label="Regular" description="Helper text" status="regular" />
+			<MRadio label="Active (checked)" description="Helper text" status="regular" defaultChecked />
+			<MRadio label="Invalid" description="Error message" status="invalid" />
+			<MRadio label="Disabled" description="Helper text" status="regular" disabled />
+		</div>
+	),
+	parameters: { controls: { disable: true } },
 };
 
 export const Regular: Story = {
@@ -52,7 +59,6 @@ export const Regular: Story = {
 		label: "Radio",
 		description: descriptionComponentContent(),
 	},
-
 	argTypes: argTypes,
 };
 
@@ -62,7 +68,6 @@ export const Active: Story = {
 		label: "Radio",
 		description: descriptionComponentContent(),
 	},
-
 	argTypes: argTypes,
 };
 
@@ -72,7 +77,6 @@ export const Invalid: Story = {
 		label: "Radio",
 		description: errorComponentContent(),
 	},
-
 	argTypes: argTypes,
 };
 
@@ -84,6 +88,5 @@ export const Disabled: Story = {
 		label: "Radio",
 		description: errorComponentContent(),
 	},
-
 	argTypes: argTypes,
 };

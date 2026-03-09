@@ -3,24 +3,40 @@ import * as MCardStories from './MCard.stories.tsx';
 
 <Meta of={MCardStories} />
 
-# Definition
+# MCard
 
-The Card component is designed to present information pertaining to a single specific topic. This flexible component can accommodate a variety of content types and layouts.
+A content container with optional header, footer, shadow, dividers, and collapsible behavior. Corner radii are individually configurable.
 
-## Usage
+---
 
-This customizable component features adjustable elements:
+## Variants
 
-- `Header:` Can be stylized or omitted based on requirements.
-- `Footer:` Optionally included with customization features.
-- Functionality to `collapse` the card to save space.
-- Ability to add `shadow` effects for visual depth.
-- Toggle visibility of dividers with `showHeaderDivider` and `showFooterDivider` settings.
-
-## Inputs
-
-The Card component comes with the following configurable properties:
+### Full Card (Header + Content + Footer)
 
 <Canvas of={MCardStories.Basic} />
+
+### With Dividers
+
+<Canvas of={MCardStories.WithDividers} />
+
+### Content Only
+
+<Canvas of={MCardStories.ContentOnly} />
+
+---
+
+## States
+
+### Collapsed
+
+<Canvas of={MCardStories.Collapsed} />
+
+### No Padding
+
+<Canvas of={MCardStories.NoPadding} />
+
+---
+
+## Props
 
 <Controls />

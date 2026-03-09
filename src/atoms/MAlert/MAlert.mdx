@@ -4,21 +4,51 @@ import * as AlertStories from './MAlert.stories';
 
 <Meta of={AlertStories} />
 
-# Definition
+# MAlert
 
-`MAlert` is a UI component designed to display alert messages to the user. These are typically used for conveying important information, such as:
+A banner-style feedback component for communicating system messages. Supports four semantic modes corresponding to different message severities.
 
-- Success confirmations
-- Warnings
-- Error messages
-- Informational notices
+---
 
-## Usage
+## Overview
 
-## Alert
+All modes at a glance.
 
-Flex has the following properties:
+<Canvas of={AlertStories.AllModes} />
+
+---
+
+## Modes
+
+| Mode | When to use |
+|------|-------------|
+| `info` | Neutral information — tips, hints, notices |
+| `success` | Positive outcome — action completed |
+| `warning` | Caution — potential issue, confirm before continuing |
+| `error` | Failure — something went wrong, action required |
+
+### Info
+
+<Canvas of={AlertStories.Info} />
+
+### Success
+
+<Canvas of={AlertStories.Success} />
+
+### Warning
+
+<Canvas of={AlertStories.Warning} />
+
+### Error
+
+<Canvas of={AlertStories.Error} />
+
+---
+
+## Playground
 
 <Canvas of={AlertStories.Basic} />
+
+## Props
 
 <Controls />

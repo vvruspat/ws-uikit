@@ -4,32 +4,50 @@ import * as TextareaStories from './MTextarea.stories';
 
 <Meta of={TextareaStories} />
 
-# Definition
+# MTextarea
 
-Textarea is a clickable interactive element that triggers a response.
+A multi-line text input with label, caption, character counter, assistive text, and three validation statuses.
 
-Textareas are often used for form submissions and to toggle elements into view.
+---
 
-## Usage
+## Overview
 
-## Textarea
+All statuses at a glance.
 
-Textarea has the following properties:
+<Canvas of={TextareaStories.AllStatuses} />
+
+---
+
+## Statuses
+
+| Status | Description |
+|--------|-------------|
+| `regular` | Default — no validation feedback |
+| `valid` | Input is valid — green accent |
+| `invalid` | Input has an error — red accent |
 
 ### Regular
 
 <Canvas of={TextareaStories.Regular} />
 
-#### Available parameters
+### Valid
+
+<Canvas of={TextareaStories.Valid} />
+
+### Invalid
+
+<Canvas of={TextareaStories.Invalid} />
+
+---
+
+## States
+
+### Disabled
+
+<Canvas of={TextareaStories.Disabled} />
+
+---
+
+## Props
 
 <Controls />
-
-### Regular
-
-<Canvas of={TextareaStories.Regular} />
-### Valid
-<Canvas of={TextareaStories.Valid} />
-### Invalid
-<Canvas of={TextareaStories.Invalid} />
-### Disabled
-<Canvas of={TextareaStories.Disabled} />

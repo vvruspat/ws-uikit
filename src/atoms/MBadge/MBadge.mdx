@@ -4,19 +4,57 @@ import * as BadgeStories from './MBadge.stories';
 
 <Meta of={BadgeStories} />
 
-# Definition
+# MBadge
 
-You can place icons and text inside of a badge.
+A small label used to display status, category, or count information inline. Supports six semantic color modes.
 
-## Usage
+---
 
-The component comes in two variants: `primary`, `transparent`.
+## Overview
 
-## Inputs
+All modes at a glance.
 
-Badge has the following properties:
+<Canvas of={BadgeStories.AllModes} />
+
+---
+
+## Modes
+
+| Mode | Usage |
+|------|-------|
+| `primary` | Default, brand-colored label |
+| `transparent` | Subtle, minimal background |
+| `info` | Informational / neutral |
+| `success` | Positive / completed |
+| `warning` | Caution / attention needed |
+| `error` | Destructive / failed |
+
+### Primary
 
 <Canvas of={BadgeStories.Primary} />
+
+### Transparent
+
 <Canvas of={BadgeStories.Transparent} />
+
+### Info
+
+<Canvas of={BadgeStories.Info} />
+
+### Success
+
+<Canvas of={BadgeStories.Success} />
+
+### Warning
+
+<Canvas of={BadgeStories.Warning} />
+
+### Error
+
+<Canvas of={BadgeStories.Error} />
+
+---
+
+## Props
 
 <Controls />

@@ -4,20 +4,42 @@ import * as AvatarStories from './MAvatar.stories';
 
 <Meta of={AvatarStories} />
 
-# Definition
+# MAvatar
 
-Avatar is a visual representation of a user or entity.
+A circular image component representing a user or entity. Falls back to initials when no image is provided and shows a skeleton placeholder while loading (`pending`).
 
-You can display an image, initials, or an icon inside an Avatar.
+---
 
-Avatars are commonly used in profiles, chat interfaces, and user lists.
+## Overview
 
-## Usage
+### Sizes
 
-## Avatar
+<Canvas of={AvatarStories.AllSizes} />
 
-Flex has the following properties:
+---
+
+## Sizes
+
+Available sizes: `xs` · `s` · `m` · `l` · `xl` · `3xl` · `4xl`
+
+---
+
+## States
+
+### Pending (loading skeleton)
+
+<Canvas of={AvatarStories.Pending} />
+
+### With Fallback (no image — shows initials)
+
+<Canvas of={AvatarStories.WithFallback} />
+
+---
+
+## Playground
 
 <Canvas of={AvatarStories.Basic} />
+
+## Props
 
 <Controls />

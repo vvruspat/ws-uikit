@@ -4,32 +4,50 @@ import * as InputStories from './MInput.stories';
 
 <Meta of={InputStories} />
 
-# Definition
+# MInput
 
-Input is a clickable interactive element that triggers a response.
+A text input field with support for labels, captions, icon slots (`before`/`after`), and three validation statuses.
 
-You can place text and icons inside of a Input.
+---
 
-Inputs are often used for form submissions and to toggle elements into view.
+## Overview
 
-## Usage
+All statuses at a glance.
 
-## Inputs
+<Canvas of={InputStories.AllStatuses} />
 
-Input has the following properties:
+---
+
+## Statuses
+
+| Status | Description |
+|--------|-------------|
+| `regular` | Default, no validation feedback |
+| `valid` | Input is valid — green accent |
+| `invalid` | Input has an error — red accent |
 
 ### Regular
 
 <Canvas of={InputStories.Regular} />
 
-#### Available parameters
-
-<Controls />
-
 ### Valid
 
 <Canvas of={InputStories.Valid} />
+
 ### Invalid
+
 <Canvas of={InputStories.Invalid} />
+
+---
+
+## States
+
 ### Disabled
+
 <Canvas of={InputStories.Disabled} />
+
+---
+
+## Props
+
+<Controls />

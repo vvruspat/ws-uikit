@@ -4,25 +4,31 @@ import * as RadioStories from './MRadio.stories';
 
 <Meta of={RadioStories} />
 
-# Definition
+# MRadio
 
-Radio button allow a user to select a single option from a set.
+A radio button for selecting a single option from a set. Supports regular, active (checked), and invalid statuses, plus a disabled state.
 
-Making them ideal for choices where only one option is applicable.
+---
 
-## Usage
+## Overview
 
-## Inputs
+All statuses at a glance.
 
-Radio button has the following properties:
+<Canvas of={RadioStories.AllStatuses} />
+
+---
+
+## Statuses
+
+| Status | Description |
+|--------|-------------|
+| `regular` | Default, unchecked |
+| `active` | Selected — checked state |
+| `invalid` | Error state — red accent |
 
 ### Regular
 
 <Canvas of={RadioStories.Regular} />
-
-#### Available parameters
-
-<Controls />
 
 ### Active
 
@@ -32,6 +38,16 @@ Radio button has the following properties:
 
 <Canvas of={RadioStories.Invalid} />
 
+---
+
+## States
+
 ### Disabled
 
 <Canvas of={RadioStories.Disabled} />
+
+---
+
+## Props
+
+<Controls />

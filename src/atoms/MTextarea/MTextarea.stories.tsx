@@ -21,13 +21,57 @@ const textareaDesc = () => (
 
 const argTypes = {
 	status: {
-		control: {
-			type: "select",
-		},
+		control: { type: "select" },
 		options: ["regular", "valid", "invalid"],
 	},
 	disabled: { control: { type: "boolean" } },
 	maxWidth: { control: { type: "number" } },
+};
+
+export const AllStatuses: Story = {
+	name: "All Statuses",
+	render: () => (
+		<div style={{ display: "flex", flexDirection: "column", gap: "24px", maxWidth: 400 }}>
+			<MTextarea
+				status="regular"
+				placeholder="Regular"
+				label="Regular"
+				counter
+				maxLength={200}
+				description={textareaDesc()}
+				caption="Caption"
+			/>
+			<MTextarea
+				status="valid"
+				placeholder="Valid"
+				label="Valid"
+				counter
+				maxLength={200}
+				description={textareaDesc()}
+				caption="Caption"
+			/>
+			<MTextarea
+				status="invalid"
+				placeholder="Invalid"
+				label="Invalid"
+				counter
+				maxLength={200}
+				description={textareaDesc()}
+				caption="Caption"
+			/>
+			<MTextarea
+				status="regular"
+				disabled
+				placeholder="Disabled"
+				label="Disabled"
+				counter
+				maxLength={200}
+				description={textareaDesc()}
+				caption="Caption"
+			/>
+		</div>
+	),
+	parameters: { controls: { disable: true } },
 };
 
 export const Regular: Story = {

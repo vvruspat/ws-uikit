@@ -4,20 +4,45 @@ import * as SwitchStories from './MSwitch.stories';
 
 <Meta of={SwitchStories} />
 
-# Definition
+# MSwitch
 
-Switch is a clickable interactive element that users can switch between two options.
+A toggle switch for binary on/off choices. Supports two border styles (`round` and `rectangular`) and icon slots for active/inactive indicators.
 
-Switch has the following properties:
+---
 
-### Regular
+## Overview
+
+All border types and states at a glance.
+
+<Canvas of={SwitchStories.AllVariants} />
+
+---
+
+## Border Types
+
+| Type | Description |
+|------|-------------|
+| `round` | Pill-shaped corners (default) |
+| `rectangular` | Squared corners |
+
+### Round
 
 <Canvas of={SwitchStories.Regular} />
 
-#### Available parameters
+### Rectangular
 
-<Controls />
+<Canvas of={SwitchStories.Rectangular} />
+
+---
+
+## States
 
 ### Disabled
 
 <Canvas of={SwitchStories.Disabled} />
+
+---
+
+## Props
+
+<Controls />

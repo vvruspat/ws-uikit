@@ -5,26 +5,41 @@ import * as SpinnerStories from './MSpinner.stories';
 
 # MSpinner
 
-`MSpinner` is a lightweight loading spinner component that supports different sizes and modes.
+A lightweight loading indicator. Supports four color modes and seven sizes.
 
-## Usage
+---
 
-Use `MSpinner` to indicate loading states in your UI.
+## Overview
 
-## Props
+### Modes
 
-### `size`
-- Type: `'xs' | 'sm' | 'md' | 'lg' | 'xl'`
-- Default: `'xl'`
-- Description: Sets the spinner size.
+<Canvas of={SpinnerStories.AllModes} />
 
-### `mode`
-- Type: `'base' | 'primary' | 'secondary' | 'tertiary'`
-- Default: `'primary'`
-- Description: Defines the spinner appearance.
+### Sizes
+
+<Canvas of={SpinnerStories.AllSizes} />
+
+---
+
+## Modes
+
+| Mode | Description |
+|------|-------------|
+| `base` | Neutral / grayscale |
+| `primary` | Brand primary color |
+| `secondary` | Secondary brand color |
+| `tertiary` | Tertiary brand color |
+
+## Sizes
+
+`xs` · `s` · `m` · `l` · `xl` · `3xl` · `4xl`
+
+---
 
 ## Playground
 
 <Canvas of={SpinnerStories.Regular} />
+
+## Props
 
 <Controls />
