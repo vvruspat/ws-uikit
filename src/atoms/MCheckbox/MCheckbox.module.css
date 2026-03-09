@@ -13,7 +13,7 @@
 .checkboxWrapper label {
 	display: flex;
 	align-items: center;
-	gap: var(--checkbox-whiteSpace-label-gap-m, 12px);
+	gap: var(--space-6);
 	cursor: pointer;
 }
 
@@ -33,7 +33,7 @@
 	display: inline-block;
 	position: absolute;
 	left: 3px;
-	color: var(--input-checkbox-checked-icon-active);
+	color: var(--color-control-thumb);
 }
 
 .checkboxWrapper input[type="checkbox"] + label:before {
@@ -42,12 +42,12 @@
 	justify-content: center;
 	width: 15px;
 	height: 15px;
-	border: 1px solid var(--input-checkbox-unchecked-outline-enabled, #bfbfbf);
-	border-radius: var(--checkbox-borderRadius-default, 4px);
+	border: 1px solid var(--color-control-outline);
+	border-radius: var(--radius-2);
 }
 
 .checkboxWrapper .Checkbox:checked + label:before {
-	color: var(--input-checkbox-checked-icon-active, #ffffff);
+	color: var(--color-control-thumb);
 }
 
 .checkboxWrapper input[type="checkbox"]:focus + label:before {
@@ -59,44 +59,43 @@
 
 /** regular */
 .checkboxWrapper.regular .Checkbox:hover + label:before {
-	border: 1px solid var(--input-checkbox-unchecked-outline-hover, #8c8c8c);
+	border: 1px solid var(--color-control-outline-hover);
 }
 
 .checkboxWrapper.regular .Checkbox:checked + label:before {
-	background-color: var(--input-checkbox-checked-background-enabled);
-	border: 1px solid var(--input-checkbox-checked-background-active);
+	background-color: var(--color-control-checked);
+	border: 1px solid var(--color-control-checked);
 }
 
 .checkboxWrapper.regular .Checkbox:checked:hover + label:before {
-	background-color: var(--input-checkbox-checked-background-hover, #0047b3);
-	border: 1px solid var(--input-checkbox-checked-background-hover, #0047b3);
+	background-color: var(--color-control-checked-hover);
+	border: 1px solid var(--color-control-checked-hover);
 }
 
 /** valid */
 
 .checkboxWrapper.valid .Checkbox + label:before {
-	border: 1px solid
-		var(--input-checkbox-indeterminate-background-active, #0075ff);
+	border: 1px solid var(--color-control-checked);
 }
 
 .checkboxWrapper.valid .Checkbox:checked + label:before {
-	background-color: var(--input-checkbox-checked-background-active, #0047b3);
-	border: 1px solid var(--input-checkbox-checked-background-active, #0047b3);
+	background-color: var(--color-control-checked);
+	border: 1px solid var(--color-control-checked);
 }
 
 .checkboxWrapper .Checkbox:disabled + label:before {
-	background-color: var(--checkbox-disabled-background-color, #f0f0f0);
+	background-color: var(--color-action-disabled);
 }
 
 .checkboxWrapper.valid .customCheckboxIcon {
-	color: var(--input-checkbox-checked-icon-valid);
+	color: var(--color-control-thumb);
 }
 
 /* invalid */
 
 .checkboxWrapper.invalid .Checkbox + label:before {
-	border: 1px solid var(--input-checkbox-indeterminate-outline-invalid, #dc2020);
-	color: var(--input-checkbox-indeterminate-icon-invalid, #dc2020);
+	border: 1px solid var(--color-border-error);
+	color: var(--color-status-error);
 }
 
 .checkboxWrapper.invalid .Checkbox:checked + label:before {
@@ -104,16 +103,13 @@
 }
 
 .checkboxWrapper.invalid .customCheckboxIcon {
-	color: var(--input-checkbox-checked-icon-invalid);
+	color: var(--color-status-error);
 }
 
 /* disabled */
 
 .checkboxWrapper .Checkbox:checked:disabled + label:before {
-	background-color: var(
-		--input-checkbox-indeterminate-background-disabled,
-		#bfbfbf
-	);
+	background-color: var(--color-action-disabled);
 	border: 1px solid transparent;
 }
 
@@ -122,10 +118,7 @@
 }
 
 .checkboxWrapper.regular .Checkbox:checked:disabled:hover + label:before {
-	background-color: var(
-		--input-checkbox-indeterminate-background-disabled,
-		#bfbfbf
-	);
+	background-color: var(--color-action-disabled);
 }
 
 .checkboxWrapper .Checkbox:disabled + label {

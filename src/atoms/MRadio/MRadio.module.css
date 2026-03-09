@@ -16,11 +16,8 @@
 	height: 20px;
 	width: 20px;
 	margin: 0;
-	border: 1px solid var(--input-radio-unchecked-outline-enabled, #bfbfbf);
-	background: var(
-		--input-radio-unchecked-background-enabled,
-		rgba(255, 255, 255, 0)
-	);
+	border: 1px solid var(--color-control-outline);
+	background: var(--color-surface);
 	border-radius: 50%;
 	appearance: none; /* Hide the browser's default radio button */
 	background-color: transparent;
@@ -29,14 +26,14 @@
 }
 
 .inputContainer input[type="radio"]:not(:disabled):checked {
-	border: 1px solid var(--input-radio-checked-background-enabled, #0075ff);
-	background-color: var(--input-radio-checked-background-enabled, #0075ff);
+	border: 1px solid var(--color-control-checked);
+	background-color: var(--color-control-checked);
 }
 
 /* Show the indicator (dot/circle) when checked */
 .inputContainer input[type="radio"]:not(:disabled):checked:before {
 	display: flex;
-	background: var(--input-radio-checked-icon-enabled, #fff);
+	background: var(--color-control-thumb);
 }
 
 /* Style the indicator (dot/circle) */
@@ -45,38 +42,35 @@
 	width: 8px;
 	height: 8px;
 	border-radius: 50%;
-	background: var(--input-radio-checked-icon-enabled, #fff);
+	background: var(--color-control-thumb);
 }
 
 .inputContainer input[type="radio"].regular,
 .inputContainer input[type="radio"].active {
-	border: 1px solid var(--input-radio-checked-background-enabled, #0075ff);
+	border: 1px solid var(--color-control-checked);
 }
 
 /* valid = active*/
 .inputContainer input[type="radio"].active {
-	border: 1px solid var(--input-radio-checked-background-enabled, #0075ff);
+	border: 1px solid var(--color-control-checked);
 }
 
 .inputContainer input[type="radio"].valid,
 .inputContainer input[type="radio"]:active {
-	border: 1px solid var(--input-radio-checked-background-enabled, #0075ff);
+	border: 1px solid var(--color-control-checked);
 }
 
 /* invalid  */
 .inputContainer input[type="radio"].invalid,
 .inputContainer input[type="radio"].invalid:hover {
-	border: 1px solid var(--input-radio-unchecked-outline-invalid, #dc2020);
-	background: var(
-		--input-radio-unchecked-background-invalid,
-		rgba(255, 255, 255, 0)
-	);
+	border: 1px solid var(--color-border-error);
+	background: var(--color-surface);
 }
 
 .inputContainer input[type="radio"]:checked.invalid,
 .inputContainer input[type="radio"]:checked.invalid:hover {
-	border: 1px solid var(--input-radio-unchecked-outline-invalid, #dc2020);
-	background: var(--input-radio-unchecked-outline-invalid, #dc2020);
+	border: 1px solid var(--color-border-error);
+	background: var(--color-border-error);
 }
 
 /* disabled */
@@ -85,34 +79,31 @@
 .inputContainer input[type="radio"]:disabled:checked:hover,
 .inputContainer input[type="radio"]:disabled:hover,
 .inputContainer input[type="radio"]:disabled:active {
-	border: 1px solid var(--input-radio-unchecked-outline-disabled, #bfbfbf);
-	background: var(--input-radio-unchecked-background-disabled, #bfbfbf);
+	border: 1px solid var(--color-text-disabled);
+	background: var(--color-surface-overlay);
 	cursor: no-drop;
 }
 
 /* hover  */
 /* hover unchecked */
 .inputContainer input[type="radio"]:hover {
-	border: 1px solid var(--input-radio-unchecked-outline-hover, #8c8c8c);
-	background: var(
-		--input-radio-unchecked-background-hover,
-		rgba(255, 255, 255, 0)
-	);
+	border: 1px solid var(--color-control-outline-hover);
+	background: var(--color-control-track);
 }
 
 /* hover checked */
 .inputContainer input[type="radio"]:hover:checked {
-	border: 1px solid var(--input-radio-checked-background-hover, #0047b3);
-	background: var(--input-radio-checked-background-hover, #0047b3);
+	border: 1px solid var(--color-control-checked-hover);
+	background: var(--color-control-checked-hover);
 }
 
 /* focus */
 .inputContainer input[type="radio"]:focus {
-	border: 1px solid var(--input-radio-checked-background-active, #0047b3);
-	background: var(--input-radio-checked-background-active, #0047b3);
+	border: 1px solid var(--color-control-checked);
+	background: var(--color-control-checked);
 }
 
 /* active */
 .inputContainer input[type="radio"]:active {
-	border: 1px solid var(--input-radio-checked-background-active, #0047b3);
+	border: 1px solid var(--color-control-checked);
 }
