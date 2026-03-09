@@ -2,8 +2,8 @@
 	display: grid;
 	grid-template-columns: auto 1fr;
 	align-items: center;
-	column-gap: var(--whiteSpace-general-2x);
-	row-gap: var(--whiteSpace-general-1x);
+	column-gap: var(--space-8);
+	row-gap: var(--space-4);
 	width: 100%;
 }
 

@@ -1,5 +1,5 @@
 .required {
-	color: var(--palette-semantic-error-500);
+	color: var(--color-status-error);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
