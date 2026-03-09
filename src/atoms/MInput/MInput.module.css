@@ -27,9 +27,14 @@
 .inputContainer {
 	width: 100%;
 	box-sizing: border-box;
-	padding: var(--input-field-whiteSpace-field-padding-vertical, 12px)
-		var(--input-field-whiteSpace-field-padding-horizontal, 16px);
-	border-radius: var(--input-field-borderRadius-default, 16px);
+	padding: var(--space-4) var(--space-6);
+	border-radius: var(--radius-4);
+}
+
+:root[data-platform="mobile"] .inputContainer,
+:root[data-platform="tablet"] .inputContainer {
+	padding: var(--space-6) var(--space-8);
+	border-radius: var(--radius-8);
 }
 
 .inputContainer.size-s {
@@ -63,8 +68,8 @@
 	flex-grow: 1;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	font-family: var(--font-family-secondary, Roboto);
-	font-size: var(--font-size-l, 16px);
+	font-family: var(--font-family-primary);
+	font-size: var(--font-size-lg);
 	font-style: normal;
 	font-weight: 400;
 	line-height: var(--font-size-xl);
@@ -74,98 +79,89 @@
 
 /* enabled */
 .inputWrapper.regular .inputContainer {
-	border: 1px solid var(--input-field-enabled-border-color, #0000001e);
-	background: var(--input-field-enabled-background-color, #fff);
-	color: var(--input-field-enabled-font-before-after, #babecb);
+	border: 1px solid var(--color-input-border);
+	background: var(--color-input-bg);
+	color: var(--color-input-placeholder);
 }
 
 .inputWrapper.regular .inputContainer input {
-	color: var(--input-field-enabled-font-color, #747e97);
+	color: var(--color-input-text);
 }
 
 /* valid */
 .inputWrapper.valid .inputContainer {
-	border: 1px solid var(--input-field-valid-border-color, #479900);
-	background: var(--input-field-valid-background-color, transparent);
-	color: var(--input-field-valid-font-before-after, #babecb);
+	border: 1px solid var(--color-border-success);
+	background: var(--color-input-bg);
+	color: var(--color-input-placeholder);
 }
 
 .inputWrapper.valid .inputContainer input {
-	color: var(--input-field-valid-font-color, #747e97);
+	color: var(--color-input-text);
 }
 
 /* invalid */
 .inputWrapper.invalid .inputContainer {
-	border: 1px solid var(--input-field-invalid-border-color, #dc2020);
-	background: var(--input-field-invalid-background-color, transparent);
-	color: var(--input-field-invalid-font-before-after, #dc2020);
+	border: 1px solid var(--color-border-error);
+	background: var(--color-input-bg);
+	color: var(--color-status-error);
 }
 
 .inputWrapper.invalid .inputContainer input {
-	color: var(--input-field-invalid-font-color, #dc2020);
+	color: var(--color-status-error);
 }
 
 /* hover */
 .inputWrapper:not(.invalid):hover .inputContainer {
-	background: var(
-		--input-field-hover-background-color,
-		rgba(255, 255, 255, 0.05)
-	); /* this property was here initially, but I can't see any visual effect */
-	color: var(--input-field-hover-font-color, #747e97);
+	background: var(--color-input-bg); /* this property was here initially, but I can't see any visual effect */
+	color: var(--color-input-text-hover);
 }
 
 .inputWrapper:not(.invalid):hover .inputContainer input {
-	color: var(--input-field-hover-font-color, #747e97);
+	color: var(--color-input-text-hover);
 }
 
 /* focus */
 .inputWrapper:not(.invalid):has(.input:focus) .inputContainer {
-	background: var(
-		--input-field-focus-background-color,
-		transparent
-	); /* this property was here initially, but I can't see any visual effect */
-	color: var(--input-field-focus-font-color-before-after, #747e97);
+	background: var(--color-input-bg); /* this property was here initially, but I can't see any visual effect */
+	color: var(--color-input-text);
 }
 
 .inputWrapper:has(.input:focus) .inputContainer input {
-	color: var(--input-field-focus-font-color, #000);
+	color: var(--color-input-text);
 }
 
 /* active */
 .inputWrapper:not(.invalid):has(.input:active) .inputContainer {
-	color: var(--input-field-active-font-color, #747e97);
-	background: var(
-		--input-field-active-background-color,
-		rgba(255, 255, 255, 0)
-	); /* this property was here initially, but I can't see any visual effect */
+	color: var(--color-input-text-hover);
+	background: var(--color-input-bg); /* this property was here initially, but I can't see any visual effect */
 }
 
 .inputWrapper:has(.input:active) .inputContainer input {
-	color: var(--input-field-active-font-color, #747e97);
+	color: var(--color-input-text-hover);
 }
 
 /* disabled */
 .inputWrapper:has(.input:disabled) .inputContainer {
-	color: var(--input-field-disabled-font-color, #babecb);
-	border: 1px solid var(--input-field-disabled-border-color, #0000001e);
-	background: var(--input-field-disabled-background-color, #f4f5f7);
+	color: var(--color-text-disabled);
+	border: 1px solid var(--color-input-border);
+	background: var(--color-input-bg-disabled);
 }
 
 .inputWrapper:has(.input:disabled) .inputContainer input {
-	color: var(--input-field-disabled-font-color, #babecb);
-	background: var(--input-field-disabled-background-color, #f4f5f7);
+	color: var(--color-text-disabled);
+	background: var(--color-input-bg-disabled);
 }
 
 .inputWrapper:has(.input:disabled):hover .inputContainer,
 .inputWrapper:has(.input:disabled):focus .inputContainer,
 .inputWrapper:has(.input:disabled):active .inputContainer {
-	color: var(--input-field-disabled-font-color, #babecb);
-	background: var(--input-field-disabled-background-color, #f4f5f7);
+	color: var(--color-text-disabled);
+	background: var(--color-input-bg-disabled);
 }
 
 .inputWrapper.invalid:has(.input:disabled) .inputContainer {
-	border: 1px solid var(--input-field-invalid-font-color, #dc2020);
-	color: var(--input-field-invalid-font-color, #dc2020);
+	border: 1px solid var(--color-status-error);
+	color: var(--color-status-error);
 }
 
 .input:focus-visible {
@@ -173,22 +169,22 @@
 }
 
 .input::placeholder {
-	color: var(--input-field-enabled-placeholder, #babecb);
+	color: var(--color-input-placeholder);
 	transition: all 0.2s ease-in-out; /* color|opacity transitions for placeholders are not supported in Firefox */
 }
 
 .inputWrapper.invalid .inputContainer input::placeholder {
-	color: var(--input-field-invalid-font-color, #dc2020);
+	color: var(--color-status-error);
 }
 
 .inputWrapper:not(.invalid):not(:has(input:disabled)):hover
 	.inputContainer
 	input::placeholder {
-	color: var(--input-field-hover-placeholder, #747e97);
+	color: var(--color-input-placeholder-hover);
 }
 
 .inputWrapper:not(.invalid):not(:has(input:disabled)):has(.input:focus)
 	.inputContainer
 	input::placeholder {
-	color: var(--input-field-hover-placeholder, #747e97);
+	color: var(--color-input-placeholder-hover);
 }

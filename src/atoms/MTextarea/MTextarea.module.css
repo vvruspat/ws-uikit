@@ -13,24 +13,29 @@
 .textareaContainer {
 	position: relative;
 	width: 100%;
-	padding: var(--input-field-whiteSpace-field-padding-vertical, 12px)
-		var(--input-field-whiteSpace-field-padding-horizontal, 16px);
-	border-radius: var(--input-field-borderRadius-default, 16px);
+	padding: var(--space-4) var(--space-6);
+	border-radius: var(--radius-4);
 	transition-property: background, border, color;
 	transition-duration: 0.2s;
 	transition-timing-function: ease-in-out;
 }
 
+:root[data-platform="mobile"] .textareaContainer,
+:root[data-platform="tablet"] .textareaContainer {
+	padding: var(--space-6) var(--space-8);
+	border-radius: var(--radius-8);
+}
+
 .textareaContainer.hasCounter {
-	padding-bottom: var(--textarea-container-has-counter-paddingBottom, 32px);
+	padding-bottom: var(--size-16);
 }
 
 .textarea {
 	box-sizing: border-box;
 	width: 100%;
 	border: none;
-	font-family: var(--font-family-secondary, Roboto);
-	font-size: var(--textarea-font-size, 16px);
+	font-family: var(--font-family-primary);
+	font-size: var(--font-size-lg);
 	font-style: normal;
 	font-weight: 400;
 	line-height: normal;
@@ -47,7 +52,7 @@
 
 .textarea {
 	scrollbar-width: thin;
-	scrollbar-color: var(--textarea-scrollbar-color, #babecb) transparent;
+	scrollbar-color: var(--color-input-placeholder) transparent;
 }
 
 .textarea::placeholder {
@@ -56,15 +61,21 @@
 
 .counter {
 	position: absolute;
-	right: var(--input-field-whiteSpace-field-padding-horizontal, 16px);
-	bottom: var(--input-field-whiteSpace-field-padding-vertical, 12px);
+	right: var(--space-6);
+	bottom: var(--space-4);
 	text-align: right;
-	font-family: var(--font-family-secondary);
-	font-size: var(--textarea-counter-font-size, 12px);
+	font-family: var(--font-family-primary);
+	font-size: var(--font-size-sm);
 	font-style: normal;
 	font-weight: 400;
 	line-height: normal;
 	transition: color 0.2s ease-in-out;
+}
+
+:root[data-platform="mobile"] .counter,
+:root[data-platform="tablet"] .counter {
+	right: var(--space-8);
+	bottom: var(--space-6);
 }
 
 /** STATES */
@@ -72,65 +83,65 @@
 /* enabled = regular */
 
 .textareaWrapper.regular .textareaContainer {
-	border: 1px solid var(--input-field-enabled-border-color, rgba(0, 0, 0, 0.12));
+	border: 1px solid var(--color-input-border);
 }
 
 .textareaWrapper.regular .textarea::placeholder {
-	color: var(--input-field-enabled-placeholder, #babecb);
+	color: var(--color-input-placeholder);
 }
 
 .textareaWrapper.regular .counter {
-	color: var(--input-field-enabled-placeholder, #babecb);
+	color: var(--color-input-placeholder);
 }
 
 /* valid */
 .textareaWrapper.valid .textareaContainer {
-	border: 1px solid var(--input-field-valid-border-color, #479900);
+	border: 1px solid var(--color-border-success);
 }
 
 /* invalid */
 
 .textareaWrapper.invalid .textareaContainer {
-	border: 1px solid var(--input-field-invalid-border-color, #dc2020);
+	border: 1px solid var(--color-border-error);
 }
 
 .textareaWrapper.invalid .textarea,
 .textareaWrapper.invalid .textarea::placeholder {
-	color: var(--input-field-invalid-border-color, #dc2020);
+	color: var(--color-status-error);
 }
 
 .textareaWrapper.invalid .textarea:disabled::placeholder {
-	color: var(--input-field-enabled-placeholder, #babecb);
+	color: var(--color-input-placeholder);
 }
 
 .textareaWrapper.invalid .textarea:focus,
 .textareaWrapper.invalid .textarea:focus-visible {
-	color: var(--input-field-focus-font-color, #000);
+	color: var(--color-input-text);
 }
 
 .textareaWrapper.invalid .counter {
-	color: var(--input-field-invalid-border-color, #dc2020);
+	color: var(--color-status-error);
 }
 
 /* disabled */
 
 .textareaContainer:has(.textarea:disabled) {
-	background: var(--input-field-disabled-background-color, #f4f5f7);
+	background: var(--color-input-bg-disabled);
 }
 .textarea:disabled {
-	background: var(--input-field-disabled-background-color, #f4f5f7);
+	background: var(--color-input-bg-disabled);
 }
 
 .textareaContainer:has(.textarea:disabled) .counter {
-	color: var(--input-field-enabled-placeholder, #babecb);
+	color: var(--color-input-placeholder);
 }
 
 /* Input pseudo classes */
 
 .textareaWrapper.regular .textareaContainer:hover .textarea::placeholder {
-	color: var(--input-field-hover-placeholder, #747e97);
+	color: var(--color-input-placeholder-hover);
 }
 
 .textareaContainer:has(.textarea:disabled):hover .textarea::placeholder {
-	color: var(--input-field-enabled-placeholder, #babecb);
+	color: var(--color-input-placeholder);
 }
