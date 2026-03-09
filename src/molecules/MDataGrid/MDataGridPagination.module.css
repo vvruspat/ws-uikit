@@ -2,12 +2,12 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: var(--whiteSpace-general-1x) var(--whiteSpace-general-2x);
-	gap: var(--whiteSpace-general-2x);
+	padding: var(--space-4) var(--space-8);
+	gap: var(--space-8);
 }
 
 .rowsPerPageLabel {
-	margin-right: var(--whiteSpace-general-1x);
+	margin-right: var(--space-4);
 }
 
 .rowsPerPageButton {
@@ -18,15 +18,15 @@
 .pagesNavigation {
 	display: flex;
 	align-items: center;
-	gap: var(--whiteSpace-general-1x);
+	gap: var(--space-4);
 }
 
 .pages {
-	margin-right: var(--whiteSpace-general-1x);
+	margin-right: var(--space-4);
 }
 
 .buttons {
 	display: flex;
 	align-items: center;
-	gap: var(--whiteSpace-general-0_5x);
+	gap: var(--space-2);
 }

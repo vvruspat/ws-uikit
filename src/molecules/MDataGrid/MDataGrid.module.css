@@ -1,7 +1,7 @@
 .dataGridContainer {
 	width: 100%;
 	min-height: 100%;
-	font-family: var(--font-family);
+	font-family: var(--font-family-primary);
 }
 
 .dataGridTable table {
@@ -14,29 +14,28 @@
 .dataGridTable thead th,
 .dataGridTable tfoot td {
 	vertical-align: top;
-	background: var(--table-head-background-color);
-	padding: var(--table-head-padding-vertical)
-		var(--table-head-padding-horizontal);
+	background: var(--color-surface-overlay);
+	padding: var(--space-8) var(--space-4);
 }
 
 .dataGridTable thead th:nth-child(1) {
-	border-top-left-radius: var(--border-radius-2xl);
-	border-bottom-left-radius: var(--border-radius-2xl);
+	border-top-left-radius: var(--radius-12);
+	border-bottom-left-radius: var(--radius-12);
 }
 
 .dataGridTable thead th:nth-last-child(1) {
-	border-top-right-radius: var(--border-radius-2xl);
-	border-bottom-right-radius: var(--border-radius-2xl);
+	border-top-right-radius: var(--radius-12);
+	border-bottom-right-radius: var(--radius-12);
 }
 
 .dataGridTable tfoot td:nth-child(1) {
-	border-top-left-radius: var(--border-radius-2xl);
-	border-bottom-left-radius: var(--border-radius-2xl);
+	border-top-left-radius: var(--radius-12);
+	border-bottom-left-radius: var(--radius-12);
 }
 
 .dataGridTable tfoot td:nth-last-child(1) {
-	border-top-right-radius: var(--border-radius-2xl);
-	border-bottom-right-radius: var(--border-radius-2xl);
+	border-top-right-radius: var(--radius-12);
+	border-bottom-right-radius: var(--radius-12);
 }
 
 .dataGridTable tbody tr {
@@ -44,12 +43,12 @@
 }
 
 .dataGridTable tbody tr:hover {
-	background-color: var(--table-body-row-hover-background-color);
+	background-color: var(--color-surface-overlay);
 }
 
 .dataGridTable tbody td {
-	color: var(--text-secondary);
-	padding: var(--whiteSpace-general-1x) var(--whiteSpace-general-1x);
+	color: var(--color-text-secondary);
+	padding: var(--space-4) var(--space-4);
 }
 
 .loadMoreTrigger {
@@ -57,5 +56,5 @@
 }
 
 .loadingSpinner {
-	padding: var(--whiteSpace-general-1x);
+	padding: var(--space-4);
 }

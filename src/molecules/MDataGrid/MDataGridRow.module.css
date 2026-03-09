@@ -4,5 +4,5 @@
 }
 
 .selected {
-	background-color: var(--table-body-row-selected-background-color);
+	background-color: var(--color-surface-overlay);
 }

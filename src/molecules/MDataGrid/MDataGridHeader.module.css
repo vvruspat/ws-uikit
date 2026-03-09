@@ -4,7 +4,7 @@
 
 .sort {
 	transition: transform 0.1s linear;
-	color: var(--sort-button-non-active-color);
+	color: var(--color-text-tertiary);
 }
 
 .sort-asc {
@@ -16,7 +16,7 @@
 }
 
 .sorting {
-	color: var(--sort-button-active-color);
+	color: var(--color-action-transparent-foreground);
 }
 
 .headerTitle {
