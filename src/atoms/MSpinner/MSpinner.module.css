@@ -19,69 +19,69 @@
 }
 
 .spinner-size-xs {
-	border-width: calc(var(--spinner-size-xs, 4px) * 0.15);
-	width: calc(var(--spinner-size-xs, 4px) * 2);
-	height: calc(var(--spinner-size-xs, 4px) * 2);
+	border-width: calc(var(--space-2) * 0.15);
+	width: calc(var(--space-2) * 2);
+	height: calc(var(--space-2) * 2);
 }
 
 .spinner-size-s {
-	border-width: calc(var(--spinner-size-s, 8px) * 0.15);
-	width: calc(var(--spinner-size-s, 8px) * 2);
-	height: calc(var(--spinner-size-s, 8px) * 2);
+	border-width: calc(var(--space-4) * 0.15);
+	width: calc(var(--space-4) * 2);
+	height: calc(var(--space-4) * 2);
 }
 
 .spinner-size-m {
-	border-width: calc(var(--spinner-size-m, 12px) * 0.15);
-	width: calc(var(--spinner-size-m, 12px) * 2);
-	height: calc(var(--spinner-size-m, 12px) * 2);
+	border-width: calc(var(--space-6) * 0.15);
+	width: calc(var(--space-6) * 2);
+	height: calc(var(--space-6) * 2);
 }
 
 .spinner-size-l {
-	border-width: calc(var(--spinner-size-l, 16px) * 0.15);
-	width: calc(var(--spinner-size-l, 16px) * 2);
-	height: calc(var(--spinner-size-l, 16px) * 2);
+	border-width: calc(var(--space-8) * 0.15);
+	width: calc(var(--space-8) * 2);
+	height: calc(var(--space-8) * 2);
 }
 
 .spinner-size-xl {
-	border-width: calc(var(--spinner-size-xl, 20px) * 0.15);
-	width: calc(var(--spinner-size-xl, 20px) * 2);
-	height: calc(var(--spinner-size-xl, 20px) * 2);
+	border-width: calc(var(--space-10) * 0.15);
+	width: calc(var(--space-10) * 2);
+	height: calc(var(--space-10) * 2);
 }
 
 .spinner-size-2xl {
-	border-width: calc(var(--spinner-size-2xl, 24px) * 0.15);
-	width: calc(var(--spinner-size-2xl, 24px) * 2);
-	height: calc(var(--spinner-size-2xl, 24px) * 2);
+	border-width: calc(var(--space-12) * 0.15);
+	width: calc(var(--space-12) * 2);
+	height: calc(var(--space-12) * 2);
 }
 
 .spinner-size-3xl {
-	border-width: calc(var(--spinner-size-3xl, 28px) * 0.15);
-	width: calc(var(--spinner-size-3xl, 28px) * 2);
-	height: calc(var(--spinner-size-3xl, 28px) * 2);
+	border-width: calc(var(--space-14) * 0.15);
+	width: calc(var(--space-14) * 2);
+	height: calc(var(--space-14) * 2);
 }
 
 .spinner-size-4xl {
-	border-width: calc(var(--spinner-size-4xl, 32px) * 0.15);
-	width: calc(var(--spinner-size-4xl, 32px) * 2);
-	height: calc(var(--spinner-size-4xl, 32px) * 2);
+	border-width: calc(var(--space-16) * 0.15);
+	width: calc(var(--space-16) * 2);
+	height: calc(var(--space-16) * 2);
 }
 
 .spinner-mode-base {
-	border-color: var(--spinner-mode-base-border-color);
+	border-color: var(--color-text-secondary);
 	border-bottom-color: transparent;
 }
 
 .spinner-mode-primary {
-	border-color: var(--spinner-mode-primary-border-color);
+	border-color: var(--color-action-rest);
 	border-bottom-color: transparent;
 }
 
 .spinner-mode-secondary {
-	border-color: var(--spinner-mode-secondary-border-color);
+	border-color: var(--color-action-secondary-rest);
 	border-bottom-color: transparent;
 }
 
 .spinner-mode-tertiary {
-	border-color: var(--spinner-mode-tertiary-border-color);
+	border-color: var(--color-action-subtle-foreground);
 	border-bottom-color: transparent;
 }

@@ -1,7 +1,1 @@
-:root[data-theme="light"] {
-	--divider-color: var(--background-secondary);
-}
-
-:root[data-theme="dark"] {
-	--divider-color: var(--background-secondary);
-}
+/* MDivider.vars.css — all tokens migrated to semantic layer */

@@ -7,65 +7,65 @@
 }
 
 .grid-row-gap-xs {
-	row-gap: var(--grid-gap-xs, 4px);
+	row-gap: var(--space-2);
 }
 
 .grid-col-gap-xs {
-	column-gap: var(--grid-gap-xs, 4px);
+	column-gap: var(--space-2);
 }
 
 .grid-row-gap-s {
-	row-gap: var(--grid-gap-s, 8px);
+	row-gap: var(--space-4);
 }
 
 .grid-col-gap-s {
-	column-gap: var(--grid-gap-s, 8px);
+	column-gap: var(--space-4);
 }
 
 .grid-row-gap-m {
-	row-gap: var(--grid-gap-m, 12px);
+	row-gap: var(--space-6);
 }
 
 .grid-col-gap-m {
-	column-gap: var(--grid-gap-m, 12px);
+	column-gap: var(--space-6);
 }
 
 .grid-row-gap-l {
-	row-gap: var(--grid-gap-l, 16px);
+	row-gap: var(--space-8);
 }
 
 .grid-col-gap-l {
-	column-gap: var(--grid-gap-l, 16px);
+	column-gap: var(--space-8);
 }
 
 .grid-row-gap-xl {
-	row-gap: var(--grid-gap-xl, 20px);
+	row-gap: var(--space-10);
 }
 
 .grid-col-gap-xl {
-	column-gap: var(--grid-gap-xl, 20px);
+	column-gap: var(--space-10);
 }
 
 .grid-row-gap-2xl {
-	row-gap: var(--grid-gap-2xl, 24px);
+	row-gap: var(--space-12);
 }
 
 .grid-col-gap-2xl {
-	column-gap: var(--grid-gap-2xl, 24px);
+	column-gap: var(--space-12);
 }
 
 .grid-row-gap-3xl {
-	row-gap: var(--grid-gap-3xl, 28px);
+	row-gap: var(--space-14);
 }
 
 .grid-col-gap-3xl {
-	column-gap: var(--grid-gap-3xl, 28px);
+	column-gap: var(--space-14);
 }
 
 .grid-row-gap-4xl {
-	row-gap: var(--grid-gap-4xl, 32px);
+	row-gap: var(--space-16);
 }
 
 .grid-col-gap-4xl {
-	column-gap: var(--grid-gap-4xl, 32px);
+	column-gap: var(--space-16);
 }

@@ -3,13 +3,13 @@
 	height: 100%;
 	background: linear-gradient(
 		270deg,
-		var(--palette-base-200) 0%,
-		var(--palette-base-100) 50%,
-		var(--palette-base-200) 100%
+		var(--color-surface-sunken) 0%,
+		var(--color-surface-overlay) 50%,
+		var(--color-surface-sunken) 100%
 	);
 	background-size: 200% 200%;
 	animation: skelleton-animation 2s linear infinite;
-	border-radius: var(--border-radius-default);
+	border-radius: var(--radius-8);
 }
 
 @keyframes skelleton-animation {
@@ -25,35 +25,35 @@
 }
 
 .size-xs {
-	min-width: calc(4 * var(--skelleton-min-size-xs));
+	min-width: calc(4 * var(--space-2));
 }
 
 .size-s {
-	min-width: calc(4 * var(--skelleton-min-size-s));
+	min-width: calc(4 * var(--space-4));
 }
 
 .size-m {
-	min-width: calc(4 * var(--skelleton-min-size-m));
+	min-width: calc(4 * var(--space-6));
 }
 
 .size-l {
-	min-width: calc(4 * var(--skelleton-min-size-l));
+	min-width: calc(4 * var(--space-8));
 }
 
 .size-xl {
-	min-width: calc(4 * var(--skelleton-min-size-xl));
+	min-width: calc(4 * var(--space-10));
 }
 
 .size-2xl {
-	min-width: calc(4 * var(--skelleton-min-size-2xl));
+	min-width: calc(4 * var(--space-12));
 }
 
 .size-3xl {
-	min-width: calc(4 * var(--skelleton-min-size-3xl));
+	min-width: calc(4 * var(--space-14));
 }
 
 .size-4xl {
-	min-width: calc(4 * var(--skelleton-min-size-4xl));
+	min-width: calc(4 * var(--space-16));
 }
 
 .size-inherit {

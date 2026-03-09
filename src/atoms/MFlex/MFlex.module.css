@@ -4,7 +4,7 @@
 	flex-direction: row;
 	align-items: center;
 	justify-content: flex-start;
-	gap: var(--flex-gap, 8px);
+	gap: var(--space-4);
 }
 
 .flex-gap-none {
@@ -12,33 +12,33 @@
 }
 
 .flex-gap-xs {
-	gap: var(--flex-gap-xs, 4px);
+	gap: var(--space-2);
 }
 
 .flex-gap-s {
-	gap: var(--flex-gap-s, 8px);
+	gap: var(--space-4);
 }
 
 .flex-gap-m {
-	gap: var(--flex-gap-m, 12px);
+	gap: var(--space-6);
 }
 
 .flex-gap-l {
-	gap: var(--flex-gap-l, 16px);
+	gap: var(--space-8);
 }
 
 .flex-gap-xl {
-	gap: var(--flex-gap-xl, 20px);
+	gap: var(--space-10);
 }
 
 .flex-gap-2xl {
-	gap: var(--flex-gap-2xl, 24px);
+	gap: var(--space-12);
 }
 
 .flex-gap-3xl {
-	gap: var(--flex-gap-3xl, 28px);
+	gap: var(--space-14);
 }
 
 .flex-gap-4xl {
-	gap: var(--flex-gap-4xl, 32px);
+	gap: var(--space-16);
 }
