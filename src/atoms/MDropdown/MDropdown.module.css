@@ -22,12 +22,11 @@
 	height: 100vh;
 	background: var(--dropdown-overlay-background-color);
 	backdrop-filter: blur(4px);
-	padding: var(--whiteSpace-general-2x);
+	padding: var(--space-8);
 }
 
 .dropdownHeader {
-	padding: var(--whiteSpace-general-2x) var(--whiteSpace-general-2x) 0
-		var(--whiteSpace-general-2x);
+	padding: var(--space-8) var(--space-8) 0 var(--space-8);
 }
 
 .dropdown.bottom {

@@ -1,7 +1,1 @@
-:root[data-theme="light"] {
-	--tab-font-color: var(--text-secondary);
-	--tab-hover-font-color: var(--palette-secondary-600);
-	--tab-active-font-color: var(--palette-secondary-500);
-	--tab-active-border-color: var(--palette-secondary-500);
-	--tab-disabled-font-color: var(--palette-base-400);
-}
+/* Component tokens removed — see src/styles/ for semantic tokens */

@@ -1,6 +1,6 @@
 /* List item */
 .item {
-	padding: 8px 16px;
+	padding: var(--space-4) var(--space-8);
 	list-style-type: none;
 	cursor: pointer;
 	font-weight: normal;
@@ -12,21 +12,21 @@
 }
 
 .item.noPadding:first-child:hover {
-	border-top-left-radius: var(--button-tertiary-borderRadius-default, 8px);
-	border-top-right-radius: var(--button-tertiary-borderRadius-default, 8px);
+	border-top-left-radius: var(--radius-8);
+	border-top-right-radius: var(--radius-8);
 }
 
 .item.noPadding:last-child:hover {
-	border-bottom-left-radius: var(--button-tertiary-borderRadius-default, 8px);
-	border-bottom-right-radius: var(--button-tertiary-borderRadius-default, 8px);
+	border-bottom-left-radius: var(--radius-8);
+	border-bottom-right-radius: var(--radius-8);
 }
 
 .item.noPadding:only-child:hover {
-	border-radius: var(--button-tertiary-borderRadius-default, 8px);
+	border-radius: var(--radius-8);
 }
 
 .itemBorder {
-	border-bottom: 1px solid var(--list-item-border-color);
+	border-bottom: 1px solid var(--color-border-default);
 }
 
 .itemBorder:last-of-type {
@@ -35,10 +35,10 @@
 
 /*hover*/
 .item:hover {
-	background: var(--list-item-hover-background-color);
+	background: var(--color-surface-overlay);
 }
 
 /*active*/
 .item:active {
-	background: var(--list-item-active-background-color);
+	background: var(--color-surface-sunken);
 }
