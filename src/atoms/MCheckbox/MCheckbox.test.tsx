@@ -1,5 +1,4 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom";
 import MCheckbox from "./MCheckbox";
 
 describe("MCheckbox", () => {

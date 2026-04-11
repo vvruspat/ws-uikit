@@ -6,13 +6,14 @@
 		"baseUrl": "./src",
 		"rootDir": ".",
 		"declaration": true,
-		"types": ["jest", "node"]
+		"types": ["vitest/globals", "node"]
 	},
 	"include": [
-		"jest.config.ts",
+		"vite.config.ts",
 		"src/**/*.test.ts",
 		"src/**/*.test.tsx",
 		"src/**/*.spec.ts",
-		"src/**/*.d.ts"
+		"src/**/*.d.ts",
+		"src/test-setup.ts"
 	]
 }

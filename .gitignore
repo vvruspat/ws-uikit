@@ -11,3 +11,6 @@ dist-storybook/
 .idea/
 
 *storybook.log
+
+screenshots/
+figma/

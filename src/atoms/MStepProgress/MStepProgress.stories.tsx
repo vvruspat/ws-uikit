@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import MStepProgress from "./MStepProgress";
 
 const meta: Meta<typeof MStepProgress> = {
-	title: "Atoms/Layout/MStepProgress",
+	title: "Atoms/Feedback/MStepProgress",
 	component: MStepProgress,
 };
 

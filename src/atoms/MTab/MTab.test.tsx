@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom";
+import { vi } from "vitest";
 import MTab from "./MTab";
 
 describe("MTab Component", () => {
@@ -17,7 +17,7 @@ describe("MTab Component", () => {
 
 	test("calls onClick prop when clicked", () => {
 		const label = "Clickable Tab";
-		const onClickMock = jest.fn();
+		const onClickMock = vi.fn();
 		render(<MTab label={label} onClick={onClickMock} key={""} />);
 		fireEvent.click(screen.getByText(label));
 		expect(onClickMock).toHaveBeenCalled();
