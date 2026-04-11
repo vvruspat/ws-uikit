@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import styles from "./MFlex.module.css";
 import type React from "react";
+import styles from "./MFlex.module.css";
 
 export type MFlexProps<T extends React.ElementType = "div"> = {
 	as?: T;
@@ -15,7 +15,7 @@ export type MFlexProps<T extends React.ElementType = "div"> = {
 		| "space-around"
 		| "stretch";
 	wrap?: "wrap" | "nowrap";
-} & Omit<React.ComponentPropsWithoutRef<T>, "as">;
+} & Omit<React.ComponentPropsWithRef<T>, "as">;
 
 export const MFlex = <T extends React.ElementType = "div">({
 	as,

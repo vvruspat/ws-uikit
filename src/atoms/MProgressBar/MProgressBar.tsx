@@ -58,7 +58,9 @@ export const MProgressBar = forwardRef<HTMLProgressElement, ProgressBarProps>(
 	) => {
 		const uuid = useId();
 		const fieldId = useMemo(() => id ?? uuid, [id, uuid]);
-		const percent = typeof value === "number" ? getPercent(value, max) : undefined;
+		const numericValue = typeof value === "number" ? value : undefined;
+		const percent =
+			typeof numericValue === "number" ? getPercent(numericValue, max) : undefined;
 		const roundedPercent =
 			typeof percent === "number" ? Math.round(percent) : undefined;
 
@@ -81,9 +83,13 @@ export const MProgressBar = forwardRef<HTMLProgressElement, ProgressBarProps>(
 						className={styles.progressBarHeader}
 					>
 						{label && <MLabel htmlFor={fieldId}>{label}</MLabel>}
-						{showValue && typeof percent === "number" && (
+						{showValue &&
+							typeof numericValue === "number" &&
+							typeof percent === "number" && (
 							<output htmlFor={fieldId} className={styles.value}>
-								{valueFormatter ? valueFormatter(value, max) : `${roundedPercent}%`}
+								{valueFormatter
+									? valueFormatter(numericValue, max)
+									: `${roundedPercent}%`}
 							</output>
 						)}
 					</MFlex>

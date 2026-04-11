@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import type {
-	ComponentPropsWithoutRef,
+	ComponentPropsWithRef,
 	CSSProperties,
 	ElementType,
 	ReactNode,
@@ -25,7 +25,20 @@ export type MGridProps<T extends ElementType = "div"> = {
 	className?: string;
 	style?: CSSProperties;
 	children?: ReactNode;
-} & ComponentPropsWithoutRef<T>;
+} & Omit<
+	ComponentPropsWithRef<T>,
+	| "tag"
+	| "display"
+	| "columnTemplate"
+	| "rowTemplate"
+	| "rowGap"
+	| "columnGap"
+	| "alignItems"
+	| "justifyItems"
+	| "className"
+	| "style"
+	| "children"
+>;
 
 export const MGrid = <T extends ElementType = "div">({
 	children,

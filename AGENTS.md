@@ -249,7 +249,7 @@ export default MButton;
 ### 4. Reuse Existing Components
 **Always check existing atoms before creating new components**:
 
-**Rule**: Use `MFlex` for flexbox layouts instead of writing local `display: flex`, `align-items`, `justify-content`, `flex-direction`, `flex-wrap`, or `gap` CSS in component modules. Keep local CSS for non-layout styling or layout behavior that `MFlex` cannot represent, such as absolute positioning, transforms, pseudo-elements, browser-specific input styling, or ref-bearing wrappers while `MFlex` does not forward refs.
+**Rule**: Use `MFlex` for flexbox layouts instead of writing local `display: flex`, `align-items`, `justify-content`, `flex-direction`, `flex-wrap`, or `gap` CSS in component modules. Keep local CSS for non-layout styling or layout behavior that `MFlex` cannot represent, such as absolute positioning, transforms, pseudo-elements, or browser-specific input styling.
 
 ```typescript
 import { MFlex } from "../../atoms/MFlex";

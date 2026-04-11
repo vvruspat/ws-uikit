@@ -141,7 +141,10 @@ export const MRangeSlider = forwardRef<HTMLDivElement, RangeSliderProps>(
 		);
 
 		return (
-			<div
+			<MFlex
+				direction="column"
+				align="stretch"
+				gap="xs"
 				ref={ref}
 				className={clsx(
 					styles.rangeSliderWrapper,
@@ -217,7 +220,7 @@ export const MRangeSlider = forwardRef<HTMLDivElement, RangeSliderProps>(
 						<MFieldDescription status={status}>{description}</MFieldDescription>
 					</div>
 				)}
-			</div>
+			</MFlex>
 		);
 	},
 );
