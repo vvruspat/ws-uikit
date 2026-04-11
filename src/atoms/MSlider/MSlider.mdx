@@ -1,0 +1,23 @@
+import { Canvas, Controls, Meta } from "@storybook/addon-docs/blocks";
+
+import * as SliderStories from "./MSlider.stories";
+
+<Meta of={SliderStories} />
+
+# MSlider
+
+A single-value slider for choosing a numeric value from a bounded range.
+
+<Canvas of={SliderStories.Regular} />
+
+## Variants
+
+<Canvas of={SliderStories.AllVariants} />
+
+## Disabled
+
+<Canvas of={SliderStories.Disabled} />
+
+## Props
+
+<Controls />

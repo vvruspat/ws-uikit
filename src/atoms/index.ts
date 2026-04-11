@@ -24,9 +24,16 @@ export type { SelectOption } from "./MList";
 export { MList } from "./MList";
 export { MListItem } from "./MListItem";
 export { MPlatform } from "./MPlatform";
+export { MProgressBar, type ProgressBarProps } from "./MProgressBar";
 export { MRadio } from "./MRadio";
+export {
+	MRangeSlider,
+	type RangeSliderProps,
+	type RangeSliderValue,
+} from "./MRangeSlider";
 export { MSelect, type MSelectOption } from "./MSelect";
 export { MSkelleton } from "./MSkelleton";
+export { MSlider, type SliderProps } from "./MSlider";
 export { MSpinner } from "./MSpinner";
 export { MStepProgress } from "./MStepProgress";
 export { MSwitch } from "./MSwitch";

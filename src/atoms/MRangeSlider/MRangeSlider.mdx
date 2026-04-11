@@ -1,0 +1,23 @@
+import { Canvas, Controls, Meta } from "@storybook/addon-docs/blocks";
+
+import * as RangeSliderStories from "./MRangeSlider.stories";
+
+<Meta of={RangeSliderStories} />
+
+# MRangeSlider
+
+A two-thumb slider for choosing a numeric range.
+
+<Canvas of={RangeSliderStories.Regular} />
+
+## Variants
+
+<Canvas of={RangeSliderStories.AllVariants} />
+
+## Disabled
+
+<Canvas of={RangeSliderStories.Disabled} />
+
+## Props
+
+<Controls />

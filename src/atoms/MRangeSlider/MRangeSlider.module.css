@@ -1,0 +1,122 @@
+.rangeSliderWrapper {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+	width: 100%;
+}
+
+.rangeHeader {
+	width: 100%;
+}
+
+.value {
+	color: var(--color-text-secondary);
+	font-size: var(--font-size-sm);
+	line-height: var(--line-height-sm);
+}
+
+.rangeControl {
+	position: relative;
+	width: 100%;
+	min-height: var(--space-10);
+}
+
+.rangeTrack,
+.rangeSelection {
+	position: absolute;
+	top: 50%;
+	height: var(--space-2);
+	border-radius: var(--radius-full);
+	transform: translateY(-50%);
+}
+
+.rangeTrack {
+	right: 0;
+	left: 0;
+	background-color: var(--color-control-track);
+}
+
+.rangeSelection {
+	background-color: var(--color-control-checked);
+}
+
+.rangeInputs {
+	position: relative;
+	min-height: var(--space-10);
+}
+
+.sliderControl {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+}
+
+.sliderTrack {
+	min-height: var(--space-10);
+}
+
+.rangeInput {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	pointer-events: auto;
+}
+
+.lowerInput {
+	z-index: 2;
+}
+
+.upperInput {
+	z-index: 3;
+}
+
+.rangeInput::-webkit-slider-runnable-track {
+	background-color: transparent;
+}
+
+.rangeInput::-moz-range-track,
+.rangeInput::-moz-range-progress {
+	background-color: transparent;
+}
+
+.rangeInput:not(:disabled):hover::-webkit-slider-runnable-track {
+	background-color: transparent;
+}
+
+.rangeInput:not(:disabled):hover::-moz-range-track,
+.rangeInput:not(:disabled):hover::-moz-range-progress {
+	background-color: transparent;
+}
+
+.valid .rangeSelection {
+	background-color: var(--color-status-success-border);
+}
+
+.invalid .rangeSelection {
+	background-color: var(--color-status-error-border);
+}
+
+.invalid .rangeInput::-webkit-slider-thumb {
+	border-color: var(--color-status-error);
+}
+
+.invalid .rangeInput::-moz-range-thumb {
+	border-color: var(--color-status-error);
+}
+
+.valid .rangeInput::-webkit-slider-thumb {
+	border-color: var(--color-status-success);
+}
+
+.valid .rangeInput::-moz-range-thumb {
+	border-color: var(--color-status-success);
+}
+
+.disabled {
+	cursor: not-allowed;
+}
+
+.disabled .rangeTrack,
+.disabled .rangeSelection {
+	background-color: var(--color-action-disabled);
+}
