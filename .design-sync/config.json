@@ -1,0 +1,27 @@
+{
+  "projectId": "e8a7d791-0359-4400-a58d-5630bbb0039c",
+  "pkg": "ws-uikit",
+  "shape": "storybook",
+  "storybookConfigDir": ".storybook",
+  "storybookStatic": ".design-sync/sb-reference",
+  "entry": "./src/index.ts",
+  "cssEntry": "./.design-sync/ws-styles-bundled.css",
+  "extraEntries": ["./.design-sync/ws-provider.tsx", "./.design-sync/ws-extras.tsx", "./.design-sync/ws-react-svg-patch.tsx"],
+  "provider": {
+    "component": "WsThemeProvider"
+  },
+  "storyImports": {
+    "bundle": ["/atoms/MIcon/icons/"]
+  },
+  "overrides": {
+    "MMonthSelector": { "cardMode": "single", "primaryStory": "Primary" },
+    "MYearSelector": { "cardMode": "single", "primaryStory": "Default" },
+    "MDataGrid": { "cardMode": "single", "primaryStory": "Default" },
+    "MSelect": { "cardMode": "single", "primaryStory": "Basic" },
+    "MThemeSelector": { "cardMode": "single", "primaryStory": "Basic" }
+  },
+  "libOverrides": {
+    "source-storybook.mjs": "ws-uikit 'types' points at global-types.d.ts not components — populate exported from story names when exportedSet is empty",
+    "story-imports.mjs": "Add svgReactPlugin — converts .svg?react imports to inline React components for MIcon sprite rendering in previews"
+  }
+}
