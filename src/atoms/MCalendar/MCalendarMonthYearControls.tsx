@@ -68,7 +68,6 @@ export const MCalendarMonthYearControls = ({
 		<MFlex
 			direction="row"
 			align="center"
-			gap="xs"
 			className={classNames.container}
 		>
 			<Select

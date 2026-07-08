@@ -59,10 +59,9 @@ export const MDataGridPagination = ({
 			<MFlex
 				align="center"
 				justify="space-between"
-				gap="m"
 				className={styles.paginationContent}
 			>
-				<MFlex align="center" gap="s" className={styles.rowsPerPage}>
+				<MFlex align="center" className={styles.rowsPerPage}>
 					<MText as="span" mode="secondary" className={styles.rowsPerPageLabel}>
 						Rows per page
 					</MText>
@@ -75,7 +74,7 @@ export const MDataGridPagination = ({
 					/>
 				</MFlex>
 
-				<MFlex align="center" gap="m" className={styles.pageControls}>
+				<MFlex align="center" className={styles.pageControls}>
 					<MText
 						as="span"
 						mode="secondary"
@@ -85,7 +84,7 @@ export const MDataGridPagination = ({
 						{pageStart}&ndash;{pageEnd} of {total}
 					</MText>
 
-					<MFlex align="center" gap="xs" wrap="nowrap">
+					<MFlex align="center" wrap="nowrap" className={styles.pageNav}>
 						<MButton
 							mode="round"
 							size="s"

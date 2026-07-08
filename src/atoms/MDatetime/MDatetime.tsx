@@ -5,6 +5,7 @@ import { MFlex } from "../MFlex";
 import { MTimepicker } from "../MTimepicker";
 import { type ChangeEvent, type ComponentProps, useState } from "react";
 import type { InputProps } from "../MInput";
+import styles from "./MDatetime.module.css";
 
 type MDatetimeProps = Omit<InputProps, "type"> & {
 	name: string;
@@ -51,7 +52,12 @@ export const MDatetime = ({
 	};
 
 	return (
-		<MFlex direction="row" justify="start" align="start" gap="m">
+		<MFlex
+			direction="row"
+			justify="start"
+			align="start"
+			className={styles.datetime}
+		>
 			<MDatepicker
 				status={status}
 				disabled={disabled}
