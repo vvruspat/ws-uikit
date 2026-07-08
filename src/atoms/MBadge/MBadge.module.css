@@ -1,8 +1,9 @@
 @layer components {
 	.badge {
 		--_gap: var(--badge-gap, var(--gap-xs));
-		--_padding: var(--badge-padding, var(--padding-control-y-s));
-		--_radius: var(--badge-radius, var(--radius-sm));
+		--_py: var(--badge-py, var(--padding-control-y-s));
+		--_px: var(--badge-px, var(--padding-control-x-s));
+		--_radius: var(--badge-radius, var(--radius-pill));
 		display: inline-flex;
 		justify-content: center;
 		align-items: center;
@@ -15,13 +16,13 @@
 		line-height: normal;
 		cursor: default;
 
-		padding: var(--_padding);
+		padding: var(--_py) var(--_px);
 		border-radius: var(--_radius);
 	}
 
 	.badge.primary {
 		background: var(--color-action-subtle-foreground);
-		color: var(--color-text-inverse);
+		color: var(--color-action-foreground);
 	}
 
 	.badge.transparent {

@@ -5,57 +5,57 @@
 */
 :root {
   /* ── Primary ─────────────────────────────────────── */
-  --palette-primary-50:   rgba(245, 245, 246, 1);
-  --palette-primary-100:  rgba(245, 245, 246, 1);
-  --palette-primary-200:  rgba(235, 236, 236, 1);
-  --palette-primary-300:  rgba(215, 217, 217, 1);
-  --palette-primary-400:  rgba(175, 178, 179, 1);
-  --palette-primary-500:  rgba(136, 140, 141, 1);
-  --palette-primary-600:  rgba(96, 101, 103, 1);
-  --palette-primary-700:  rgba(56, 63, 65, 1);
-  --palette-primary-800:  rgba(39, 44, 46, 1);
-  --palette-primary-900:  color-mix(in srgb, var(--palette-primary-800), black 10%);
-  --palette-primary-1000: color-mix(in srgb, var(--palette-primary-800), black 20%);
+  --palette-primary-50:   rgba(236, 254, 255, 1);
+  --palette-primary-100:  rgba(207, 250, 254, 1);
+  --palette-primary-200:  rgba(165, 243, 252, 1);
+  --palette-primary-300:  rgba(103, 232, 249, 1);
+  --palette-primary-400:  rgba(34, 211, 238, 1);
+  --palette-primary-500:  rgba(6, 182, 212, 1);
+  --palette-primary-600:  rgba(8, 145, 178, 1);
+  --palette-primary-700:  rgba(14, 116, 144, 1);
+  --palette-primary-800:  rgba(21, 94, 117, 1);
+  --palette-primary-900:  rgba(22, 78, 99, 1);
+  --palette-primary-1000: rgba(8, 51, 68, 1);
 
   /* ── Secondary ───────────────────────────────────── */
-  --palette-secondary-50:   rgba(240, 230, 232, 1);
-  --palette-secondary-100:  rgba(224, 206, 208, 1);
-  --palette-secondary-200:  rgba(194, 156, 162, 1);
-  --palette-secondary-300:  rgba(163, 107, 115, 1);
-  --palette-secondary-400:  rgba(133, 57, 69, 1);
-  --palette-secondary-500:  rgba(102, 8, 22, 1);
-  --palette-secondary-600:  color-mix(in srgb, var(--palette-secondary-500), black 10%);
-  --palette-secondary-700:  color-mix(in srgb, var(--palette-secondary-500), black 20%);
-  --palette-secondary-800:  color-mix(in srgb, var(--palette-secondary-500), black 30%);
-  --palette-secondary-900:  color-mix(in srgb, var(--palette-secondary-500), black 40%);
-  --palette-secondary-1000: color-mix(in srgb, var(--palette-secondary-500), black 50%);
+  --palette-secondary-50:   rgba(245, 243, 255, 1);
+  --palette-secondary-100:  rgba(237, 233, 254, 1);
+  --palette-secondary-200:  rgba(221, 214, 254, 1);
+  --palette-secondary-300:  rgba(196, 181, 253, 1);
+  --palette-secondary-400:  rgba(167, 139, 250, 1);
+  --palette-secondary-500:  rgba(139, 92, 246, 1);
+  --palette-secondary-600:  rgba(124, 58, 237, 1);
+  --palette-secondary-700:  rgba(109, 40, 217, 1);
+  --palette-secondary-800:  rgba(91, 33, 182, 1);
+  --palette-secondary-900:  rgba(76, 29, 149, 1);
+  --palette-secondary-1000: rgba(46, 16, 101, 1);
 
   /* ── Tertiary ────────────────────────────────────── */
-  --palette-tertiary-50:   rgba(243, 238, 245, 1);
-  --palette-tertiary-100:  color-mix(in srgb, var(--palette-tertiary-200), white 10%);
-  --palette-tertiary-200:  rgba(164, 96, 188, 1);
-  --palette-tertiary-300:  rgba(104, 59, 120, 1);
-  --palette-tertiary-400:  color-mix(in srgb, var(--palette-tertiary-300), black 10%);
-  --palette-tertiary-500:  color-mix(in srgb, var(--palette-tertiary-300), black 20%);
-  --palette-tertiary-600:  color-mix(in srgb, var(--palette-tertiary-300), black 30%);
-  --palette-tertiary-700:  color-mix(in srgb, var(--palette-tertiary-300), black 40%);
-  --palette-tertiary-800:  color-mix(in srgb, var(--palette-tertiary-300), black 50%);
-  --palette-tertiary-900:  color-mix(in srgb, var(--palette-tertiary-300), black 60%);
-  --palette-tertiary-1000: color-mix(in srgb, var(--palette-tertiary-300), black 70%);
+  --palette-tertiary-50:   rgba(255, 251, 235, 1);
+  --palette-tertiary-100:  rgba(254, 243, 199, 1);
+  --palette-tertiary-200:  rgba(253, 230, 138, 1);
+  --palette-tertiary-300:  rgba(252, 211, 77, 1);
+  --palette-tertiary-400:  rgba(251, 191, 36, 1);
+  --palette-tertiary-500:  rgba(245, 158, 11, 1);
+  --palette-tertiary-600:  rgba(217, 119, 6, 1);
+  --palette-tertiary-700:  rgba(180, 83, 9, 1);
+  --palette-tertiary-800:  rgba(146, 64, 14, 1);
+  --palette-tertiary-900:  rgba(120, 53, 15, 1);
+  --palette-tertiary-1000: rgba(69, 26, 3, 1);
 
   /* ── Base / Neutral ──────────────────────────────── */
   --palette-base-0:    rgba(255, 255, 255, 1);
-  --palette-base-50:   rgba(251, 251, 251, 1);
-  --palette-base-100:  rgba(245, 245, 245, 1);
-  --palette-base-200:  rgba(230, 231, 231, 1);
-  --palette-base-300:  rgba(216, 217, 217, 1);
-  --palette-base-400:  rgba(123, 132, 132, 1);
-  --palette-base-500:  rgba(75, 79, 79, 1);
-  --palette-base-600:  rgba(34, 38, 38, 1);
-  --palette-base-700:  rgba(24, 28, 28, 1);
-  --palette-base-800:  rgba(14, 18, 18, 1);
-  --palette-base-900:  rgba(0, 12, 11, 1);
-  --palette-base-1000: rgba(0, 0, 0, 1);
+  --palette-base-50:   rgba(250, 251, 252, 1);
+  --palette-base-100:  rgba(244, 246, 248, 1);
+  --palette-base-200:  rgba(229, 232, 236, 1);
+  --palette-base-300:  rgba(210, 215, 221, 1);
+  --palette-base-400:  rgba(148, 157, 167, 1);
+  --palette-base-500:  rgba(100, 110, 122, 1);
+  --palette-base-600:  rgba(55, 63, 75, 1);
+  --palette-base-700:  rgba(35, 41, 51, 1);
+  --palette-base-800:  rgba(22, 27, 34, 1);
+  --palette-base-900:  rgba(13, 17, 23, 1);
+  --palette-base-1000: rgba(5, 7, 10, 1);
 
   /* ── Success ─────────────────────────────────────── */
   --palette-success-100:  rgba(247, 255, 230, 1);
@@ -108,9 +108,13 @@
   --palette-info-1000: rgba(0, 65, 102, 1);
 
   /* ── Alpha — translucent black/white (scrims, hairline borders) ── */
+  --palette-alpha-black-6:  rgba(0, 0, 0, 0.06);
   --palette-alpha-black-12: rgba(0, 0, 0, 0.12);
+  --palette-alpha-black-20: rgba(0, 0, 0, 0.2);
   --palette-alpha-black-40: rgba(0, 0, 0, 0.4);
   --palette-alpha-black-50: rgba(0, 0, 0, 0.5);
   --palette-alpha-black-60: rgba(0, 0, 0, 0.6);
+  --palette-alpha-white-8:  rgba(255, 255, 255, 0.08);
+  --palette-alpha-white-16: rgba(255, 255, 255, 0.16);
   --palette-alpha-white-30: rgba(255, 255, 255, 0.3);
 }

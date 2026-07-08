@@ -1,0 +1,9 @@
+{
+  "namespace": "WsUikit",
+  "source": "ws-uikit@0.4.1",
+  "shape": "storybook",
+  "provider": "WsThemeProvider",
+  "componentCount": 47,
+  "skippedStoryIds": [],
+  "runtimeFontPrefixes": []
+}

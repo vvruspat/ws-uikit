@@ -9,9 +9,9 @@
 		/* internal header/content/footer gap — public MFlex seam, not a JS prop */
 		--flex-gap: var(--card-gap, var(--gap-l));
 		padding: var(--_padding);
-		background: var(--color-surface);
+		background: var(--color-surface-raised);
 		border-radius: var(--_radius);
-		border: 1px solid var(--color-border-strong);
+		border: 1px solid var(--color-border-default);
 	}
 
 	.shadow {

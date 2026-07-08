@@ -1,0 +1,128 @@
+import clsx from "clsx";
+import type { ComponentProps } from "react";
+import {
+	Button as AriaButton,
+	Text as AriaText,
+	UNSTABLE_Toast as AriaToast,
+	UNSTABLE_ToastContent as AriaToastContent,
+	UNSTABLE_ToastRegion as AriaToastRegion,
+	UNSTABLE_ToastQueue as ToastQueue,
+	type QueuedToast,
+} from "react-aria-components";
+import alertStyles from "../MAlert/MAlert.module.css";
+import { MFlex } from "../MFlex";
+import { MIconCheckCircle } from "../MIcon/icons/MIconCheckCircle";
+import { MIconInfo } from "../MIcon/icons/MIconInfo";
+import { MIconWarningCircle } from "../MIcon/icons/MIconWarningCircle";
+import { MIconX } from "../MIcon/icons/MIconX";
+import { MIconXCircle } from "../MIcon/icons/MIconXCircle";
+import textStyles from "../MText/MText.module.css";
+import styles from "./MToast.module.css";
+
+export type MToastMode = "info" | "success" | "warning" | "error";
+
+export type MToastContent = {
+	mode?: MToastMode;
+	title: string;
+	description?: string;
+};
+
+const modeIcon = {
+	info: MIconInfo,
+	success: MIconCheckCircle,
+	warning: MIconWarningCircle,
+	error: MIconXCircle,
+} satisfies Record<MToastMode, typeof MIconInfo>;
+
+/** Default timeout (ms) before a toast auto-dismisses. Errors stay until closed. */
+const AUTO_DISMISS_MS = 5000;
+
+/** Singleton queue — one toast region per app. Trigger toasts via `mToast.*`. */
+export const mToastQueue = new ToastQueue<MToastContent>({
+	maxVisibleToasts: 5,
+});
+
+export const mToast = {
+	show: (content: MToastContent) =>
+		mToastQueue.add(content, {
+			timeout: content.mode === "error" ? undefined : AUTO_DISMISS_MS,
+		}),
+	info: (title: string, description?: string) =>
+		mToast.show({ mode: "info", title, description }),
+	success: (title: string, description?: string) =>
+		mToast.show({ mode: "success", title, description }),
+	warning: (title: string, description?: string) =>
+		mToast.show({ mode: "warning", title, description }),
+	error: (title: string, description?: string) =>
+		mToast.show({ mode: "error", title, description }),
+};
+
+const MToastItem = ({ toast }: { toast: QueuedToast<MToastContent> }) => {
+	const mode = toast.content.mode ?? "info";
+	const Icon = modeIcon[mode];
+
+	return (
+		<AriaToast
+			toast={toast}
+			className={clsx(
+				alertStyles.alert,
+				alertStyles[`alert-mode-${mode}`],
+				styles.toast,
+			)}
+		>
+			<MFlex gap="s" align="start" wrap="nowrap" className={styles.body}>
+				<Icon mode="fill" width={20} className={styles.icon} />
+				<AriaToastContent className={styles.content}>
+					<MFlex direction="column" gap="xs" align="start">
+						<AriaText
+							slot="title"
+							className={clsx(
+								textStyles["size-m"],
+								textStyles["mode-inherit"],
+								styles.title,
+							)}
+						>
+							{toast.content.title}
+						</AriaText>
+						{toast.content.description && (
+							<AriaText
+								slot="description"
+								className={clsx(
+									textStyles["size-s"],
+									textStyles["mode-inherit"],
+								)}
+							>
+								{toast.content.description}
+							</AriaText>
+						)}
+					</MFlex>
+				</AriaToastContent>
+				<AriaButton
+					slot="close"
+					className={styles.dismiss}
+					aria-label="Dismiss notification"
+				>
+					<MIconX mode="regular" width={14} />
+				</AriaButton>
+			</MFlex>
+		</AriaToast>
+	);
+};
+
+export type MToastRegionProps = Omit<
+	ComponentProps<typeof AriaToastRegion<MToastContent>>,
+	"queue" | "children"
+>;
+
+/** Mount once near the app root. Trigger toasts from anywhere via `mToast.*`. */
+export const MToastRegion = ({ className, ...restProps }: MToastRegionProps) => (
+	<AriaToastRegion
+		queue={mToastQueue}
+		className={clsx(styles.region, className)}
+		{...restProps}
+	>
+		{({ toast }) => <MToastItem toast={toast} />}
+	</AriaToastRegion>
+);
+
+export default MToastRegion;

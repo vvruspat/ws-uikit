@@ -27,11 +27,6 @@
 		--_font-size: var(--button-font-size, var(--font-size-lg));
 	}
 
-	/* tighter default radius for outlined; same override token */
-	.outlined {
-		--_radius: var(--button-radius, var(--radius-control-sm));
-	}
-
 	/* round = square icon control */
 	.round {
 		--_radius: var(--button-radius-round, 50%);
@@ -127,10 +122,8 @@
 	}
 
 	.tertiary {
-		color: var(--color-action-subtle-foreground);
-		background: var(--color-action-subtle-rest);
-		border: 1px solid var(--color-action-subtle-border);
-		transition: border 0.2s ease-in-out;
+		color: var(--color-action-tertiary-foreground);
+		background: var(--color-action-tertiary-rest);
 	}
 
 	.round {
@@ -200,9 +193,8 @@
 	.tertiary.disabled:hover,
 	.tertiary.disabled:active {
 		color: var(--color-action-foreground-disabled);
-		background: var(--color-action-subtle-rest);
-		cursor: default;
-		border-color: var(--color-action-subtle-border);
+		background: var(--color-action-disabled);
+		cursor: not-allowed;
 	}
 
 	.round:disabled,
@@ -250,8 +242,7 @@
 	}
 
 	.tertiary:hover {
-		background: var(--color-action-subtle-hover);
-		border-color: var(--color-action-subtle-border);
+		background: var(--color-action-tertiary-hover);
 	}
 
 	.round:hover {
@@ -277,8 +268,7 @@
 	}
 
 	.tertiary:active {
-		background: var(--color-action-subtle-active);
-		border-color: var(--color-action-subtle-border);
+		background: var(--color-action-tertiary-active);
 	}
 
 	.round:active {
