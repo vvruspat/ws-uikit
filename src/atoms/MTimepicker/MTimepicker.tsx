@@ -45,6 +45,7 @@ export const MTimepicker = ({
 				<MButton
 					mode="transparent"
 					noPadding
+					aria-label="Open time picker"
 					onClick={() => {
 						inputRef.current?.showPicker();
 					}}

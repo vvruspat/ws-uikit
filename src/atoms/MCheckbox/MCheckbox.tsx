@@ -1,21 +1,33 @@
 "use client";
 
 import clsx from "clsx";
-import { type MouseEvent, type ReactNode, useId, useMemo, useRef } from "react";
-import type { BasicInputProps } from "../../types/BasicInputProps";
+import { type ReactNode, useId, useMemo } from "react";
+import {
+	Checkbox,
+	type CheckboxProps as AriaCheckboxProps,
+} from "react-aria-components";
+import type { TComponentStatus } from "../../types/TComponentStatus";
 import MFieldDescription from "../MFieldDescription/MFieldDescription";
 import MFlex from "../MFlex/MFlex";
-import MLabel from "../MLabel/MLabel";
 
 import styles from "./MCheckbox.module.css";
 import { MIconCheck } from "../MIcon/icons/MIconCheck";
 
-type CheckboxProps = BasicInputProps & {
+type CheckboxProps = Omit<
+	AriaCheckboxProps,
+	"children" | "className" | "isDisabled" | "isSelected" | "defaultSelected"
+> &
+	Partial<TComponentStatus> & {
 	label: ReactNode;
 	description?: ReactNode;
 	wrapperClassName?: string;
 	footerClassName?: string;
 	icon?: ReactNode;
+	className?: string;
+	checked?: boolean;
+	defaultChecked?: boolean;
+	disabled?: boolean;
+	onCheckedChange?: (checked: boolean) => void;
 };
 
 export const MCheckbox = ({
@@ -25,53 +37,49 @@ export const MCheckbox = ({
 	label,
 	disabled = false,
 	description,
-	checked,
 	wrapperClassName,
 	footerClassName,
 	icon,
+	className,
+	onCheckedChange,
+	checked,
+	defaultChecked,
 	...restProps
 }: CheckboxProps) => {
 	const uuid = useId();
 	const fieldId = useMemo(() => id ?? uuid, [uuid, id]);
-	const checkboxRef = useRef<HTMLInputElement>(null);
-
-	const onCheckboxClick = (_e: MouseEvent<HTMLDivElement>) => {
-		if (checkboxRef.current) {
-			checkboxRef.current.focus();
-		}
-	};
 
 	return (
-		// biome-ignore lint/a11y/useKeyWithClickEvents: TODO: add keyboard support
-		// biome-ignore lint/a11y/useSemanticElements: no way to use semantic elements
-		<div
+		<MFlex
+			direction="column"
+			align="start"
 			className={clsx(styles.checkboxWrapper, styles[status], wrapperClassName)}
-			onClick={onCheckboxClick}
-			role="button"
-			tabIndex={0}
 		>
 			<MFlex className={clsx(styles.checkboxContainer)}>
-				<input
-					type="checkbox"
-					ref={checkboxRef}
-					className={clsx(styles.Checkbox)}
+				<Checkbox
 					id={fieldId}
 					name={name}
-					disabled={disabled}
+					isSelected={checked}
+					defaultSelected={defaultChecked}
+					isDisabled={disabled}
+					className={clsx(styles.Checkbox, className)}
+					onChange={onCheckedChange}
 					{...restProps}
-				/>
-
-				<MLabel htmlFor={fieldId}>{label}</MLabel>
-				<span className={clsx(styles.customCheckboxIcon)}>
-					{icon ? icon : <MIconCheck mode="bold" width={10} />}
-				</span>
+				>
+					<span className={clsx(styles.customCheckboxBox)}>
+						<span className={clsx(styles.customCheckboxIcon)}>
+							{icon ? icon : <MIconCheck mode="bold" width={10} />}
+						</span>
+					</span>
+					<span>{label}</span>
+				</Checkbox>
 			</MFlex>
 			<div className={footerClassName}>
 				{description && (
 					<MFieldDescription status={status}>{description}</MFieldDescription>
 				)}
 			</div>
-		</div>
+		</MFlex>
 	);
 };
 

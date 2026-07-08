@@ -30,6 +30,11 @@
 	padding-bottom: var(--size-16);
 }
 
+.textareaContainer:focus-within {
+	outline: var(--space-1) solid var(--color-focus-ring);
+	outline-offset: var(--space-2);
+}
+
 .textarea {
 	box-sizing: border-box;
 	width: 100%;

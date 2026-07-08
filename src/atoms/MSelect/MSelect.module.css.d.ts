@@ -1,5 +1,13 @@
 declare const styles: {
-	readonly selectButton: string;
-	readonly dropdown: string;
+  readonly "invalid": string;
+  readonly "listBox": string;
+  readonly "option": string;
+  readonly "popover": string;
+  readonly "regular": string;
+  readonly "select": string;
+  readonly "selectButton": string;
+  readonly "selectValue": string;
+  readonly "valid": string;
 };
 export = styles;
+

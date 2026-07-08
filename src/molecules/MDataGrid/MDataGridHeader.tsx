@@ -1,67 +1,100 @@
 import clsx from "clsx";
-import { useState } from "react";
-import { MButton, MFlex } from "../../atoms";
+import { MButton, MFlex, MText } from "../../atoms";
 import styles from "./MDataGridHeader.module.css";
 import { SortIcon } from "./SortIcon";
-import type { MDataGridHeaderType } from "./types";
+import type { MDataGridHeaderType, MDataGridSortDirection } from "./types";
 
 type MDataGridHeaderProps = MDataGridHeaderType & {
-	sortingNow: boolean;
-	onSort: (direction: "asc" | "desc") => void;
+	sortDirection?: MDataGridSortDirection;
+	filterValue: string;
+	onSort: () => void;
 	onFilter: (filterValue: string, field: string) => void;
+};
+
+const getHeaderLabel = (label: MDataGridHeaderType["label"], field: string) => {
+	if (typeof label === "string" || typeof label === "number") {
+		return String(label);
+	}
+
+	return field;
 };
 
 export const MDataGridHeader = ({
 	field,
 	label,
 	sortable,
-	editable,
-	sortingNow,
+	editable: _editable,
+	sortDirection,
+	filterValue,
 	onFilter,
 	renderFilter,
-	renderCell,
+	renderCell: _renderCell,
 	onSort,
+	className,
 	...thProps
 }: MDataGridHeaderProps) => {
-	const [sort, setSort] = useState<"asc" | "desc">("asc");
-	const onSortClick = () => {
-		if (!sortable) return;
-
-		setSort((prevSort) => {
-			const newSort = prevSort === "asc" ? "desc" : "asc";
-
-			onSort?.(newSort);
-
-			return newSort;
-		});
-	};
+	const headerLabel = getHeaderLabel(label, field);
+	const nextSortDirection =
+		sortDirection === "asc" ? "descending" : "ascending";
 
 	return (
-		<th {...thProps}>
-			<MFlex direction="column" justify="start" align="stretch">
-				<MButton
-					mode="transparent"
-					onClick={onSortClick}
-					className={styles.headerTitle}
-					stretch
-					justify="space-between"
-					after={
-						sortable && (
+		<th
+			{...thProps}
+			scope="col"
+			className={clsx(styles.headerCell, className)}
+			aria-sort={
+				sortDirection
+					? sortDirection === "asc"
+						? "ascending"
+						: "descending"
+					: undefined
+			}
+		>
+			<MFlex
+				direction="column"
+				justify="start"
+				align="stretch"
+				gap={renderFilter ? "s" : "none"}
+				className={styles.headerContent}
+			>
+				{sortable ? (
+					<MButton
+						mode="transparent"
+						size="s"
+						onClick={onSort}
+						className={styles.sortButton}
+						stretch
+						justify="space-between"
+						aria-label={`Sort ${headerLabel} ${nextSortDirection}`}
+						after={
 							<SortIcon
-								className={clsx(styles.sort, styles[`sort-${sort}`], {
-									[styles.sorting]: sortingNow,
-								})}
+								aria-hidden="true"
+								className={clsx(
+									styles.sort,
+									sortDirection && styles[`sort-${sortDirection}`],
+									{
+										[styles.sorting]: Boolean(sortDirection),
+									},
+								)}
 							/>
-						)
-					}
-				>
-					{label}
-				</MButton>
-				<div className={styles.filterWrapper}>
-					{renderFilter?.({
-						onChange: (event) => onFilter(event.target.value, field),
-					})}
-				</div>
+						}
+					>
+						<span className={styles.headerTitle}>{label}</span>
+					</MButton>
+				) : (
+					<MText as="span" className={styles.headerTitle}>
+						{label}
+					</MText>
+				)}
+				{renderFilter && (
+					<div className={styles.filterWrapper}>
+						{renderFilter({
+							value: filterValue,
+							"aria-label": `Filter ${headerLabel}`,
+							onChange: (event) => onFilter(event.target.value, field),
+						})}
+					</div>
+				)}
 			</MFlex>
 		</th>
 	);

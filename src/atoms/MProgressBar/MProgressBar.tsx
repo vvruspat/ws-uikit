@@ -1,11 +1,9 @@
 import clsx from "clsx";
+import { type ReactNode, forwardRef, useId, useMemo } from "react";
 import {
-	type ComponentProps,
-	type ReactNode,
-	forwardRef,
-	useId,
-	useMemo,
-} from "react";
+	ProgressBar,
+	type ProgressBarProps as AriaProgressBarProps,
+} from "react-aria-components";
 import type { TComponentSize } from "../../types/TComponentSize";
 import type { TComponentStatus } from "../../types/TComponentStatus";
 import MFieldDescription from "../MFieldDescription/MFieldDescription";
@@ -14,14 +12,15 @@ import MLabel from "../MLabel/MLabel";
 import styles from "./MProgressBar.module.css";
 
 export type ProgressBarProps = Omit<
-	ComponentProps<"progress">,
-	"value" | "max"
+	AriaProgressBarProps,
+	"children" | "className" | "value" | "maxValue"
 > &
 	Partial<TComponentStatus> & {
 		label?: ReactNode;
 		description?: ReactNode;
 		wrapperClassName?: string;
 		footerClassName?: string;
+		className?: string;
 		value?: number;
 		max?: number;
 		size?: Extract<TComponentSize["size"], "s" | "m" | "l">;
@@ -37,7 +36,7 @@ const getPercent = (value: number, max: number) => {
 	return Math.min(Math.max((value / max) * 100, 0), 100);
 };
 
-export const MProgressBar = forwardRef<HTMLProgressElement, ProgressBarProps>(
+export const MProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
 	(
 		{
 			className,
@@ -63,6 +62,8 @@ export const MProgressBar = forwardRef<HTMLProgressElement, ProgressBarProps>(
 			typeof numericValue === "number" ? getPercent(numericValue, max) : undefined;
 		const roundedPercent =
 			typeof percent === "number" ? Math.round(percent) : undefined;
+		const valueStyle =
+			typeof percent === "number" ? { width: `${percent}%` } : undefined;
 
 		return (
 			<MFlex
@@ -94,14 +95,21 @@ export const MProgressBar = forwardRef<HTMLProgressElement, ProgressBarProps>(
 						)}
 					</MFlex>
 				)}
-				<progress
+				<ProgressBar
 					ref={ref}
 					id={fieldId}
 					className={clsx(styles.progressBar, styles[`size-${size}`], className)}
 					value={value}
-					max={max}
+					maxValue={max}
+					aria-label={typeof label === "string" ? label : restProps["aria-label"]}
 					{...restProps}
-				/>
+				>
+					<div className={styles.progressTrack}>
+						{typeof percent === "number" && (
+							<div className={styles.progressValue} style={valueStyle} />
+						)}
+					</div>
+				</ProgressBar>
 				{description && (
 					<div className={footerClassName}>
 						<MFieldDescription status={status}>{description}</MFieldDescription>

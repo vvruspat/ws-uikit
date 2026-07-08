@@ -38,11 +38,10 @@ describe("MFileInput", () => {
 	});
 
 	it("opens modal on button click", () => {
-		const { container } = render(<MFileInput>Upload</MFileInput>);
+		render(<MFileInput>Upload</MFileInput>);
 		const btn = screen.getByRole("button", { name: /upload/i });
 		fireEvent.click(btn);
 
-		const overlay = container.querySelector(".overlay");
-		expect(overlay).toHaveClass("open");
+		expect(screen.getByRole("dialog", { name: /upload files/i })).toBeVisible();
 	});
 });

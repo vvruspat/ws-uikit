@@ -19,6 +19,6 @@ describe("MDropdown", () => {
 			</MDropdown>,
 		);
 
-		expect(screen.getByText("Text")).toBeInTheDocument();
+		expect(screen.queryByText("Text")).not.toBeInTheDocument();
 	});
 });

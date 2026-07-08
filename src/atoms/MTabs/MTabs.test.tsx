@@ -1,25 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { vi } from "vitest";
 import MTabs from "./MTabs";
-
-interface MTabProps {
-	label: string;
-	active: boolean;
-	onClick: () => void;
-}
-
-vi.mock("../MTab/MTab", () => ({
-	default: ({ label, active, onClick }: MTabProps) => (
-		<button
-			type="button"
-			data-testid="tab"
-			className={active ? "active" : ""}
-			onClick={onClick}
-		>
-			{label}
-		</button>
-	),
-}));
 
 describe("MTabs Component", () => {
 	const items = [
@@ -30,7 +10,7 @@ describe("MTabs Component", () => {
 
 	test("renders correctly with initial props", () => {
 		render(<MTabs items={items} defaultActiveKey="tab1" />);
-		expect(screen.getAllByTestId("tab")).toHaveLength(3);
+		expect(screen.getAllByRole("tab")).toHaveLength(3);
 		expect(screen.getByText("Content 1").closest("div")).toBeInTheDocument();
 	});
 

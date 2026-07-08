@@ -1,145 +1,112 @@
 "use client";
 
 import clsx from "clsx";
+import type { Key, ReactNode } from "react";
 import {
-	type ChangeEvent,
-	type ReactNode,
-	useCallback,
-	useEffect,
-	useMemo,
-	useState,
-} from "react";
-import ReactDOMServer from "react-dom/server";
+	Button,
+	ListBox,
+	ListBoxItem,
+	Popover,
+	Select,
+	SelectValue,
+	type SelectProps,
+} from "react-aria-components";
 import type { BasicInputProps } from "../../types/BasicInputProps";
-import MDropdown from "../MDropdown/MDropdown";
 import { MIconCaretDown } from "../MIcon/icons/MIconCaretDown";
-import { MInput } from "../MInput";
-import MList, { type SelectOption } from "../MList/MList";
 import type { ListItemProps } from "../MListItem/MListItem";
 import styles from "./MSelect.module.css";
 
-export type MSelectOption = ListItemProps & SelectOption;
-
-type SelectComponentProps = BasicInputProps & {
-	options: MSelectOption[];
-	label?: ReactNode;
-	description?: ReactNode;
-	justify?: "start" | "center" | "end" | "space-between";
+export type MSelectOption = ListItemProps & {
+	key: string;
+	value?: ReactNode;
 };
 
-const extractTextFromReactNode = (reactNode: ReactNode) => {
-	// Convert the ReactNode to static markup (HTML string)
-	const markup = ReactDOMServer.renderToStaticMarkup(reactNode);
+type SelectComponentProps = Omit<
+	SelectProps<MSelectOption>,
+	| "children"
+	| "className"
+	| "defaultSelectedKey"
+	| "selectedKey"
+	| "onSelectionChange"
+> &
+	Pick<BasicInputProps, "status" | "name" | "disabled" | "value" | "defaultValue"> & {
+		options: MSelectOption[];
+		label?: ReactNode;
+		description?: ReactNode;
+		className?: string;
+		justify?: "start" | "center" | "end" | "space-between";
+		onValueChange?: (value: string) => void;
+	};
 
-	if (typeof DOMParser === "undefined") return "";
+const getTextValue = (value: ReactNode): string => {
+	if (typeof value === "string" || typeof value === "number") {
+		return String(value);
+	}
 
-	// parse the HTML string (browser only)
-	const doc = new DOMParser().parseFromString(markup, "text/html");
-	// get the text from the parsed document
-	return doc.body.textContent || "";
+	return "";
 };
 
 export const MSelect = ({
 	options,
-	justify,
 	defaultValue,
 	value,
 	name,
-	...inputProps
+	disabled,
+	className,
+	status = "regular",
+	onValueChange,
+	...selectProps
 }: SelectComponentProps) => {
-	const [open, setOpen] = useState(false);
-	const getInitialVisibleValue = (): string => {
-		if (value) {
-			const option = options.find((opt) => opt.key === value);
-			return extractTextFromReactNode(option?.value ?? "");
+	const selectedKey =
+		typeof value === "string" || typeof value === "number"
+			? String(value)
+			: undefined;
+	const defaultSelectedKey =
+		typeof defaultValue === "string" || typeof defaultValue === "number"
+			? String(defaultValue)
+			: undefined;
+
+	const handleSelectionChange = (key: Key | null) => {
+		if (key !== null) {
+			onValueChange?.(String(key));
 		}
-		if (defaultValue) {
-			const option = options.find((opt) => opt.key === defaultValue);
-			return extractTextFromReactNode(option?.value ?? "");
-		}
-		return "";
 	};
-
-	const [visibleValue, setVisibleValue] = useState<string>(
-		getInitialVisibleValue(),
-	);
-	const [hiddenValue, setHiddenlValue] = useState(value || defaultValue || "");
-
-	useEffect(() => {
-		if (value !== undefined) {
-			const option = options.find((opt) => opt.key === value);
-			setVisibleValue(extractTextFromReactNode(option?.value ?? ""));
-			setHiddenlValue(value);
-		} else if (defaultValue !== undefined) {
-			const option = options.find((opt) => opt.key === defaultValue);
-			setVisibleValue(extractTextFromReactNode(option?.value ?? ""));
-			setHiddenlValue(defaultValue);
-		}
-	}, [value, defaultValue, options]);
-
-	const handleClick = () => {
-		setOpen(!open);
-	};
-
-	const onChoose = useCallback(
-		(option: MSelectOption) => {
-			if (inputProps.onChange) {
-				const inputEvent = {
-					target: {
-						name: name || "",
-						value: option.key,
-					},
-				} as ChangeEvent<HTMLInputElement>;
-
-				inputProps.onChange(inputEvent);
-			}
-
-			setOpen(false);
-
-			setHiddenlValue(option.key);
-			setVisibleValue(extractTextFromReactNode(option.value) ?? "");
-		},
-		[name, inputProps.onChange],
-	);
-
-	const mappedOptions = useMemo(
-		() => options.map((option) => ({ ...option, role: "option" })),
-		[options],
-	);
-
-	const onVisibleInputChange = useCallback(
-		(event: ChangeEvent<HTMLInputElement>) => {
-			// React on change event only if it is data clearing
-			if (event.target.value === "") {
-				setVisibleValue("");
-				setHiddenlValue("");
-			}
-		},
-		[],
-	);
 
 	return (
-		<MDropdown
-			open={open}
-			align={"right"}
-			stretch
-			noPadding
-			dropdownContent={
-				<MList showDivider options={mappedOptions} onChoose={onChoose} />
-			}
-			dropdownContentClassName={styles.dropdown}
+		<Select
+			name={name}
+			isDisabled={disabled}
+			selectedKey={selectedKey}
+			defaultSelectedKey={defaultSelectedKey}
+			onSelectionChange={handleSelectionChange}
+			className={clsx(styles.select, styles[status], className)}
+			{...selectProps}
 		>
-			<input type="hidden" name={name} value={hiddenValue} />
-			<MInput
-				readOnly
-				className={clsx(styles.selectButton)}
-				onClick={handleClick}
-				value={visibleValue}
-				after={<MIconCaretDown mode="regular" width={20} />}
-				{...inputProps}
-				onChange={onVisibleInputChange}
-			/>
-		</MDropdown>
+			<Button className={styles.selectButton}>
+				<SelectValue<MSelectOption> className={styles.selectValue}>
+					{({ selectedItem, selectedText, isPlaceholder }) =>
+						isPlaceholder ? selectProps.placeholder : selectedItem?.value ?? selectedText
+					}
+				</SelectValue>
+				<MIconCaretDown mode="regular" width={20} />
+			</Button>
+			<Popover className={styles.popover}>
+				<ListBox className={styles.listBox}>
+					{options.map((option) => (
+						<ListBoxItem
+							key={option.key}
+							id={option.key}
+							textValue={getTextValue(option.value)}
+							className={styles.option}
+						>
+							{option.before}
+							{option.value}
+							{option.after}
+						</ListBoxItem>
+					))}
+				</ListBox>
+			</Popover>
+		</Select>
 	);
 };
 

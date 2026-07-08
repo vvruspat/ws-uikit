@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import {
+	type KeyboardEvent,
 	type ReactNode,
 	useCallback,
 	useEffect,
@@ -99,12 +100,37 @@ export const MGallery = ({
 		}
 	}, [handleTouchStart, handleTouchMove, handleTouchEnd]);
 
+	const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+		if (event.key === "ArrowLeft") {
+			event.preventDefault();
+			prevSlide();
+		}
+
+		if (event.key === "ArrowRight") {
+			event.preventDefault();
+			nextSlide();
+		}
+
+		if (event.key === "Home") {
+			event.preventDefault();
+			setCurrentIndex(0);
+		}
+
+		if (event.key === "End") {
+			event.preventDefault();
+			setCurrentIndex(slides.length - 1);
+		}
+	};
+
 	return (
 		<MFlex
 			direction="column"
 			align="start"
 			gap="m"
 			className={clsx(styles.wrapper, className)}
+			role="region"
+			aria-roledescription="carousel"
+			aria-label="Gallery"
 		>
 			{header && <div className={clsx(styles.header)}>{header}</div>}
 
@@ -113,10 +139,17 @@ export const MGallery = ({
 					ref={sliderRef}
 					className={clsx(styles.slider)}
 					style={{ transform: `translateX(calc(-1 * ${currentIndex} * 100%))` }}
+					tabIndex={0}
+					onKeyDown={handleKeyDown}
+					aria-live="polite"
 				>
 					{slides.map((slide, index) => (
 						// biome-ignore lint/suspicious/noArrayIndexKey: index is the only unique identifier here
-						<div key={index} className={clsx(styles.slider__slide)}>
+						<div
+							key={index}
+							className={clsx(styles.slider__slide)}
+							aria-hidden={index !== currentIndex}
+						>
 							{slide}
 						</div>
 					))}
@@ -130,6 +163,7 @@ export const MGallery = ({
 						disabled={currentIndex === 0}
 						mode="round"
 						onClick={prevSlide}
+						aria-label="Previous slide"
 					>
 						{prevButton}
 					</MButton>
@@ -142,6 +176,7 @@ export const MGallery = ({
 						)}
 						mode="round"
 						onClick={nextSlide}
+						aria-label="Next slide"
 					>
 						{nextButton}
 					</MButton>

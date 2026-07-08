@@ -11,6 +11,7 @@ import {
 	useRef,
 	useState,
 } from "react";
+import { TextArea } from "react-aria-components";
 import MCaption from "../MCaption/MCaption";
 import MFieldDescription from "../MFieldDescription/MFieldDescription";
 import MFlex from "../MFlex/MFlex";
@@ -94,7 +95,7 @@ export const MTextarea = ({
 					containerClassName,
 				)}
 			>
-				<textarea
+				<TextArea
 					ref={textarea}
 					onInput={updateCount}
 					id={textareaId}
@@ -102,9 +103,8 @@ export const MTextarea = ({
 					className={clsx(styles.textarea, textareaClassName)}
 					maxLength={maxLength}
 					{...restProps}
-				>
-					{value}
-				</textarea>
+					value={value}
+				/>
 				{counter && (
 					<span ref={charCounter} className={clsx(styles.counter)}>
 						{count}/{maxLength}

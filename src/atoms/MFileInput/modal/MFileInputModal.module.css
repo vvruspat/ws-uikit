@@ -20,15 +20,29 @@
 .dropArea {
 	border: 2px dashed var(--drop-area-border-color);
 	padding: var(--drop-area-padding);
-	cursor: pointer;
 	border-radius: var(--drop-area-border-radius);
 	background-color: var(--drop-area-background-color);
 	transition: ease-in-out 0.3s;
 }
 
-.dragOver {
+.dropArea[data-drop-target] {
 	border-color: var(--drop-area-over-border-color);
 	background-color: var(--drop-area-over-background-color);
+}
+
+.dropButton {
+	width: 100%;
+	border: 0;
+	background: transparent;
+	color: inherit;
+	cursor: pointer;
+	font: inherit;
+	padding: 0;
+}
+
+.dropButton[data-focus-visible] {
+	outline: var(--space-1) solid var(--color-focus-ring);
+	outline-offset: var(--space-2);
 }
 
 .modal {

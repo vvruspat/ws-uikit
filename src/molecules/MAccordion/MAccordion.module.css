@@ -1,30 +1,118 @@
-.item {
-	padding-left: 0;
-	padding-right: 0;
+.container {
+	overflow: hidden;
 }
 
-.itemHeader {
-	cursor: pointer;
+.group {
 	width: 100%;
 }
 
-.itemHeader svg,
-.collapsedIcon svg {
-	animation-duration: 1s;
-	animation-name: rotate;
+.item {
+	background: var(--color-surface);
+	color: var(--color-text-primary);
+	transition: background-color 0.2s ease-in-out;
 }
 
-.container {
-	padding-top: 0;
+.item + .item {
+	border-top: 1px solid var(--color-border-default);
+}
+
+.item[data-expanded] {
+	background: var(--color-surface-raised);
+}
+
+.item[data-disabled] {
+	color: var(--color-text-disabled);
+}
+
+.itemHeading {
+	margin: 0;
+}
+
+.itemHeader {
+	width: 100%;
+	border: 0;
+	background: transparent;
+	color: inherit;
+	cursor: pointer;
+	font: inherit;
+	padding: var(--space-6) var(--space-8);
+	text-align: inherit;
+}
+
+.itemHeader[data-hovered] {
+	background: var(--color-surface-overlay);
+}
+
+.itemHeader[data-pressed] {
+	background: var(--color-surface-sunken);
+}
+
+.itemHeader[data-focus-visible] {
+	position: relative;
+	z-index: 1;
+	outline: var(--space-1) solid var(--color-focus-ring);
+	outline-offset: calc(-1 * var(--space-1));
+}
+
+.item[data-disabled] .itemHeader {
+	cursor: not-allowed;
+}
+
+.headerContent {
+	width: 100%;
+}
+
+.title {
+	min-width: 0;
+	font-family: var(--font-family-primary);
+	font-size: var(--font-size-md);
+	font-weight: 500;
+	line-height: var(--line-height-md);
+}
+
+.icon {
+	color: var(--color-text-secondary);
+	line-height: 0;
+	transition: transform 0.2s ease-in-out;
+}
+
+.item[data-expanded] .icon {
+	transform: rotate(0deg);
+}
+
+.itemPanel {
+	display: grid;
+	grid-template-rows: 1fr;
+	overflow: hidden;
+	padding: 0 var(--space-8) var(--space-8);
+	color: var(--color-text-secondary);
+	font-family: var(--font-family-primary);
+	font-size: var(--font-size-md);
+	line-height: var(--line-height-md);
+	opacity: 1;
+	transition:
+		grid-template-rows 0.24s ease-in-out,
+		opacity 0.18s ease-in-out,
+		padding-bottom 0.24s ease-in-out;
+}
+
+.itemPanel[hidden] {
+	display: grid;
+	grid-template-rows: 0fr;
 	padding-bottom: 0;
+	opacity: 0;
 }
 
-@keyframes rotate {
-	from {
-		opacity: 0.5;
-	}
+.itemPanelContent {
+	min-height: 0;
+	overflow: hidden;
+	padding-top: var(--space-2);
+}
 
-	to {
-		opacity: 1;
+@media (prefers-reduced-motion: reduce) {
+	.item,
+	.icon,
+	.itemPanel {
+		transition: none;
 	}
 }

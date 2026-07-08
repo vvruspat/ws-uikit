@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import { type ChangeEvent, type ComponentProps } from "react";
-import { MButton, MSelect } from "../../atoms";
+import type { ComponentProps } from "react";
+import { MButton, MFlex, MSelect, MText } from "../../atoms";
 import { MIconCaretLeft } from "../../atoms/MIcon/icons/MIconCaretLeft";
 import { MIconCaretRight } from "../../atoms/MIcon/icons/MIconCaretRight";
 import type { MSelectOption } from "../../atoms/MSelect/MSelect";
@@ -10,6 +10,7 @@ export interface MDataGridPaginationProps extends ComponentProps<"nav"> {
 	total: number;
 	limit: number;
 	offset: number;
+	rowsPerPageOptions?: number[];
 	onNextPage: (offset: number, limit: number) => void;
 	onPreviousPage: (offset: number, limit: number) => void;
 	onRowsPerPageChange: (limit: number) => void;
@@ -20,6 +21,7 @@ export const MDataGridPagination = ({
 	total,
 	limit,
 	offset,
+	rowsPerPageOptions = [5, 10, 25, 50],
 	onNextPage,
 	onPreviousPage,
 	onRowsPerPageChange,
@@ -27,6 +29,8 @@ export const MDataGridPagination = ({
 }: MDataGridPaginationProps) => {
 	const isPreviousDisabled = offset - limit < 0;
 	const isNextDisabled = offset + limit >= total;
+	const pageStart = total === 0 ? 0 : offset + 1;
+	const pageEnd = Math.min(offset + limit, total);
 
 	const onNextPageClick = () => {
 		onNextPage(offset + limit, limit);
@@ -36,10 +40,15 @@ export const MDataGridPagination = ({
 		onPreviousPage(Math.max(offset - limit, 0), limit);
 	};
 
-	const rowsPerPageOptions: MSelectOption[] = [5, 10, 25, 50].map((num) => ({
-		key: num.toString(),
-		value: num.toString(),
-	}));
+	const normalizedRowsPerPageOptions = Array.from(
+		new Set([...rowsPerPageOptions, limit]),
+	).sort((firstOption, secondOption) => firstOption - secondOption);
+	const selectOptions: MSelectOption[] = normalizedRowsPerPageOptions.map(
+		(option) => ({
+			key: option.toString(),
+			value: option.toString(),
+		}),
+	);
 
 	return (
 		<nav
@@ -47,44 +56,57 @@ export const MDataGridPagination = ({
 			className={clsx(styles.pagination, className)}
 			{...restProps}
 		>
-			<div className={styles.rowsPerPageButton}>
-				<div className={styles.rowsPerPageLabel}>Rows per page:</div>
-				<MSelect
-					aria-label="Rows per page selector"
-					onChange={(e: ChangeEvent<HTMLInputElement>) =>
-						onRowsPerPageChange(Number(e.target.value))
-					}
-					options={rowsPerPageOptions}
-					defaultValue={limit.toString()}
-				/>
-			</div>
+			<MFlex
+				align="center"
+				justify="space-between"
+				gap="m"
+				className={styles.paginationContent}
+			>
+				<MFlex align="center" gap="s" className={styles.rowsPerPage}>
+					<MText as="span" mode="secondary" className={styles.rowsPerPageLabel}>
+						Rows per page
+					</MText>
+					<MSelect
+						aria-label="Rows per page"
+						onValueChange={(value) => onRowsPerPageChange(Number(value))}
+						options={selectOptions}
+						value={limit.toString()}
+						className={styles.rowsPerPageSelect}
+					/>
+				</MFlex>
 
-			<div className={styles.pagesNavigation}>
-				<div aria-live="polite" className={styles.pages}>
-					{offset + 1}&ndash;{Math.min(offset + limit, total)} of {total}
-				</div>
+				<MFlex align="center" gap="m" className={styles.pageControls}>
+					<MText
+						as="span"
+						mode="secondary"
+						aria-live="polite"
+						className={styles.pages}
+					>
+						{pageStart}&ndash;{pageEnd} of {total}
+					</MText>
 
-				<div className={styles.buttons}>
-					<MButton
-						mode="transparent"
-						aria-label="Previous page"
-						onClick={onPrevPageClick}
-						disabled={isPreviousDisabled}
-						noPadding
-					>
-						<MIconCaretLeft mode="regular" width={20} />
-					</MButton>
-					<MButton
-						mode="transparent"
-						aria-label="Next page"
-						onClick={onNextPageClick}
-						disabled={isNextDisabled}
-						noPadding
-					>
-						<MIconCaretRight mode="regular" width={20} />
-					</MButton>
-				</div>
-			</div>
+					<MFlex align="center" gap="xs" wrap="nowrap">
+						<MButton
+							mode="round"
+							size="s"
+							aria-label="Previous page"
+							onClick={onPrevPageClick}
+							disabled={isPreviousDisabled}
+						>
+							<MIconCaretLeft mode="regular" width={18} />
+						</MButton>
+						<MButton
+							mode="round"
+							size="s"
+							aria-label="Next page"
+							onClick={onNextPageClick}
+							disabled={isNextDisabled}
+						>
+							<MIconCaretRight mode="regular" width={18} />
+						</MButton>
+					</MFlex>
+				</MFlex>
+			</MFlex>
 		</nav>
 	);
 };

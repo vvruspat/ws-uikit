@@ -1,5 +1,9 @@
 declare const styles: {
-	readonly checkboxCell: string;
-	readonly selected: string;
+  readonly "cell": string;
+  readonly "checkboxCell": string;
+  readonly "rowHeaderCell": string;
+  readonly "selectionCell": string;
+  readonly "visuallyHidden": string;
 };
 export = styles;
+

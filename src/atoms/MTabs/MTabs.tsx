@@ -1,8 +1,15 @@
 "use client";
 
 import { type FC, useState } from "react";
+import {
+	Tab,
+	TabList,
+	TabPanel,
+	TabPanels,
+	Tabs,
+} from "react-aria-components";
 import MFlex from "../MFlex/MFlex";
-import MTab, { type MTabProps } from "../MTab/MTab";
+import type { MTabProps } from "../MTab/MTab";
 import styles from "./MTabs.module.css";
 
 interface MTabsProps {
@@ -22,26 +29,39 @@ export const MTabs: FC<MTabsProps> = ({
 	};
 
 	return (
-		<MFlex direction="column" align="start">
-			<div className={styles.tabHeaders} role="tablist">
+		<Tabs
+			selectedKey={activeKey}
+			onSelectionChange={(key) => setActiveKey(String(key))}
+			disabledKeys={items
+				.filter((item) => item.disabled)
+				.map((item) => item.key)}
+			className={styles.tabs}
+		>
+			<TabList className={styles.tabHeaders}>
 				{items.map((item) => (
-					<MTab
+					<Tab
 						key={item.key}
-						active={item.key === activeKey}
-						label={item.label}
-						disabled={item.disabled}
-						onClick={() => handleTabClick(item.key)}
-						before={item.before}
-						after={item.after}
+						id={item.key}
+						isDisabled={item.disabled}
+						className={styles.tab}
+						onPress={() => handleTabClick(item.key)}
 						{...restProps}
-					/>
+					>
+						{item.before && <span>{item.before}</span>}
+						{item.label}
+						{item.after && <span>{item.after}</span>}
+					</Tab>
 				))}
-			</div>
+			</TabList>
 
-			<MFlex className={styles.tabContent}>
-				{items.find((item) => item.key === activeKey)?.content}
-			</MFlex>
-		</MFlex>
+			<TabPanels>
+				{items.map((item) => (
+					<TabPanel key={item.key} id={item.key} className={styles.tabContent}>
+						<MFlex>{item.content}</MFlex>
+					</TabPanel>
+				))}
+			</TabPanels>
+		</Tabs>
 	);
 };
 

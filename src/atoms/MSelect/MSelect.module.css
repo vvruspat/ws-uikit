@@ -1,9 +1,83 @@
-.selectButton {
-	justify-content: space-between;
-	cursor: pointer;
+.select {
+	width: 100%;
 }
 
-.dropdown {
+.regular {
+	color: inherit;
+}
+
+.selectButton {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--space-6);
+	width: 100%;
+	cursor: pointer;
+	border: 1px solid var(--color-input-border);
+	border-radius: var(--radius-4);
+	background: var(--color-input-bg);
+	color: var(--color-input-text);
+	padding: var(--space-4) var(--space-6);
+	font-family: var(--font-family-primary);
+	font-size: var(--font-size-lg);
+}
+
+.selectButton[data-focus-visible] {
+	outline: var(--space-1) solid var(--color-focus-ring);
+	outline-offset: var(--space-2);
+}
+
+.select[data-invalid],
+.select.invalid .selectButton {
+	border-color: var(--color-border-error);
+}
+
+.select.valid .selectButton {
+	border-color: var(--color-border-success);
+}
+
+.select[data-disabled] .selectButton {
+	cursor: not-allowed;
+	background: var(--color-input-bg-disabled);
+	color: var(--color-input-placeholder);
+}
+
+.selectValue {
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.popover {
 	max-height: 300px;
 	overflow-y: auto;
+	border-radius: var(--radius-4);
+	background: var(--color-surface);
+	box-shadow: var(--shadow-card);
+}
+
+.listBox {
+	padding: 0;
+	margin: 0;
+	outline: none;
+}
+
+.option {
+	display: flex;
+	align-items: center;
+	gap: var(--space-6);
+	cursor: pointer;
+	padding: var(--space-4) var(--space-6);
+	color: var(--color-text-primary);
+}
+
+.option[data-focused],
+.option[data-hovered] {
+	background: var(--color-action-subtle-hover);
+}
+
+.option[data-selected] {
+	background: var(--color-action-subtle-rest);
+	color: var(--color-action-subtle-foreground);
 }
