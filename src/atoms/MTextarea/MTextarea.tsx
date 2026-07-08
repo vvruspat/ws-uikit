@@ -73,7 +73,6 @@ export const MTextarea = ({
 		<MFlex
 			direction="column"
 			align="start"
-			gap="m"
 			className={clsx(styles.textareaWrapper, styles[status], wrapperClassName)}
 		>
 			{(label || caption) && (

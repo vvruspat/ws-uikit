@@ -1,6 +1,7 @@
 :root {
-	--drop-area-border-radius: var(--radius-12);
-	--drop-area-padding: var(--space-16);
+	/* Public override API: --fileinput-drop-*  |  Resolved-default: --drop-area-* */
+	--drop-area-border-radius: var(--fileinput-drop-radius, var(--radius-xl));
+	--drop-area-padding: var(--fileinput-drop-padding, var(--gap-4xl));
 }
 
 :root[data-theme="light"] {
