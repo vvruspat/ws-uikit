@@ -34,13 +34,17 @@ export const MFlex = <T extends React.ElementType = "div">({
 	return (
 		<Element
 			className={clsx(styles.flex, styles[`flex-gap-${gap}`], className)}
-			style={{
-				flexDirection: direction,
-				alignItems: align,
-				justifyContent: justify,
-				flexWrap: wrap,
-				...(style ?? {}),
-			}}
+			style={
+				{
+					// Props set PRIVATE defaults only (--_flex-*); the public seam
+					// (--flex-*) stays free for brand/zone/instance overrides via CSS.
+					"--_flex-direction": direction,
+					"--_flex-align": align,
+					"--_flex-justify": justify,
+					"--_flex-wrap": wrap,
+					...(style ?? {}),
+				} as React.CSSProperties
+			}
 			{...restProps}
 		>
 			{children}

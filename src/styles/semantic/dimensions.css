@@ -1,0 +1,26 @@
+/* src/styles/semantic/dimensions.css
+   Semantic dimension roles. Components reference THESE, never raw --space-N/--radius-N.
+   Each role falls through to the primitive scale, so a brand can retune a role
+   (e.g. --gap-control) in one place and every consumer follows.
+*/
+:root {
+  /* ── Gap scale (t-shirt) — consumed by layout primitives ──────────── */
+  --gap-none: 0;
+  --gap-xs:   var(--space-2);   /*  4px */
+  --gap-s:    var(--space-4);   /*  8px */
+  --gap-m:    var(--space-6);   /* 12px */
+  --gap-l:    var(--space-8);   /* 16px */
+  --gap-xl:   var(--space-10);  /* 20px */
+  --gap-2xl:  var(--space-12);  /* 24px */
+  --gap-3xl:  var(--space-14);  /* 28px */
+  --gap-4xl:  var(--space-16);  /* 32px */
+
+  /* ── Role-based dimensions — consumed by component tokens ─────────── */
+  --gap-control:       var(--space-4);   /* inner gap of controls (button, field) */
+  --padding-control-x: var(--space-8);
+  --padding-control-y: var(--space-4);
+
+  --radius-control: var(--radius-8);     /* buttons, inputs, checkboxes */
+  --radius-surface: var(--radius-12);    /* cards, popovers, sheets */
+  --radius-pill:    var(--radius-full);
+}
