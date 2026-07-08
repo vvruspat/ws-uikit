@@ -16,3 +16,52 @@ body {
 	background: var(--color-surface) !important;
 	color: var(--color-text-primary);
 }
+
+/* addon-docs' Title/Subtitle/Description/markdown headings are styled via
+   CSS-in-JS with a hardcoded (light-only) text color baked into a hashed
+   class we can't target directly — override by tag instead. Scoped to
+   block-level text so it doesn't touch syntax-highlighted code spans. */
+.sbdocs-wrapper h1,
+.sbdocs-wrapper h2,
+.sbdocs-wrapper h3,
+.sbdocs-wrapper h4,
+.sbdocs-wrapper h5,
+.sbdocs-wrapper h6,
+.sbdocs-wrapper p,
+.sbdocs-wrapper li,
+.sbdocs-wrapper dt,
+.sbdocs-wrapper dd,
+.sbdocs-wrapper td,
+.sbdocs-wrapper th {
+	color: var(--color-text-primary) !important;
+}
+
+/* Inline `code` chips (single backticks) carry the same hardcoded dark
+   text color. Excludes fenced code blocks (`pre code`), which already
+   have their own theme-aware syntax-highlighting token colors. */
+.sbdocs-wrapper code:not(pre code) {
+	color: var(--color-text-primary) !important;
+}
+
+/* Each embedded Canvas/Story block in Docs mode wraps the story in its own
+   hardcoded white card, independent of data-theme. The component inside
+   already themes itself correctly — only the surrounding card needs this. */
+.docs-story > div {
+	background: var(--color-surface) !important;
+}
+
+/* The Props/Controls table (ArgTypes) rows have a hardcoded white cell
+   background, which combined with our text-color override above becomes
+   unreadable (light text on white). */
+.sb-argstableBlock td,
+.sb-argstableBlock th {
+	background: var(--color-surface) !important;
+}
+
+/* Plain markdown tables (rendered via remark-gfm) get a hardcoded light
+   zebra-stripe on even rows — keep the stripe, just make it theme-aware.
+   Excludes the ArgTypes/Controls tables, which aren't striped by default. */
+.sbdocs-wrapper table:not(.sb-argstableBlock):not(.docblock-argstable)
+	tr:nth-child(even) {
+	background: var(--color-surface-raised) !important;
+}

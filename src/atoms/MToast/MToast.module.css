@@ -19,6 +19,14 @@
 		outline: none;
 	}
 
+	.item {
+		transition:
+			transform 0.2s ease,
+			opacity 0.2s ease,
+			margin-block-start 0.2s ease;
+		transform-origin: top center;
+	}
+
 	.toast {
 		--_min-width: var(--toast-min-width, 320px);
 		--_max-width: var(--toast-max-width, 400px);
@@ -26,34 +34,59 @@
 		max-width: var(--_max-width);
 		box-shadow: var(--shadow-card);
 		box-sizing: border-box;
-		transition:
-			transform 0.2s ease,
-			opacity 0.2s ease,
-			margin-block-end 0.2s ease;
-		transform-origin: bottom center;
 	}
 
 	/* ── Stacked (collapsed) deck ─────────────────────────────────────
-	   Newest toast is the last DOM child (rendered nearest the anchor
-	   corner) and stays the prominent front card. Older ones fan out
-	   behind it until the region gains hover/focus, then everything
-	   expands back into a normal spaced list. */
-	.region:not([data-hovered]):not([data-focused]) li:nth-last-child(2) .toast {
+	   react-stately's ToastQueue unshifts new toasts to the front of the
+	   queue, so the newest toast is always the FIRST DOM child — it's the
+	   prominent front card and needs the highest z-index (without it,
+	   older cards — later in DOM — paint over it whenever they overlap,
+	   making new toasts look like they render *behind* old ones). Older
+	   toasts fan out behind it until the region gains hover/focus, then
+	   everything expands back into a normal spaced list. */
+	.region .item:nth-child(1) {
+		z-index: 5;
+	}
+	.region .item:nth-child(2) {
+		z-index: 4;
+	}
+	.region .item:nth-child(3) {
+		z-index: 3;
+	}
+	.region .item:nth-child(4) {
+		z-index: 2;
+	}
+	.region .item:nth-child(n + 5) {
+		z-index: 1;
+	}
+
+	.region:not([data-hovered]):not([data-focused]) .item:nth-child(2) {
 		transform: scale(0.97);
 		opacity: 0.9;
-		margin-block-end: -52px;
+		margin-block-start: -52px;
 	}
 
-	.region:not([data-hovered]):not([data-focused]) li:nth-last-child(3) .toast {
+	.region:not([data-hovered]):not([data-focused]) .item:nth-child(3) {
 		transform: scale(0.94);
 		opacity: 0.75;
-		margin-block-end: -52px;
+		margin-block-start: -52px;
 	}
 
-	.region:not([data-hovered]):not([data-focused]) li:nth-last-child(n + 4) .toast {
+	.region:not([data-hovered]):not([data-focused]) .item:nth-child(n + 4) {
 		transform: scale(0.91);
 		opacity: 0.6;
-		margin-block-end: -52px;
+		margin-block-start: -52px;
+	}
+
+	/* ── Exit animation ────────────────────────────────────────────────
+	   MToastRegion keeps a closed toast mounted for one transition (see
+	   useAnimatedToastList) so this has something to animate instead of
+	   the toast just vanishing. Wins over the stacking rules above by
+	   appearing later in the cascade (equal specificity). */
+	.region .item.exiting {
+		transform: scale(0.9);
+		opacity: 0;
+		pointer-events: none;
 	}
 
 	.body {

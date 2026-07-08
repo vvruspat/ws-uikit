@@ -2,6 +2,7 @@
 import { createRequire } from "node:module";
 import { dirname, join } from "node:path";
 import type { StorybookConfig } from "@storybook/react-vite";
+import remarkGfm from "remark-gfm";
 
 const require = createRequire(import.meta.url);
 
@@ -14,7 +15,16 @@ const config: StorybookConfig = {
 		getAbsolutePath("@chromatic-com/storybook"),
 		getAbsolutePath("@storybook/addon-a11y"),
 		getAbsolutePath("@storybook/addon-themes"),
-		getAbsolutePath("@storybook/addon-docs"),
+		{
+			name: getAbsolutePath("@storybook/addon-docs"),
+			options: {
+				mdxPluginOptions: {
+					mdxCompileOptions: {
+						remarkPlugins: [remarkGfm],
+					},
+				},
+			},
+		},
 	],
 
 	framework: {
