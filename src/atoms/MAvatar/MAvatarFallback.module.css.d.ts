@@ -1,4 +1,5 @@
 declare const styles: {
-	readonly fallback: string;
+  readonly "fallback": string;
 };
 export = styles;
+

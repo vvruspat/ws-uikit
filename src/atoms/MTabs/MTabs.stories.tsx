@@ -1,6 +1,6 @@
+import { CodeBracketSquareIcon } from "@heroicons/react/24/outline";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { MIconBracketsSquare } from "../MIcon/icons/MIconBracketsSquare";
 import MTabs from "./MTabs";
 
 const meta: Meta<typeof MTabs> = {
@@ -10,7 +10,7 @@ const meta: Meta<typeof MTabs> = {
 
 export default meta;
 type Story = StoryObj<typeof MTabs>;
-const icon = () => <MIconBracketsSquare mode="regular" width={20} />;
+const icon = () => <CodeBracketSquareIcon width={20} />;
 export const Basic: Story = {
 	args: {
 		items: [

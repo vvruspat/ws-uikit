@@ -1,5 +1,5 @@
+import { UserIcon } from "@heroicons/react/24/solid";
 import { MFlex } from "../MFlex";
-import { MIconPerson } from "../MIcon";
 import styles from "./MAvatarFallback.module.css";
 
 type MAvatarFallbackProps = {
@@ -16,7 +16,7 @@ export const MAvatarFallback = ({ name }: MAvatarFallbackProps) => {
 
 	return (
 		<MFlex align="center" justify="center" className={styles.fallback}>
-			{initials || <MIconPerson mode="fill" />}
+			{initials || <UserIcon width={32} />}
 		</MFlex>
 	);
 };

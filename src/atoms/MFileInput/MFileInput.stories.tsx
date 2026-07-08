@@ -1,6 +1,6 @@
+import { CodeBracketSquareIcon } from "@heroicons/react/24/outline";
 import type { StoryObj } from "@storybook/react-vite";
 
-import { MIconBracketsSquare } from "../MIcon/icons/MIconBracketsSquare";
 import MFileInput from "./MFileInput";
 
 const argTypes = {
@@ -34,8 +34,8 @@ const meta = {
 		accept: "image/png, image/jpeg",
 		multiple: true,
 		children: "BUTTON",
-		before: <MIconBracketsSquare mode="regular" width={24} />,
-		after: <MIconBracketsSquare mode="regular" width={24} />,
+		before: <CodeBracketSquareIcon width={24} />,
+		after: <CodeBracketSquareIcon width={24} />,
 	},
 	// Custom render to map flat props to fileInputProps
 	render: ({ accept, multiple, ...rest }) => (

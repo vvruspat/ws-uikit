@@ -1,5 +1,6 @@
 "use client";
 
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
 import type { Key, ReactNode } from "react";
 import {
@@ -12,7 +13,6 @@ import {
 	type SelectProps,
 } from "react-aria-components";
 import type { BasicInputProps } from "../../types/BasicInputProps";
-import { MIconCaretDown } from "../MIcon/icons/MIconCaretDown";
 import type { ListItemProps } from "../MListItem/MListItem";
 import styles from "./MSelect.module.css";
 
@@ -88,7 +88,7 @@ export const MSelect = ({
 						isPlaceholder ? selectProps.placeholder : selectedItem?.value ?? selectedText
 					}
 				</SelectValue>
-				<MIconCaretDown mode="regular" width={20} />
+				<ChevronDownIcon width={20} />
 			</Button>
 			<Popover className={styles.popover}>
 				<ListBox className={styles.listBox}>

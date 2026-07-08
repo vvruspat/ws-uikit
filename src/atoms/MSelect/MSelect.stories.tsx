@@ -1,8 +1,7 @@
+import { ArrowRightIcon, CodeBracketSquareIcon } from "@heroicons/react/24/outline";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import MFlex from "../MFlex/MFlex";
-import { MIconArrowFatLinesRight } from "../MIcon/icons/MIconArrowFatLinesRight";
-import { MIconBracketsSquare } from "../MIcon/icons/MIconBracketsSquare";
 import MText from "../MText/MText";
 import MSelect from "./MSelect";
 
@@ -13,19 +12,19 @@ const meta: Meta<typeof MSelect> = {
 
 const item = () => (
 	<MFlex gap="s">
-		<MIconBracketsSquare mode="regular" width={20} />
+		<CodeBracketSquareIcon width={20} />
 		<MText size={"m"}>List Item</MText>
 	</MFlex>
 );
 const item1 = () => (
 	<MFlex gap="s">
-		<MIconArrowFatLinesRight mode="regular" width={20} />
+		<ArrowRightIcon width={20} />
 		<MText size={"m"}>List Item1</MText>
 	</MFlex>
 );
 const item2 = () => (
 	<MFlex gap="s">
-		<MIconArrowFatLinesRight mode="regular" width={20} />
+		<ArrowRightIcon width={20} />
 		<MText size={"m"}>List Item2</MText>
 	</MFlex>
 );

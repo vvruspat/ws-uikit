@@ -1,4 +1,5 @@
 declare const styles: {
-	readonly datetime: string;
+  readonly "datetime": string;
 };
 export = styles;
+

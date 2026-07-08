@@ -11,7 +11,7 @@ import {
 	RangeCalendarStateContext,
 } from "react-aria-components";
 import { MFlex } from "../MFlex";
-import { MIconCaretLeft, MIconCaretRight } from "../MIcon";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 import { MCalendarMonthYearControls } from "./MCalendarMonthYearControls";
 import styles from "./MCalendar.module.css";
 
@@ -73,7 +73,7 @@ const MCalendarHeader = ({ minDate, maxDate }: MCalendarHeaderProps) => {
 			className={styles.calendarHeader}
 		>
 			<Button slot="previous" className={styles.calendarNavButton}>
-				<MIconCaretLeft mode="regular" width={20} />
+				<ChevronLeftIcon width={20} />
 			</Button>
 			<MCalendarMonthYearControls
 				state={state}
@@ -82,7 +82,7 @@ const MCalendarHeader = ({ minDate, maxDate }: MCalendarHeaderProps) => {
 				classNames={monthYearClassNames}
 			/>
 			<Button slot="next" className={styles.calendarNavButton}>
-				<MIconCaretRight mode="regular" width={20} />
+				<ChevronRightIcon width={20} />
 			</Button>
 		</MFlex>
 	);
@@ -103,7 +103,7 @@ const MRangeCalendarHeader = ({ minDate, maxDate }: MCalendarHeaderProps) => {
 			className={styles.calendarHeader}
 		>
 			<Button slot="previous" className={styles.calendarNavButton}>
-				<MIconCaretLeft mode="regular" width={20} />
+				<ChevronLeftIcon width={20} />
 			</Button>
 			<MCalendarMonthYearControls
 				state={state}
@@ -112,7 +112,7 @@ const MRangeCalendarHeader = ({ minDate, maxDate }: MCalendarHeaderProps) => {
 				classNames={monthYearClassNames}
 			/>
 			<Button slot="next" className={styles.calendarNavButton}>
-				<MIconCaretRight mode="regular" width={20} />
+				<ChevronRightIcon width={20} />
 			</Button>
 		</MFlex>
 	);

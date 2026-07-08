@@ -1,6 +1,6 @@
+import { CodeBracketSquareIcon } from "@heroicons/react/24/outline";
 import type { ArgTypes, Meta, StoryObj } from "@storybook/react-vite";
 
-import { MIconBracketsSquare } from "../MIcon/icons/MIconBracketsSquare";
 import MInput from "./MInput";
 
 const meta: Meta<typeof MInput> = {
@@ -30,7 +30,7 @@ const argTypes: ArgTypes<typeof MInput> = {
 	description: { control: { type: "text" } },
 };
 
-const icon = <MIconBracketsSquare mode="regular" width={24} />;
+const icon = <CodeBracketSquareIcon width={24} />;
 
 export const AllStatuses: Story = {
 	name: "All Statuses",
@@ -49,8 +49,8 @@ export const Regular: Story = {
 	args: {
 		status: "regular",
 		disabled: false,
-		before: <MIconBracketsSquare mode="regular" width={24} />,
-		after: <MIconBracketsSquare mode="regular" width={24} />,
+		before: <CodeBracketSquareIcon width={24} />,
+		after: <CodeBracketSquareIcon width={24} />,
 		placeholder: "Placeholder",
 	},
 	argTypes: argTypes,
@@ -60,8 +60,8 @@ export const Valid: Story = {
 	args: {
 		status: "valid",
 		disabled: false,
-		before: <MIconBracketsSquare mode="regular" width={24} />,
-		after: <MIconBracketsSquare mode="regular" width={24} />,
+		before: <CodeBracketSquareIcon width={24} />,
+		after: <CodeBracketSquareIcon width={24} />,
 		placeholder: "Placeholder",
 	},
 	argTypes: argTypes,
@@ -71,8 +71,8 @@ export const Invalid: Story = {
 	args: {
 		status: "invalid",
 		disabled: false,
-		before: <MIconBracketsSquare mode="regular" width={24} />,
-		after: <MIconBracketsSquare mode="regular" width={24} />,
+		before: <CodeBracketSquareIcon width={24} />,
+		after: <CodeBracketSquareIcon width={24} />,
 		placeholder: "Placeholder",
 	},
 	argTypes: argTypes,
@@ -82,8 +82,8 @@ export const Disabled: Story = {
 	args: {
 		status: "regular",
 		disabled: true,
-		before: <MIconBracketsSquare mode="regular" width={24} />,
-		after: <MIconBracketsSquare mode="regular" width={24} />,
+		before: <CodeBracketSquareIcon width={24} />,
+		after: <CodeBracketSquareIcon width={24} />,
 		placeholder: "Placeholder",
 	},
 	argTypes: argTypes,

@@ -1,6 +1,6 @@
+import { CodeBracketSquareIcon } from "@heroicons/react/24/outline";
 import type { ArgTypes, Meta, StoryObj } from "@storybook/react-vite";
 
-import { MIconBracketsSquare } from "../MIcon/icons/MIconBracketsSquare";
 import MTimepicker from "./MTimepicker";
 
 const meta: Meta<typeof MTimepicker> = {
@@ -39,7 +39,7 @@ export const Regular: Story = {
 		type: "time",
 		status: "regular",
 		disabled: false,
-		before: <MIconBracketsSquare mode="regular" width={24} />,
+		before: <CodeBracketSquareIcon width={24} />,
 		placeholder: "Choose wakeup time",
 	},
 
@@ -51,7 +51,7 @@ export const Valid: Story = {
 		type: "time",
 		status: "valid",
 		disabled: false,
-		before: <MIconBracketsSquare mode="regular" width={24} />,
+		before: <CodeBracketSquareIcon width={24} />,
 		placeholder: "Choose wakeup time",
 	},
 
@@ -63,7 +63,7 @@ export const Invalid: Story = {
 		type: "time",
 		status: "invalid",
 		disabled: false,
-		before: <MIconBracketsSquare mode="regular" width={24} />,
+		before: <CodeBracketSquareIcon width={24} />,
 		placeholder: "Choose wakeup time",
 	},
 
@@ -75,7 +75,7 @@ export const Disabled: Story = {
 		type: "time",
 		status: "regular",
 		disabled: true,
-		before: <MIconBracketsSquare mode="regular" width={24} />,
+		before: <CodeBracketSquareIcon width={24} />,
 		placeholder: "Choose wakeup time",
 	},
 

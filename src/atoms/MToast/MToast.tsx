@@ -1,3 +1,10 @@
+import {
+	CheckCircleIcon,
+	ExclamationCircleIcon,
+	InformationCircleIcon,
+	XCircleIcon,
+	XMarkIcon,
+} from "@heroicons/react/24/outline";
 import clsx from "clsx";
 import type { ComponentProps } from "react";
 import {
@@ -11,11 +18,6 @@ import {
 } from "react-aria-components";
 import alertStyles from "../MAlert/MAlert.module.css";
 import { MFlex } from "../MFlex";
-import { MIconCheckCircle } from "../MIcon/icons/MIconCheckCircle";
-import { MIconInfo } from "../MIcon/icons/MIconInfo";
-import { MIconWarningCircle } from "../MIcon/icons/MIconWarningCircle";
-import { MIconX } from "../MIcon/icons/MIconX";
-import { MIconXCircle } from "../MIcon/icons/MIconXCircle";
 import textStyles from "../MText/MText.module.css";
 import styles from "./MToast.module.css";
 
@@ -28,11 +30,11 @@ export type MToastContent = {
 };
 
 const modeIcon = {
-	info: MIconInfo,
-	success: MIconCheckCircle,
-	warning: MIconWarningCircle,
-	error: MIconXCircle,
-} satisfies Record<MToastMode, typeof MIconInfo>;
+	info: InformationCircleIcon,
+	success: CheckCircleIcon,
+	warning: ExclamationCircleIcon,
+	error: XCircleIcon,
+} satisfies Record<MToastMode, typeof InformationCircleIcon>;
 
 /** Default timeout (ms) before a toast auto-dismisses. Errors stay until closed. */
 const AUTO_DISMISS_MS = 5000;
@@ -70,10 +72,10 @@ const MToastItem = ({ toast }: { toast: QueuedToast<MToastContent> }) => {
 				styles.toast,
 			)}
 		>
-			<MFlex gap="s" align="start" wrap="nowrap" className={styles.body}>
-				<Icon mode="fill" width={20} className={styles.icon} />
-				<AriaToastContent className={styles.content}>
-					<MFlex direction="column" gap="xs" align="start">
+			<MFlex direction="column" gap="xs" align="stretch" wrap="nowrap" className={styles.body}>
+				<MFlex gap="s" align="center" wrap="nowrap" className={styles.headerRow}>
+					<Icon width={18} className={styles.icon} />
+					<AriaToastContent className={styles.content}>
 						<AriaText
 							slot="title"
 							className={clsx(
@@ -84,26 +86,27 @@ const MToastItem = ({ toast }: { toast: QueuedToast<MToastContent> }) => {
 						>
 							{toast.content.title}
 						</AriaText>
-						{toast.content.description && (
-							<AriaText
-								slot="description"
-								className={clsx(
-									textStyles["size-s"],
-									textStyles["mode-inherit"],
-								)}
-							>
-								{toast.content.description}
-							</AriaText>
+					</AriaToastContent>
+					<AriaButton
+						slot="close"
+						className={styles.dismiss}
+						aria-label="Dismiss notification"
+					>
+						<XMarkIcon width={14} />
+					</AriaButton>
+				</MFlex>
+				{toast.content.description && (
+					<AriaText
+						slot="description"
+						className={clsx(
+							textStyles["size-s"],
+							textStyles["mode-inherit"],
+							styles.description,
 						)}
-					</MFlex>
-				</AriaToastContent>
-				<AriaButton
-					slot="close"
-					className={styles.dismiss}
-					aria-label="Dismiss notification"
-				>
-					<MIconX mode="regular" width={14} />
-				</AriaButton>
+					>
+						{toast.content.description}
+					</AriaText>
+				)}
 			</MFlex>
 		</AriaToast>
 	);

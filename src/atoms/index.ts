@@ -19,7 +19,6 @@ export { MFlex } from "./MFlex";
 export { MFormField } from "./MFormField";
 export { MGrid } from "./MGrid";
 export { MHeading } from "./MHeading";
-export * from "./MIcon";
 export { MInput } from "./MInput";
 export { MLabel } from "./MLabel";
 export type { SelectOption } from "./MList";

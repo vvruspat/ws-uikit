@@ -1,8 +1,8 @@
+import { BookmarkIcon } from "@heroicons/react/24/outline";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import MButton from "../MButton/MButton";
 import MFlex from "../MFlex/MFlex";
-import { MIconBookmarkSimple } from "../MIcon/icons/MIconBookmarkSimple";
 import MGallery from "./MGallery";
 
 const meta: Meta<typeof MGallery> = {
@@ -32,7 +32,7 @@ export const Basic: Story = {
 			<MButton key="6">Click me</MButton>,
 		],
 		header: ["Foo ", "Bar ", "Baz "],
-		tools: [<MIconBookmarkSimple mode="regular" width={24} key="1" />],
+		tools: [<BookmarkIcon width={24} key="1" />],
 		footer: [footer],
 	},
 	argTypes: {},

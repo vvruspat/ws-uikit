@@ -26,9 +26,41 @@
 		max-width: var(--_max-width);
 		box-shadow: var(--shadow-card);
 		box-sizing: border-box;
+		transition:
+			transform 0.2s ease,
+			opacity 0.2s ease,
+			margin-block-end 0.2s ease;
+		transform-origin: bottom center;
+	}
+
+	/* ── Stacked (collapsed) deck ─────────────────────────────────────
+	   Newest toast is the last DOM child (rendered nearest the anchor
+	   corner) and stays the prominent front card. Older ones fan out
+	   behind it until the region gains hover/focus, then everything
+	   expands back into a normal spaced list. */
+	.region:not([data-hovered]):not([data-focused]) li:nth-last-child(2) .toast {
+		transform: scale(0.97);
+		opacity: 0.9;
+		margin-block-end: -52px;
+	}
+
+	.region:not([data-hovered]):not([data-focused]) li:nth-last-child(3) .toast {
+		transform: scale(0.94);
+		opacity: 0.75;
+		margin-block-end: -52px;
+	}
+
+	.region:not([data-hovered]):not([data-focused]) li:nth-last-child(n + 4) .toast {
+		transform: scale(0.91);
+		opacity: 0.6;
+		margin-block-end: -52px;
 	}
 
 	.body {
+		width: 100%;
+	}
+
+	.headerRow {
 		width: 100%;
 	}
 
@@ -45,13 +77,18 @@
 		font-weight: 600;
 	}
 
+	.description {
+		/* indent under the title, not under the icon */
+		padding-inline-start: calc(18px + var(--gap-s));
+	}
+
 	.dismiss {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		flex-shrink: 0;
-		width: var(--size-control-l);
-		height: var(--size-control-l);
+		width: var(--size-control-s);
+		height: var(--size-control-s);
 		padding: var(--padding-icon-s);
 		border: none;
 		border-radius: var(--radius-control-sm);

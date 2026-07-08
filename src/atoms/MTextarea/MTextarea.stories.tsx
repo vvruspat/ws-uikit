@@ -1,7 +1,7 @@
+import { CameraIcon } from "@heroicons/react/24/outline";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import MFlex from "../MFlex/MFlex";
-import { MIconCamera } from "../MIcon/icons/MIconCamera";
 import MTextarea from "./MTextarea";
 
 const meta: Meta<typeof MTextarea> = {
@@ -15,7 +15,7 @@ type Story = StoryObj<typeof MTextarea>;
 
 const textareaDesc = () => (
 	<MFlex>
-		<MIconCamera mode="regular" width={20} /> Assistive text
+		<CameraIcon width={20} /> Assistive text
 	</MFlex>
 );
 

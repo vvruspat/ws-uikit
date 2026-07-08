@@ -1,3 +1,4 @@
+import { TrashIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
 
 import { extension } from "mime-types";
@@ -12,7 +13,6 @@ import {
 import { MButton } from "../../MButton";
 import { MCard } from "../../MCard";
 import { MFlex } from "../../MFlex";
-import { MIconTrashSimple, MIconX } from "../../MIcon";
 import { MList } from "../../MList";
 import { MText } from "../../MText";
 
@@ -111,7 +111,7 @@ export const MFileInputModal = ({
 									onClick={() => onClose?.()}
 									aria-label="Close file upload"
 								>
-									<MIconX mode="regular" />
+									<XMarkIcon width={16} />
 								</MButton>
 							</MFlex>
 						}
@@ -184,7 +184,7 @@ export const MFileInputModal = ({
 											aria-label={`Remove ${file.name}`}
 											onClick={() => onFileRemoved(file.name)}
 										>
-											<MIconTrashSimple mode="regular" />
+											<TrashIcon width={16} />
 										</MButton>
 									</MFlex>
 								),

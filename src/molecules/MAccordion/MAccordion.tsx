@@ -1,5 +1,6 @@
 "use client";
 
+import { ChevronDownIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
 import { type ReactNode, useMemo } from "react";
 import {
@@ -12,8 +13,6 @@ import {
 } from "react-aria-components";
 import MCard from "../../atoms/MCard/MCard";
 import MFlex from "../../atoms/MFlex/MFlex";
-import { MIconCaretDown } from "../../atoms/MIcon/icons/MIconCaretDown";
-import { MIconCaretRight } from "../../atoms/MIcon/icons/MIconCaretRight";
 import style from "./MAccordion.module.css";
 
 export type AccordionItemProps = {
@@ -68,8 +67,8 @@ export const MAccordion = ({
 		() => getInitialExpandedKeys(items, allowsMultipleExpanded),
 		[allowsMultipleExpanded, items],
 	);
-	const openIcon = iconOpen ?? <MIconCaretDown mode="regular" width={20} />;
-	const closedIcon = iconClosed ?? <MIconCaretRight mode="regular" width={20} />;
+	const openIcon = iconOpen ?? <ChevronDownIcon width={20} />;
+	const closedIcon = iconClosed ?? <ChevronRightIcon width={20} />;
 	const resolvedDefaultExpandedKeys =
 		expandedKeys === undefined ? defaultExpandedKeys ?? initialExpandedKeys : undefined;
 
