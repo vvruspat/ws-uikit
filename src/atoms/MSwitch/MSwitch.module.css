@@ -1,91 +1,106 @@
-.switchWrapper {
-	width: 100%;
-}
+@layer components {
+	/* ── Token contract ───────────────────────────────────────────────
+	   Public override API: --switch-*  |  Private (read by body): --_*
+	   Defaults fall through to semantic dimension roles — never raw
+	   --space-N/--radius-N/--size-N. Per-shape radius default is
+	   (re)declared on the .round / .rectangular border-type classes. */
+	.switchWrapper {
+		width: 100%;
+	}
 
-.switch {
-	display: inline-flex;
-	align-items: center;
-	cursor: pointer;
-}
+	.switch {
+		display: inline-flex;
+		align-items: center;
+		cursor: pointer;
+	}
 
-.switch[data-disabled] {
-	cursor: not-allowed;
-}
+	.switch[data-disabled] {
+		cursor: not-allowed;
+	}
 
-.switch[data-focus-visible] .slider {
-	outline: var(--space-1) solid var(--color-focus-ring);
-	outline-offset: var(--space-2);
-}
+	.switch[data-focus-visible] .slider {
+		outline: var(--focus-ring-width) solid var(--color-focus-ring);
+		outline-offset: var(--focus-ring-offset);
+	}
 
-.slider {
-	position: relative;
-	display: inline-flex;
-	width: var(--size-24);
-	height: var(--space-12);
-	background-color: var(--color-control-track);
-	cursor: inherit;
-}
+	.slider {
+		--_width: var(--switch-width, var(--size-control-l));
+		--_height: var(--switch-height, var(--gap-2xl));
+		--_thumb-size: var(--switch-thumb-size, var(--gap-xl));
+		--_thumb-inset: var(--switch-thumb-inset, var(--gap-3xs));
+		position: relative;
+		display: inline-flex;
+		width: var(--_width);
+		height: var(--_height);
+		background-color: var(--color-control-track);
+		cursor: inherit;
+	}
 
-.switch[data-disabled] .slider {
-	background-color: var(--color-action-disabled);
-}
+	.switch[data-disabled] .slider {
+		background-color: var(--color-action-disabled);
+	}
 
-.rectangular {
-	border-radius: var(--radius-4);
-}
+	.rectangular {
+		--_radius: var(--switch-radius, var(--radius-sm));
+		border-radius: var(--_radius);
+	}
 
-.round {
-	border-radius: var(--radius-24);
-}
+	.round {
+		--_radius: var(--switch-radius, var(--radius-3xl));
+		border-radius: var(--_radius);
+	}
 
-.control {
-	position: absolute;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	height: var(--space-10);
-	width: var(--space-10);
-	bottom: var(--space-1);
-	background-color: var(--color-control-thumb);
-	transition: transform ease-in 0.3s;
-	border-radius: 50%;
-	transform: translateX(var(--space-1));
-}
+	.control {
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: var(--_thumb-size);
+		width: var(--_thumb-size);
+		bottom: var(--_thumb-inset);
+		background-color: var(--color-control-thumb);
+		transition: transform ease-in 0.3s;
+		border-radius: 50%;
+		transform: translateX(var(--_thumb-inset));
+	}
 
-.switch[data-disabled] .control {
-	background-color: var(--color-surface-overlay);
-}
+	.switch[data-disabled] .control {
+		background-color: var(--color-surface-overlay);
+	}
 
-.slider.rectangular .control {
-	border-radius: var(--radius-4);
-}
+	.slider.rectangular .control {
+		border-radius: var(--_radius);
+	}
 
-.customSwitchIconLeft,
-.customSwitchIconRight {
-	transition: opacity ease-in 0.3s;
-}
+	.customSwitchIconLeft,
+	.customSwitchIconRight {
+		transition: opacity ease-in 0.3s;
+	}
 
-.switch[data-selected] .slider {
-	background-color: var(--color-control-checked);
-}
+	.switch[data-selected] .slider {
+		background-color: var(--color-control-checked);
+	}
 
-.customSwitchIconLeft {
-	opacity: 0;
-}
+	.customSwitchIconLeft {
+		opacity: 0;
+	}
 
-.customSwitchIconRight {
-	opacity: 1;
-}
+	.customSwitchIconRight {
+		opacity: 1;
+	}
 
-.switch[data-selected] .customSwitchIconLeft {
-	opacity: 1;
-}
+	.switch[data-selected] .customSwitchIconLeft {
+		opacity: 1;
+	}
 
-.switch[data-selected] .customSwitchIconRight {
-	opacity: 0;
-}
+	.switch[data-selected] .customSwitchIconRight {
+		opacity: 0;
+	}
 
-.switch[data-selected] .control {
-	transform: translateX(calc(var(--size-24) - var(--space-10) - var(--space-1)));
+	.switch[data-selected] .control {
+		transform: translateX(
+			calc(var(--_width) - var(--_thumb-size) - var(--_thumb-inset))
+		);
+	}
 }

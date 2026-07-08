@@ -48,6 +48,35 @@ All statuses at a glance.
 
 ---
 
+## Customization
+
+MRadio is styled with CSS variables. See **Guides/Theming & Customization** for the
+override mechanism (global / zonal / instance). Below is the component's public token API.
+
+**Geometry — component tokens** (override per-component; default falls to a semantic role):
+
+| Token | Controls | Default |
+|-------|----------|---------|
+| `--radio-size` | Control width/height | `--gap-xl` |
+| `--radio-dot-size` | Checked indicator (dot) width/height | `--gap-s` |
+| `--radio-radius` | Control & dot corner radius (circular) | `50%` |
+
+**Colors & focus** have no per-radio token by design — they bind to shared semantic
+roles so the radio stays in lock-step with the rest of the system.
+
+| Status | Semantic role | → primitive (default) |
+|--------|---------------|-----------------------|
+| regular · border | `--color-control-outline` / `-hover` | `--palette-base-600` / `-700` |
+| active/checked | `--color-control-checked` / `-hover` | `--palette-primary-600` / `-500` |
+| checked · dot | `--color-control-thumb` | `--palette-base-0` |
+| invalid | `--color-border-error` | `--palette-error-600` |
+| disabled | `--color-text-disabled` | `--palette-base-300` |
+| focus | `--color-focus-ring` | `--palette-primary-700` |
+
+Focus geometry is the shared `--focus-ring-width` / `--focus-ring-offset`.
+
+> Recoloring for a whole brand is a global concern — see **Guides/Theming & Customization**.
+
 ## Props
 
 <Controls />

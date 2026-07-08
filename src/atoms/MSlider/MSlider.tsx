@@ -84,7 +84,6 @@ export const MSlider = forwardRef<HTMLInputElement, SliderProps>(
 			<MFlex
 				direction="column"
 				align="stretch"
-				gap="xs"
 				className={clsx(
 					styles.sliderWrapper,
 					styles[status],
@@ -96,7 +95,6 @@ export const MSlider = forwardRef<HTMLInputElement, SliderProps>(
 					<MFlex
 						justify="space-between"
 						align="center"
-						gap="m"
 						className={styles.sliderHeader}
 					>
 						{label && <MLabel htmlFor={fieldId}>{label}</MLabel>}
