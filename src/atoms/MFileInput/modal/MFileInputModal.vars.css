@@ -1,10 +1,11 @@
 :root {
-	--drop-area-border-radius: var(--radius-12);
-	--drop-area-padding: var(--space-16);
+	/* Public override API: --fileinput-drop-*  |  Resolved-default: --drop-area-* */
+	--drop-area-border-radius: var(--fileinput-drop-radius, var(--radius-xl));
+	--drop-area-padding: var(--fileinput-drop-padding, var(--gap-4xl));
 }
 
 :root[data-theme="light"] {
-	--modal-overlay-background-color: rgba(0, 0, 0, 0.5);
+	--modal-overlay-background-color: var(--palette-alpha-black-50);
 
 	--drop-area-border-color: var(--palette-primary-400);
 	--drop-area-over-border-color: var(--palette-primary-500);
@@ -14,7 +15,7 @@
 }
 
 :root[data-theme="dark"] {
-	--modal-overlay-background-color: rgba(255, 255, 255, 0.3);
+	--modal-overlay-background-color: var(--palette-alpha-white-30);
 
 	--drop-area-border-color: var(--palette-primary-50);
 	--drop-area-over-border-color: var(--palette-primary-100);

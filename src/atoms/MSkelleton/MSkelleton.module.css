@@ -1,61 +1,72 @@
-.skelleton {
-	width: 100%;
-	height: 100%;
-	background: linear-gradient(
-		270deg,
-		var(--color-surface-sunken) 0%,
-		var(--color-surface-overlay) 50%,
-		var(--color-surface-sunken) 100%
-	);
-	background-size: 200% 200%;
-	animation: skelleton-animation 2s linear infinite;
-	border-radius: var(--radius-8);
-}
-
-@keyframes skelleton-animation {
-	0% {
-		background-position: 100% 50%;
+@layer components {
+	.skelleton {
+		--_radius: var(--skelleton-radius, var(--radius-md));
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(
+			270deg,
+			var(--color-surface-sunken) 0%,
+			var(--color-surface-overlay) 50%,
+			var(--color-surface-sunken) 100%
+		);
+		background-size: 200% 200%;
+		animation: skelleton-animation 2s linear infinite;
+		border-radius: var(--_radius);
 	}
-	50% {
-		background-position: 0 50%;
+
+	@keyframes skelleton-animation {
+		0% {
+			background-position: 100% 50%;
+		}
+		50% {
+			background-position: 0 50%;
+		}
+		100% {
+			background-position: 100% 50%;
+		}
 	}
-	100% {
-		background-position: 100% 50%;
+
+	.size-xs {
+		--_min-size: var(--skelleton-min-size, calc(4 * var(--gap-xs)));
+		min-width: var(--_min-size);
 	}
-}
 
-.size-xs {
-	min-width: calc(4 * var(--space-2));
-}
+	.size-s {
+		--_min-size: var(--skelleton-min-size, calc(4 * var(--gap-s)));
+		min-width: var(--_min-size);
+	}
 
-.size-s {
-	min-width: calc(4 * var(--space-4));
-}
+	.size-m {
+		--_min-size: var(--skelleton-min-size, calc(4 * var(--gap-m)));
+		min-width: var(--_min-size);
+	}
 
-.size-m {
-	min-width: calc(4 * var(--space-6));
-}
+	.size-l {
+		--_min-size: var(--skelleton-min-size, calc(4 * var(--gap-l)));
+		min-width: var(--_min-size);
+	}
 
-.size-l {
-	min-width: calc(4 * var(--space-8));
-}
+	.size-xl {
+		--_min-size: var(--skelleton-min-size, calc(4 * var(--gap-xl)));
+		min-width: var(--_min-size);
+	}
 
-.size-xl {
-	min-width: calc(4 * var(--space-10));
-}
+	.size-2xl {
+		--_min-size: var(--skelleton-min-size, calc(4 * var(--gap-2xl)));
+		min-width: var(--_min-size);
+	}
 
-.size-2xl {
-	min-width: calc(4 * var(--space-12));
-}
+	.size-3xl {
+		--_min-size: var(--skelleton-min-size, calc(4 * var(--gap-3xl)));
+		min-width: var(--_min-size);
+	}
 
-.size-3xl {
-	min-width: calc(4 * var(--space-14));
-}
+	.size-4xl {
+		--_min-size: var(--skelleton-min-size, calc(4 * var(--gap-4xl)));
+		min-width: var(--_min-size);
+	}
 
-.size-4xl {
-	min-width: calc(4 * var(--space-16));
-}
-
-.size-inherit {
-	min-width: 100%;
+	.size-inherit {
+		min-width: 100%;
+	}
 }

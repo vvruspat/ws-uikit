@@ -1,69 +1,83 @@
-/* List item */
-.item {
-	padding: var(--space-4) var(--space-8);
-	list-style-type: none;
-	font-weight: normal;
-	font-style: normal;
-}
+@layer components {
+	/* ── Token contract ───────────────────────────────────────────────
+	   Public override API: --list-item-*  |  Private (read by body): --_*
+	   Defaults fall through to semantic dimension roles — never raw
+	   --space-N/--radius-N/--size-N. */
 
-.itemButton {
-	width: 100%;
-	border: 0;
-	background: transparent;
-	color: inherit;
-	cursor: pointer;
-	font: inherit;
-	padding: 0;
-	text-align: inherit;
-}
+	/* List item */
+	.item {
+		--_py: var(--list-item-padding-y, var(--gap-s));
+		--_px: var(--list-item-padding-x, var(--gap-l));
+		padding: var(--_py) var(--_px);
+		list-style-type: none;
+		font-weight: normal;
+		font-style: normal;
+	}
 
-.itemButton:focus-visible {
-	outline: var(--space-1) solid var(--color-focus-ring);
-	outline-offset: var(--space-2);
-}
+	/* internal MFlex composition — public seam, not a literal gap prop */
+	.itemContent {
+		--flex-gap: var(--list-item-gap, var(--gap-m));
+	}
 
-.item.noPadding {
-	padding: 0;
-}
+	.itemButton {
+		width: 100%;
+		border: 0;
+		background: transparent;
+		color: inherit;
+		cursor: pointer;
+		font: inherit;
+		padding: 0;
+		text-align: inherit;
+	}
 
-.item.noPadding:first-child:hover {
-	border-top-left-radius: var(--radius-4);
-	border-top-right-radius: var(--radius-4);
-}
+	.itemButton:focus-visible {
+		outline: var(--focus-ring-width) solid var(--color-focus-ring);
+		outline-offset: var(--focus-ring-offset);
+	}
 
-.item.noPadding:last-child:hover {
-	border-bottom-left-radius: var(--radius-4);
-	border-bottom-right-radius: var(--radius-4);
-}
+	.item.noPadding {
+		padding: 0;
+	}
 
-.item.noPadding:only-child:hover {
-	border-radius: var(--radius-4);
-}
+	.item.noPadding:first-child:hover {
+		border-top-left-radius: var(--radius-sm);
+		border-top-right-radius: var(--radius-sm);
+	}
 
-.itemBorder {
-	border-bottom: 1px solid var(--color-border-default);
-}
+	.item.noPadding:last-child:hover {
+		border-bottom-left-radius: var(--radius-sm);
+		border-bottom-right-radius: var(--radius-sm);
+	}
 
-.itemBorder:last-of-type {
-	border-bottom: none;
-}
+	.item.noPadding:only-child:hover {
+		border-radius: var(--radius-sm);
+	}
 
-/*hover*/
-.item:hover,
-.item:has(.itemButton:focus-visible),
-.item[data-focused],
-.item[data-hovered] {
-	background: var(--color-surface-overlay);
-}
+	.itemBorder {
+		border-bottom: 1px solid var(--color-border-default);
+	}
 
-.item[data-focus-visible] {
-	outline: var(--space-1) solid var(--color-focus-ring);
-	outline-offset: var(--space-2);
-}
+	.itemBorder:last-of-type {
+		border-bottom: none;
+	}
 
-/*active*/
-.item:active,
-.item:has(.itemButton:active),
-.item[data-pressed] {
-	background: var(--color-surface-sunken);
+	/*hover*/
+	.item:hover,
+	.item:has(.itemButton:focus-visible),
+	.item[data-focused],
+	.item[data-hovered] {
+		background: var(--color-surface-overlay);
+	}
+
+	.item[data-focus-visible] {
+		outline: var(--focus-ring-width) solid var(--color-focus-ring);
+		outline-offset: var(--focus-ring-offset);
+	}
+
+	/*active*/
+	.item:active,
+	.item:has(.itemButton:active),
+	.item[data-pressed] {
+		background: var(--color-surface-sunken);
+	}
 }

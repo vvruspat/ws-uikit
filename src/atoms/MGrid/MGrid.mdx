@@ -20,4 +20,25 @@ Grid has the following properties:
 
 <Canvas of={GridStories.Basic} />
 
+---
+
+## Customization
+
+MGrid is styled with CSS variables. See **Guides/Theming & Customization** for the
+override mechanism (global / zonal / instance). Below is the component's public token API.
+
+**Geometry — component tokens** (override per-component; default falls to a semantic role):
+
+| Token | Controls | Default |
+|-------|----------|---------|
+| `--grid-row-gap` | Row gap | `--gap-s` (`rowGap` prop sets a `--_grid-row-gap` t-shirt default) |
+| `--grid-col-gap` | Column gap | `--gap-m` (`columnGap` prop sets a `--_grid-col-gap` t-shirt default) |
+| `--grid-display` | `display` | `grid` |
+| `--grid-row-template` | `grid-template-rows` | `none` |
+| `--grid-column-template` | `grid-template-columns` | `max-content max-content` |
+| `--grid-align-items` | `align-items` | `stretch` |
+| `--grid-justify-items` | `justify-items` | `stretch` |
+
+MGrid has no color surface of its own — it is a pure layout primitive.
+
 <Controls />

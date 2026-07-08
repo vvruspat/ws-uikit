@@ -1,3 +1,5 @@
-.timepickerInput::-webkit-calendar-picker-indicator {
-	display: none;
+@layer components {
+	.timepickerInput::-webkit-calendar-picker-indicator {
+		display: none;
+	}
 }

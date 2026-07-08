@@ -1,329 +1,315 @@
-.after,
-.before,
-.button,
-.buttonContent {
-	display: flex;
-	justify-content: stretch;
-	align-items: stretch;
-}
+@layer components {
+	/* ── Token contract ───────────────────────────────────────────────
+	   Public override API: --button-*  |  Private (read by body): --_*
+	   Defaults fall through to semantic dimension roles — never raw
+	   --space-N/--radius-N. Per-size defaults are (re)declared on size classes. */
+	.button {
+		--_radius: var(--button-radius, var(--radius-control));
+		--_gap: var(--button-gap, var(--gap-control));
+		--_px: var(--button-px, var(--padding-control-x-m));
+		--_py: var(--button-py, var(--padding-control-y-m));
+		--_font-size: var(--button-font-size, var(--font-size-md));
+	}
 
-.button {
-	border: none;
-	transition: color 0.2s ease-in-out;
-	cursor: pointer;
-	box-sizing: border-box;
-}
+	.s {
+		--_px: var(--button-px, var(--padding-control-x-s));
+		--_py: var(--button-py, var(--padding-control-y-s));
+		--_font-size: var(--button-font-size, var(--font-size-sm));
+	}
+	.m {
+		--_px: var(--button-px, var(--padding-control-x-m));
+		--_py: var(--button-py, var(--padding-control-y-m));
+		--_font-size: var(--button-font-size, var(--font-size-md));
+	}
+	.l {
+		--_px: var(--button-px, var(--padding-control-x-l));
+		--_py: var(--button-py, var(--padding-control-y-l));
+		--_font-size: var(--button-font-size, var(--font-size-lg));
+	}
 
-.linkButton {
-	display: inline-flex;
-	text-decoration: none;
-}
+	/* round = square icon control */
+	.round {
+		--_radius: var(--button-radius-round, 50%);
+	}
+	.round.s {
+		--_icon-pad: var(--button-icon-padding, var(--padding-icon-s));
+		--_icon-size: var(--button-icon-size, var(--size-control-s));
+		--_font-size: var(--button-font-size, var(--font-size-md));
+	}
+	.round.m {
+		--_icon-pad: var(--button-icon-padding, var(--padding-icon-m));
+		--_icon-size: var(--button-icon-size, var(--size-control-m));
+		--_font-size: var(--button-font-size, var(--font-size-lg));
+	}
+	.round.l {
+		--_icon-pad: var(--button-icon-padding, var(--padding-icon-l));
+		--_icon-size: var(--button-icon-size, var(--size-control-l));
+		--_font-size: var(--button-font-size, var(--font-size-xl));
+	}
 
-.buttonContent {
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	overflow: hidden;
-}
+	/* ── Structure ────────────────────────────────────────────────── */
+	.after,
+	.before,
+	.button,
+	.buttonContent {
+		display: flex;
+		justify-content: stretch;
+		align-items: stretch;
+	}
 
-.buttonContentWrapper {
-	width: 100%;
-}
+	.button {
+		border: none;
+		transition: color 0.2s ease-in-out;
+		cursor: pointer;
+		box-sizing: border-box;
+	}
 
-.after,
-.before,
-.buttonContent {
-	font-family: var(--font-family-primary);
-	line-height: normal;
-}
+	.linkButton {
+		display: inline-flex;
+		text-decoration: none;
+	}
 
-/* Enabled */
+	.buttonContent {
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+	}
 
-.primary {
-	color: var(--color-action-foreground);
-	border-radius: var(--radius-8);
-	background: var(--color-action-rest);
-	gap: var(--space-4);
-}
+	.buttonContentWrapper {
+		width: 100%;
+	}
 
-.secondary {
-	color: var(--color-action-secondary-foreground);
-	border-radius: var(--radius-8);
-	background: var(--color-action-secondary-rest);
-	gap: var(--space-4);
-}
+	.after,
+	.before,
+	.buttonContent {
+		font-family: var(--font-family-primary);
+		line-height: normal;
+	}
 
-.tertiary {
-	border-radius: var(--radius-8);
-	color: var(--color-action-subtle-foreground);
-	background: var(--color-action-subtle-rest);
-	gap: var(--space-4);
-	border: 1px solid var(--color-action-subtle-border);
-	transition: border 0.2s ease-in-out;
-}
+	/* ── Geometry (tokenized) ─────────────────────────────────────── */
+	.primary,
+	.secondary,
+	.tertiary,
+	.outlined,
+	.transparent {
+		padding: var(--_py) var(--_px);
+		gap: var(--_gap);
+		font-size: var(--_font-size);
+		border-radius: var(--_radius);
+	}
 
-.round {
-	border-radius: 50%;
-	color: var(--color-text-primary);
-	background: var(--color-action-subtle-rest);
-	border: 1px solid transparent;
-	transition: background-color 0.2s ease-in-out;
-}
+	.transparent {
+		padding-inline: 0;
+	}
 
-.outlined {
-	color: var(--color-action-outlined-foreground);
-	background: var(--color-action-outlined-bg);
-	gap: var(--space-4);
-	border-radius: var(--radius-4);
-	border: 1px solid var(--color-action-outlined-border);
-}
+	.round {
+		padding: var(--_icon-pad);
+		width: var(--_icon-size);
+		height: var(--_icon-size);
+		font-size: var(--_font-size);
+		border-radius: var(--_radius);
+	}
 
-.transparent {
-	color: var(--color-action-transparent-foreground);
-	border-radius: var(--radius-8);
-	background: transparent;
-	gap: var(--space-4);
-}
+	/* ── Enabled — colors ─────────────────────────────────────────── */
+	.primary {
+		color: var(--color-action-foreground);
+		background: var(--color-action-rest);
+	}
 
-.primary:focus-visible,
-.secondary:focus-visible,
-.tertiary:focus-visible,
-.round:focus-visible,
-.outlined:focus-visible,
-.transparent:focus-visible {
-	outline: var(--space-1) solid var(--color-focus-ring);
-	outline-offset: var(--space-2);
-}
+	.secondary {
+		color: var(--color-action-secondary-foreground);
+		background: var(--color-action-secondary-rest);
+	}
 
-.round span {
-	overflow: hidden;
-}
+	.tertiary {
+		color: var(--color-action-tertiary-foreground);
+		background: var(--color-action-tertiary-rest);
+	}
 
-/* Disabled */
+	.round {
+		color: var(--color-text-primary);
+		background: var(--color-action-subtle-rest);
+		border: 1px solid transparent;
+		transition: background-color 0.2s ease-in-out;
+	}
 
-.disabled {
-	pointer-events: none;
-	cursor: not-allowed;
-}
+	.outlined {
+		color: var(--color-action-outlined-foreground);
+		background: var(--color-action-outlined-bg);
+		border: 1px solid var(--color-action-outlined-border);
+	}
 
-.primary:disabled,
-.primary:disabled:hover,
-.primary:disabled:active,
-.primary.disabled,
-.primary.disabled:hover,
-.primary.disabled:active {
-	background: var(--color-action-disabled);
-	color: var(--color-action-foreground-disabled);
-	cursor: not-allowed;
-}
+	.transparent {
+		color: var(--color-action-transparent-foreground);
+		background: transparent;
+	}
 
-.secondary:disabled,
-.secondary:disabled:hover,
-.secondary:disabled:active,
-.secondary.disabled,
-.secondary.disabled:hover,
-.secondary.disabled:active {
-	background: var(--color-action-disabled);
-	color: var(--color-action-foreground-disabled);
-	cursor: not-allowed;
-}
+	.primary:focus-visible,
+	.secondary:focus-visible,
+	.tertiary:focus-visible,
+	.round:focus-visible,
+	.outlined:focus-visible,
+	.transparent:focus-visible {
+		outline: var(--focus-ring-width) solid var(--color-focus-ring);
+		outline-offset: var(--focus-ring-offset);
+	}
 
-.tertiary:disabled,
-.tertiary:disabled:hover,
-.tertiary:disabled:active,
-.tertiary.disabled,
-.tertiary.disabled:hover,
-.tertiary.disabled:active {
-	color: var(--color-action-foreground-disabled);
-	background: var(--color-action-subtle-rest);
-	cursor: default;
-	border-color: var(--color-action-subtle-border);
-}
+	.round span {
+		overflow: hidden;
+	}
 
-.round:disabled,
-.round:disabled:hover,
-.round:disabled:active,
-.round.disabled,
-.round.disabled:hover,
-.round.disabled:active {
-	color: var(--color-action-foreground-disabled);
-	background: var(--color-action-subtle-rest);
-	cursor: default;
-	border-color: transparent;
-}
+	/* ── Disabled ─────────────────────────────────────────────────── */
+	.disabled {
+		pointer-events: none;
+		cursor: not-allowed;
+	}
 
-.outlined:disabled,
-.outlined:disabled:hover,
-.outlined:disabled:active,
-.outlined.disabled,
-.outlined.disabled:hover,
-.outlined.disabled:active {
-	border: 1px solid var(--color-action-outlined-border);
-	background: var(--color-action-disabled);
-	color: var(--color-action-foreground-disabled);
-	cursor: not-allowed;
-}
+	.primary:disabled,
+	.primary:disabled:hover,
+	.primary:disabled:active,
+	.primary.disabled,
+	.primary.disabled:hover,
+	.primary.disabled:active {
+		background: var(--color-action-disabled);
+		color: var(--color-action-foreground-disabled);
+		cursor: not-allowed;
+	}
 
-.transparent:disabled,
-.transparent:disabled:hover,
-.transparent:disabled:active,
-.transparent.disabled,
-.transparent.disabled:hover,
-.transparent.disabled:active {
-	background: transparent;
-	color: var(--color-action-transparent-foreground-disabled);
-	cursor: not-allowed;
-}
+	.secondary:disabled,
+	.secondary:disabled:hover,
+	.secondary:disabled:active,
+	.secondary.disabled,
+	.secondary.disabled:hover,
+	.secondary.disabled:active {
+		background: var(--color-action-disabled);
+		color: var(--color-action-foreground-disabled);
+		cursor: not-allowed;
+	}
 
-/* Hover */
+	.tertiary:disabled,
+	.tertiary:disabled:hover,
+	.tertiary:disabled:active,
+	.tertiary.disabled,
+	.tertiary.disabled:hover,
+	.tertiary.disabled:active {
+		color: var(--color-action-foreground-disabled);
+		background: var(--color-action-disabled);
+		cursor: not-allowed;
+	}
 
-.primary:hover {
-	background: var(--color-action-hover);
-}
+	.round:disabled,
+	.round:disabled:hover,
+	.round:disabled:active,
+	.round.disabled,
+	.round.disabled:hover,
+	.round.disabled:active {
+		color: var(--color-action-foreground-disabled);
+		background: var(--color-action-subtle-rest);
+		cursor: default;
+		border-color: transparent;
+	}
 
-.secondary:hover {
-	background: var(--color-action-secondary-hover);
-}
+	.outlined:disabled,
+	.outlined:disabled:hover,
+	.outlined:disabled:active,
+	.outlined.disabled,
+	.outlined.disabled:hover,
+	.outlined.disabled:active {
+		border: 1px solid var(--color-action-outlined-border);
+		background: var(--color-action-disabled);
+		color: var(--color-action-foreground-disabled);
+		cursor: not-allowed;
+	}
 
-.tertiary:hover {
-	background: var(--color-action-subtle-hover);
-	border-color: var(--color-action-subtle-border);
-}
+	.transparent:disabled,
+	.transparent:disabled:hover,
+	.transparent:disabled:active,
+	.transparent.disabled,
+	.transparent.disabled:hover,
+	.transparent.disabled:active {
+		background: transparent;
+		color: var(--color-action-transparent-foreground-disabled);
+		cursor: not-allowed;
+	}
 
-.round:hover {
-	background: var(--color-action-subtle-hover);
-	border-color: transparent;
-}
+	/* ── Hover ────────────────────────────────────────────────────── */
+	.primary:hover {
+		background: var(--color-action-hover);
+	}
 
-.outlined:hover {
-	border: 1px solid var(--color-action-outlined-border);
-}
+	.secondary:hover {
+		background: var(--color-action-secondary-hover);
+	}
 
-.transparent:hover {
-	background: transparent;
-}
+	.tertiary:hover {
+		background: var(--color-action-tertiary-hover);
+	}
 
-/* Active */
+	.round:hover {
+		background: var(--color-action-subtle-hover);
+		border-color: transparent;
+	}
 
-.primary:active {
-	background: var(--color-action-active);
-}
+	.outlined:hover {
+		border: 1px solid var(--color-action-outlined-border);
+	}
 
-.secondary:active {
-	background: var(--color-action-secondary-active);
-}
+	.transparent:hover {
+		background: transparent;
+	}
 
-.tertiary:active {
-	background: var(--color-action-subtle-active);
-	border-color: var(--color-action-subtle-border);
-}
+	/* ── Active ───────────────────────────────────────────────────── */
+	.primary:active {
+		background: var(--color-action-active);
+	}
 
-.round:active {
-	background: var(--color-action-subtle-active);
-	border-color: transparent;
-}
+	.secondary:active {
+		background: var(--color-action-secondary-active);
+	}
 
-.outlined:active {
-	color: var(--color-action-outlined-foreground);
-	border: 1px solid var(--color-action-outlined-border);
-}
+	.tertiary:active {
+		background: var(--color-action-tertiary-active);
+	}
 
-.transparent:active {
-	background: transparent;
-}
+	.round:active {
+		background: var(--color-action-subtle-active);
+		border-color: transparent;
+	}
 
-.primary .buttonContent {
-	font-weight: 500;
-}
+	.outlined:active {
+		color: var(--color-action-outlined-foreground);
+		border: 1px solid var(--color-action-outlined-border);
+	}
 
-.secondary .buttonContent {
-	font-weight: 500;
-}
+	.transparent:active {
+		background: transparent;
+	}
 
-.tertiary .buttonContent {
-	font-weight: 500;
-}
+	.primary .buttonContent {
+		font-weight: 500;
+	}
 
-.round .buttonContent {
-	font-weight: 500;
-}
+	.secondary .buttonContent {
+		font-weight: 500;
+	}
 
-.outlined .buttonContent {
-	font-weight: 500;
-}
+	.tertiary .buttonContent {
+		font-weight: 500;
+	}
 
-.stretch {
-	width: 100%;
-}
+	.round .buttonContent {
+		font-weight: 500;
+	}
 
-.primary.s,
-.secondary.s,
-.outlined.s,
-.tertiary.s {
-	padding: var(--space-3) var(--space-6);
-	font-size: var(--font-size-sm);
-}
+	.outlined .buttonContent {
+		font-weight: 500;
+	}
 
-.transparent.s {
-	font-size: var(--font-size-sm);
-	padding: var(--space-3) 0;
-}
+	.stretch {
+		width: 100%;
+	}
 
-.primary.m,
-.secondary.m,
-.outlined.m,
-.tertiary.m {
-	padding: var(--space-4) var(--space-8);
-	font-size: var(--font-size-md);
-}
-
-.transparent.m {
-	font-size: var(--font-size-md);
-	padding: var(--space-4) 0;
-}
-
-.primary.l,
-.secondary.l,
-.outlined.l,
-.tertiary.l {
-	padding: var(--space-5) var(--space-8);
-	font-size: var(--font-size-lg);
-}
-
-.transparent.l {
-	font-size: var(--font-size-lg);
-	padding: var(--space-5) 0;
-}
-
-.round.s {
-	padding: var(--space-2);
-	font-size: var(--font-size-md);
-}
-
-.round.m {
-	padding: var(--space-3);
-	font-size: var(--font-size-lg);
-}
-
-.round.l {
-	padding: var(--space-4);
-}
-
-.round.s {
-	width: var(--size-12);
-	height: var(--size-12);
-}
-
-.round.m {
-	width: var(--size-16);
-	height: var(--size-16);
-}
-
-.round.l {
-	width: var(--size-24);
-	height: var(--size-24);
-	font-size: var(--font-size-xl);
-}
-
-.button.noPadding {
-	padding: 0;
+	.button.noPadding {
+		padding: 0;
+	}
 }

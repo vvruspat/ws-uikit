@@ -1,44 +1,41 @@
-/** TODO: use variables */
-.flex {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: flex-start;
-	gap: var(--space-4);
-}
+@layer components {
+	.flex {
+		display: flex;
+		/* Public seam --flex-* wins (lives in the cascade, overridable by brand/zone/instance).
+		   Fallback: --_flex-* private default set inline from the prop. Then hardcoded default. */
+		flex-direction: var(--flex-direction, var(--_flex-direction, row));
+		align-items: var(--flex-align, var(--_flex-align, center));
+		justify-content: var(--flex-justify, var(--_flex-justify, flex-start));
+		flex-wrap: var(--flex-wrap, var(--_flex-wrap, wrap));
+		gap: var(--flex-gap, var(--_flex-gap, var(--gap-s)));
+	}
 
-.flex-gap-none {
-	gap: 0;
-}
-
-.flex-gap-xs {
-	gap: var(--space-2);
-}
-
-.flex-gap-s {
-	gap: var(--space-4);
-}
-
-.flex-gap-m {
-	gap: var(--space-6);
-}
-
-.flex-gap-l {
-	gap: var(--space-8);
-}
-
-.flex-gap-xl {
-	gap: var(--space-10);
-}
-
-.flex-gap-2xl {
-	gap: var(--space-12);
-}
-
-.flex-gap-3xl {
-	gap: var(--space-14);
-}
-
-.flex-gap-4xl {
-	gap: var(--space-16);
+	/* t-shirt classes set only the private gap default → semantic --gap-* role */
+	.flex-gap-none {
+		--_flex-gap: var(--gap-none);
+	}
+	.flex-gap-xs {
+		--_flex-gap: var(--gap-xs);
+	}
+	.flex-gap-s {
+		--_flex-gap: var(--gap-s);
+	}
+	.flex-gap-m {
+		--_flex-gap: var(--gap-m);
+	}
+	.flex-gap-l {
+		--_flex-gap: var(--gap-l);
+	}
+	.flex-gap-xl {
+		--_flex-gap: var(--gap-xl);
+	}
+	.flex-gap-2xl {
+		--_flex-gap: var(--gap-2xl);
+	}
+	.flex-gap-3xl {
+		--_flex-gap: var(--gap-3xl);
+	}
+	.flex-gap-4xl {
+		--_flex-gap: var(--gap-4xl);
+	}
 }

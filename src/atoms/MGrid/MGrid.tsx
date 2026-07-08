@@ -58,18 +58,23 @@ export const MGrid = <T extends ElementType = "div">({
 	return (
 		<Element
 			className={clsx(
+				styles.grid,
 				styles[`grid-row-gap-${rowGap}`],
 				styles[`grid-col-gap-${columnGap}`],
 				className,
 			)}
-			style={{
-				display: display,
-				gridTemplateRows: rowTemplate,
-				gridTemplateColumns: columnTemplate,
-				justifyItems: justifyItems,
-				alignItems: alignItems,
-				...style,
-			}}
+			style={
+				{
+					// Props set PRIVATE defaults only (--_grid-*); the public seam
+					// (--grid-*) stays free for brand/zone/instance overrides via CSS.
+					"--_grid-display": display,
+					"--_grid-row-template": rowTemplate ?? "none",
+					"--_grid-column-template": columnTemplate,
+					"--_grid-justify-items": justifyItems ?? "stretch",
+					"--_grid-align-items": alignItems ?? "stretch",
+					...style,
+				} as CSSProperties
+			}
 			{...restProps}
 		>
 			{children}

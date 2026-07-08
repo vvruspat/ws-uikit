@@ -1,0 +1,100 @@
+/* src/molecules/MAccordion/MAccordion.module.css */
+.MAccordion_container {
+  overflow: hidden;
+}
+.MAccordion_group {
+  width: 100%;
+}
+.MAccordion_item {
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  transition: background-color 0.2s ease-in-out;
+}
+.MAccordion_item + .MAccordion_item {
+  border-top: 1px solid var(--color-border-default);
+}
+.MAccordion_item[data-expanded] {
+  background: var(--color-surface-raised);
+}
+.MAccordion_item[data-disabled] {
+  color: var(--color-text-disabled);
+}
+.MAccordion_itemHeading {
+  margin: 0;
+}
+.MAccordion_itemHeader {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  padding: var(--space-6) var(--space-8);
+  text-align: inherit;
+}
+.MAccordion_itemHeader[data-hovered] {
+  background: var(--color-surface-overlay);
+}
+.MAccordion_itemHeader[data-pressed] {
+  background: var(--color-surface-sunken);
+}
+.MAccordion_itemHeader[data-focus-visible] {
+  position: relative;
+  z-index: 1;
+  outline: var(--space-1) solid var(--color-focus-ring);
+  outline-offset: calc(-1 * var(--space-1));
+}
+.MAccordion_item[data-disabled] .MAccordion_itemHeader {
+  cursor: not-allowed;
+}
+.MAccordion_headerContent {
+  width: 100%;
+}
+.MAccordion_title {
+  min-width: 0;
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-md);
+  font-weight: 500;
+  line-height: var(--line-height-md);
+}
+.MAccordion_icon {
+  color: var(--color-text-secondary);
+  line-height: 0;
+  transition: transform 0.2s ease-in-out;
+}
+.MAccordion_item[data-expanded] .MAccordion_icon {
+  transform: rotate(0deg);
+}
+.MAccordion_itemPanel {
+  display: grid;
+  grid-template-rows: 1fr;
+  overflow: hidden;
+  padding: 0 var(--space-8) var(--space-8);
+  color: var(--color-text-secondary);
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-md);
+  opacity: 1;
+  transition:
+    grid-template-rows 0.24s ease-in-out,
+    opacity 0.18s ease-in-out,
+    padding-bottom 0.24s ease-in-out;
+}
+.MAccordion_itemPanel[hidden] {
+  display: grid;
+  grid-template-rows: 0fr;
+  padding-bottom: 0;
+  opacity: 0;
+}
+.MAccordion_itemPanelContent {
+  min-height: 0;
+  overflow: hidden;
+  padding-top: var(--space-2);
+}
+@media (prefers-reduced-motion: reduce) {
+  .MAccordion_item,
+  .MAccordion_icon,
+  .MAccordion_itemPanel {
+    transition: none;
+  }
+}

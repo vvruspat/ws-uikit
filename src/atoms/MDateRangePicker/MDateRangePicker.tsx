@@ -128,7 +128,7 @@ export const MDateRangePicker = ({
 			noPadding
 			id={`date-range-picker-dropdown-${id}`}
 		>
-			<MFlex direction="row" align="center" gap="xs" className={styles.inputsRow}>
+			<MFlex direction="row" align="center" className={styles.inputsRow}>
 				<MInput
 					type="date"
 					status={status}

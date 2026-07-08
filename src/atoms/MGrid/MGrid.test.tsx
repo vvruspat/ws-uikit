@@ -46,12 +46,16 @@ describe("MGrid", () => {
 			</MGrid>,
 		);
 		const el = screen.getByTestId("grid-style");
+		// Layout values are no longer frozen as inline style — they're written
+		// as private CSS-var defaults (--_grid-*) that the .module.css seam
+		// reads, so brand/zone/instance CSS can still override them. See
+		// MGrid.module.css and CONTRIBUTING.md ("seam" mechanism).
 		expect(el).toHaveStyle({
-			display: "grid",
-			gridTemplateColumns: "repeat(2, 1fr)",
-			gridTemplateRows: "repeat(3, 1fr)",
-			justifyItems: "end",
-			alignItems: "center",
+			"--_grid-display": "grid",
+			"--_grid-column-template": "repeat(2, 1fr)",
+			"--_grid-row-template": "repeat(3, 1fr)",
+			"--_grid-justify-items": "end",
+			"--_grid-align-items": "center",
 		});
 	});
 

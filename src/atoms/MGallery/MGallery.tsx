@@ -126,7 +126,6 @@ export const MGallery = ({
 		<MFlex
 			direction="column"
 			align="start"
-			gap="m"
 			className={clsx(styles.wrapper, className)}
 			role="region"
 			aria-roledescription="carousel"

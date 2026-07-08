@@ -54,7 +54,6 @@ export const MDataGridHeader = ({
 				direction="column"
 				justify="start"
 				align="stretch"
-				gap={renderFilter ? "s" : "none"}
 				className={styles.headerContent}
 			>
 				{sortable ? (

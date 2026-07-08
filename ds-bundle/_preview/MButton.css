@@ -1,0 +1,271 @@
+/* src/atoms/MButton/MButton.module.css */
+.MButton_after,
+.MButton_before,
+.MButton_button,
+.MButton_buttonContent {
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+}
+.MButton_button {
+  border: none;
+  transition: color 0.2s ease-in-out;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.MButton_linkButton {
+  display: inline-flex;
+  text-decoration: none;
+}
+.MButton_buttonContent {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.MButton_buttonContentWrapper {
+  width: 100%;
+}
+.MButton_after,
+.MButton_before,
+.MButton_buttonContent {
+  font-family: var(--font-family-primary);
+  line-height: normal;
+}
+.MButton_primary {
+  color: var(--color-action-foreground);
+  border-radius: var(--radius-8);
+  background: var(--color-action-rest);
+  gap: var(--space-4);
+}
+.MButton_secondary {
+  color: var(--color-action-secondary-foreground);
+  border-radius: var(--radius-8);
+  background: var(--color-action-secondary-rest);
+  gap: var(--space-4);
+}
+.MButton_tertiary {
+  border-radius: var(--radius-8);
+  color: var(--color-action-subtle-foreground);
+  background: var(--color-action-subtle-rest);
+  gap: var(--space-4);
+  border: 1px solid var(--color-action-subtle-border);
+  transition: border 0.2s ease-in-out;
+}
+.MButton_round {
+  border-radius: 50%;
+  color: var(--color-text-primary);
+  background: var(--color-action-subtle-rest);
+  border: 1px solid transparent;
+  transition: background-color 0.2s ease-in-out;
+}
+.MButton_outlined {
+  color: var(--color-action-outlined-foreground);
+  background: var(--color-action-outlined-bg);
+  gap: var(--space-4);
+  border-radius: var(--radius-4);
+  border: 1px solid var(--color-action-outlined-border);
+}
+.MButton_transparent {
+  color: var(--color-action-transparent-foreground);
+  border-radius: var(--radius-8);
+  background: transparent;
+  gap: var(--space-4);
+}
+.MButton_primary:focus-visible,
+.MButton_secondary:focus-visible,
+.MButton_tertiary:focus-visible,
+.MButton_round:focus-visible,
+.MButton_outlined:focus-visible,
+.MButton_transparent:focus-visible {
+  outline: var(--space-1) solid var(--color-focus-ring);
+  outline-offset: var(--space-2);
+}
+.MButton_round span {
+  overflow: hidden;
+}
+.MButton_disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+.MButton_primary:disabled,
+.MButton_primary:disabled:hover,
+.MButton_primary:disabled:active,
+.MButton_primary.MButton_disabled,
+.MButton_primary.MButton_disabled:hover,
+.MButton_primary.MButton_disabled:active {
+  background: var(--color-action-disabled);
+  color: var(--color-action-foreground-disabled);
+  cursor: not-allowed;
+}
+.MButton_secondary:disabled,
+.MButton_secondary:disabled:hover,
+.MButton_secondary:disabled:active,
+.MButton_secondary.MButton_disabled,
+.MButton_secondary.MButton_disabled:hover,
+.MButton_secondary.MButton_disabled:active {
+  background: var(--color-action-disabled);
+  color: var(--color-action-foreground-disabled);
+  cursor: not-allowed;
+}
+.MButton_tertiary:disabled,
+.MButton_tertiary:disabled:hover,
+.MButton_tertiary:disabled:active,
+.MButton_tertiary.MButton_disabled,
+.MButton_tertiary.MButton_disabled:hover,
+.MButton_tertiary.MButton_disabled:active {
+  color: var(--color-action-foreground-disabled);
+  background: var(--color-action-subtle-rest);
+  cursor: default;
+  border-color: var(--color-action-subtle-border);
+}
+.MButton_round:disabled,
+.MButton_round:disabled:hover,
+.MButton_round:disabled:active,
+.MButton_round.MButton_disabled,
+.MButton_round.MButton_disabled:hover,
+.MButton_round.MButton_disabled:active {
+  color: var(--color-action-foreground-disabled);
+  background: var(--color-action-subtle-rest);
+  cursor: default;
+  border-color: transparent;
+}
+.MButton_outlined:disabled,
+.MButton_outlined:disabled:hover,
+.MButton_outlined:disabled:active,
+.MButton_outlined.MButton_disabled,
+.MButton_outlined.MButton_disabled:hover,
+.MButton_outlined.MButton_disabled:active {
+  border: 1px solid var(--color-action-outlined-border);
+  background: var(--color-action-disabled);
+  color: var(--color-action-foreground-disabled);
+  cursor: not-allowed;
+}
+.MButton_transparent:disabled,
+.MButton_transparent:disabled:hover,
+.MButton_transparent:disabled:active,
+.MButton_transparent.MButton_disabled,
+.MButton_transparent.MButton_disabled:hover,
+.MButton_transparent.MButton_disabled:active {
+  background: transparent;
+  color: var(--color-action-transparent-foreground-disabled);
+  cursor: not-allowed;
+}
+.MButton_primary:hover {
+  background: var(--color-action-hover);
+}
+.MButton_secondary:hover {
+  background: var(--color-action-secondary-hover);
+}
+.MButton_tertiary:hover {
+  background: var(--color-action-subtle-hover);
+  border-color: var(--color-action-subtle-border);
+}
+.MButton_round:hover {
+  background: var(--color-action-subtle-hover);
+  border-color: transparent;
+}
+.MButton_outlined:hover {
+  border: 1px solid var(--color-action-outlined-border);
+}
+.MButton_transparent:hover {
+  background: transparent;
+}
+.MButton_primary:active {
+  background: var(--color-action-active);
+}
+.MButton_secondary:active {
+  background: var(--color-action-secondary-active);
+}
+.MButton_tertiary:active {
+  background: var(--color-action-subtle-active);
+  border-color: var(--color-action-subtle-border);
+}
+.MButton_round:active {
+  background: var(--color-action-subtle-active);
+  border-color: transparent;
+}
+.MButton_outlined:active {
+  color: var(--color-action-outlined-foreground);
+  border: 1px solid var(--color-action-outlined-border);
+}
+.MButton_transparent:active {
+  background: transparent;
+}
+.MButton_primary .MButton_buttonContent {
+  font-weight: 500;
+}
+.MButton_secondary .MButton_buttonContent {
+  font-weight: 500;
+}
+.MButton_tertiary .MButton_buttonContent {
+  font-weight: 500;
+}
+.MButton_round .MButton_buttonContent {
+  font-weight: 500;
+}
+.MButton_outlined .MButton_buttonContent {
+  font-weight: 500;
+}
+.MButton_stretch {
+  width: 100%;
+}
+.MButton_primary.MButton_s,
+.MButton_secondary.MButton_s,
+.MButton_outlined.MButton_s,
+.MButton_tertiary.MButton_s {
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--font-size-sm);
+}
+.MButton_transparent.MButton_s {
+  font-size: var(--font-size-sm);
+  padding: var(--space-3) 0;
+}
+.MButton_primary.MButton_m,
+.MButton_secondary.MButton_m,
+.MButton_outlined.MButton_m,
+.MButton_tertiary.MButton_m {
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--font-size-md);
+}
+.MButton_transparent.MButton_m {
+  font-size: var(--font-size-md);
+  padding: var(--space-4) 0;
+}
+.MButton_primary.MButton_l,
+.MButton_secondary.MButton_l,
+.MButton_outlined.MButton_l,
+.MButton_tertiary.MButton_l {
+  padding: var(--space-5) var(--space-8);
+  font-size: var(--font-size-lg);
+}
+.MButton_transparent.MButton_l {
+  font-size: var(--font-size-lg);
+  padding: var(--space-5) 0;
+}
+.MButton_round.MButton_s {
+  padding: var(--space-2);
+  font-size: var(--font-size-md);
+}
+.MButton_round.MButton_m {
+  padding: var(--space-3);
+  font-size: var(--font-size-lg);
+}
+.MButton_round.MButton_l {
+  padding: var(--space-4);
+}
+.MButton_round.MButton_s {
+  width: var(--size-12);
+  height: var(--size-12);
+}
+.MButton_round.MButton_m {
+  width: var(--size-16);
+  height: var(--size-16);
+}
+.MButton_round.MButton_l {
+  width: var(--size-24);
+  height: var(--size-24);
+  font-size: var(--font-size-xl);
+}
+.MButton_button.MButton_noPadding {
+  padding: 0;
+}

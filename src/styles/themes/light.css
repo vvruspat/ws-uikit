@@ -24,7 +24,7 @@
   --color-text-link-visited:   var(--palette-primary-1000);
 
   /* ── Border ───────────────────────────────────────── */
-  --color-border-default: rgba(0, 0, 0, 0.12);
+  --color-border-default: var(--palette-alpha-black-12);
   --color-border-strong:  var(--palette-base-300);
   --color-border-focus:   var(--palette-primary-600);
   --color-border-error:   var(--palette-error-600);
@@ -39,10 +39,16 @@
   --color-action-foreground-disabled: var(--palette-base-400);
 
   /* ── Action — secondary ──────────────────────────── */
-  --color-action-secondary-rest:       var(--palette-secondary-600);
-  --color-action-secondary-hover:      var(--palette-secondary-700);
+  --color-action-secondary-rest:       var(--palette-secondary-700);
+  --color-action-secondary-hover:      var(--palette-secondary-600);
   --color-action-secondary-active:     var(--palette-secondary-800);
-  --color-action-secondary-foreground: var(--palette-base-100);
+  --color-action-secondary-foreground: var(--palette-base-0);
+
+  /* ── Action — tertiary ────────────────────────────── */
+  --color-action-tertiary-rest:        var(--palette-tertiary-700);
+  --color-action-tertiary-hover:       var(--palette-tertiary-600);
+  --color-action-tertiary-active:      var(--palette-tertiary-800);
+  --color-action-tertiary-foreground:  var(--palette-base-0);
 
   /* ── Action — subtle (ghost/tertiary) ─────────────── */
   --color-action-subtle-rest:       var(--palette-base-200);
@@ -75,7 +81,7 @@
   /* ── Input ────────────────────────────────────────── */
   --color-input-bg:                var(--palette-base-0);
   --color-input-bg-disabled:       var(--palette-base-100);
-  --color-input-border:            rgba(0, 0, 0, 0.12);
+  --color-input-border:            var(--palette-alpha-black-12);
   --color-input-border-hover:      var(--palette-base-200);
   --color-input-border-focus:      var(--palette-primary-600);
   --color-input-text:              var(--palette-base-400);
@@ -100,11 +106,11 @@
   --color-status-info-border:      var(--palette-info-400);
 
   /* ── Divider ──────────────────────────────────────── */
-  --color-divider-subtle: var(--palette-base-400);
-  --color-divider-strong: var(--palette-base-600);
+  --color-divider-subtle: var(--palette-alpha-black-6);
+  --color-divider-strong: var(--palette-alpha-black-20);
 
   /* ── Overlay / Focus / Card shadow ─────────────────── */
-  --color-overlay:  rgba(0, 0, 0, 0.4);
+  --color-overlay:  var(--palette-alpha-black-40);
   --color-focus-ring: var(--palette-primary-700);
   --shadow-card:
     0px 0px 1px rgba(68, 80, 95, 0.08),

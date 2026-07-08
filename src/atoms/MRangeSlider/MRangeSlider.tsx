@@ -144,7 +144,6 @@ export const MRangeSlider = forwardRef<HTMLDivElement, RangeSliderProps>(
 			<MFlex
 				direction="column"
 				align="stretch"
-				gap="xs"
 				ref={ref}
 				className={clsx(
 					styles.rangeSliderWrapper,
@@ -160,7 +159,6 @@ export const MRangeSlider = forwardRef<HTMLDivElement, RangeSliderProps>(
 					<MFlex
 						justify="space-between"
 						align="center"
-						gap="m"
 						className={styles.rangeHeader}
 					>
 						{label && (

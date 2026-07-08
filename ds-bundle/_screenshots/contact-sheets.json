@@ -1,0 +1,64 @@
+[
+  {
+    "sheet": 1,
+    "components": [
+      "Accordion",
+      "MAlert",
+      "MAvatar",
+      "MBadge",
+      "MButton",
+      "MCalendar",
+      "MCaption",
+      "MCard",
+      "MCheckbox",
+      "MDataGrid",
+      "MDatepicker",
+      "MDatetime",
+      "MDaySelector",
+      "MDescriptionList",
+      "MDivider",
+      "MDropdown"
+    ]
+  },
+  {
+    "sheet": 2,
+    "components": [
+      "MExpandableText",
+      "MFieldDescription",
+      "MFileInput",
+      "MFlex",
+      "MFormField",
+      "MGallery",
+      "MGrid",
+      "MHeading",
+      "MInput",
+      "MLabel",
+      "MList",
+      "MListItem",
+      "MMonthSelector",
+      "MProgressBar",
+      "MRadio",
+      "MRangeSlider"
+    ]
+  },
+  {
+    "sheet": 3,
+    "components": [
+      "MSelect",
+      "MSkelleton",
+      "MSlider",
+      "MSpinner",
+      "MStepProgress",
+      "MSwitch",
+      "MTab",
+      "MTabs",
+      "MText",
+      "MTextarea",
+      "MTheme",
+      "MThemeSelector",
+      "MTimepicker",
+      "MWeekdays",
+      "MYearSelector"
+    ]
+  }
+]

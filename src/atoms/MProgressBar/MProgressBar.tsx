@@ -69,7 +69,6 @@ export const MProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
 			<MFlex
 				direction="column"
 				align="stretch"
-				gap="xs"
 				className={clsx(
 					styles.progressBarWrapper,
 					styles[status],
@@ -80,7 +79,6 @@ export const MProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
 					<MFlex
 						align="center"
 						justify="space-between"
-						gap="m"
 						className={styles.progressBarHeader}
 					>
 						{label && <MLabel htmlFor={fieldId}>{label}</MLabel>}

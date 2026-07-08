@@ -1,4 +1,18 @@
 html {
 	font-size: 16px;
-	font-family: var(--font-family);
+	font-family: var(--font-family-primary);
+}
+
+html,
+body {
+	background: var(--color-surface);
+	color: var(--color-text-primary);
+}
+
+/* Storybook's Docs page renders its own opaque wrapper — override it so
+   toggling data-theme also flips the docs background, not just Canvas. */
+.sbdocs-wrapper,
+.sbdocs-content {
+	background: var(--color-surface) !important;
+	color: var(--color-text-primary);
 }

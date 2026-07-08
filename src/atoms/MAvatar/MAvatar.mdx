@@ -36,6 +36,23 @@ Available sizes: `xs` · `s` · `m` · `l` · `xl` · `3xl` · `4xl`
 
 ---
 
+## Customization
+
+MAvatar is styled with CSS variables. See **Guides/Theming & Customization** for the
+override mechanism (global / zonal / instance). Below is the component's public token API
+(per-size defaults are (re)declared on size classes).
+
+| Token | Controls | Default |
+|-------|----------|---------|
+| `--avatar-size` | Diameter | `calc(--gap-{xs,s,m,l,xl,2xl,3xl,4xl} * 2)` per size |
+| `--avatar-radius` | Corner radius | `--gap-{xs,s,m,l,xl,2xl,3xl,4xl}` per size |
+
+Fallback surface (`--color-surface-raised`) and text (`--color-text-primary`) colors are
+shared semantic roles — see **Guides/Theming & Customization** to recolor them for a whole
+brand.
+
+---
+
 ## Playground
 
 <Canvas of={AvatarStories.Basic} />

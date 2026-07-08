@@ -97,7 +97,6 @@ export const MAccordion = ({
 										<MFlex
 											align="center"
 											justify="space-between"
-											gap="m"
 											wrap="nowrap"
 											className={style.headerContent}
 										>

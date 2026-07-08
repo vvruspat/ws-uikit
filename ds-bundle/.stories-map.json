@@ -1,0 +1,1166 @@
+{
+  "global": "WsUikit",
+  "pkg": "ws-uikit",
+  "pkgDir": "/Users/aleksandrkolesov/Develop/ws-uikit",
+  "extraEntries": [
+    "./.design-sync/ws-provider.tsx",
+    "./.design-sync/ws-extras.tsx",
+    "./.design-sync/ws-react-svg-patch.tsx"
+  ],
+  "exported": [
+    "Accordion",
+    "MAlert",
+    "MAvatar",
+    "MBadge",
+    "MButton",
+    "MCalendar",
+    "MCaption",
+    "MCard",
+    "MCheckbox",
+    "MDataGrid",
+    "MDatepicker",
+    "MDatetime",
+    "MDaySelector",
+    "MDescriptionList",
+    "MDivider",
+    "MDropdown",
+    "MExpandableText",
+    "MFieldDescription",
+    "MFileInput",
+    "MFlex",
+    "MFormField",
+    "MGallery",
+    "MGrid",
+    "MHeading",
+    "MInput",
+    "MLabel",
+    "MList",
+    "MListItem",
+    "MMonthSelector",
+    "MProgressBar",
+    "MRadio",
+    "MRangeSlider",
+    "MSelect",
+    "MSkelleton",
+    "MSlider",
+    "MSpinner",
+    "MStepProgress",
+    "MSwitch",
+    "MTab",
+    "MTabs",
+    "MText",
+    "MTextarea",
+    "MTheme",
+    "MThemeSelector",
+    "MTimepicker",
+    "MWeekdays",
+    "MYearSelector",
+    "WsThemeProvider"
+  ],
+  "storybookStatic": "/Users/aleksandrkolesov/Develop/ws-uikit/.design-sync/sb-reference",
+  "keyRecipe": 7,
+  "cfgSliceGlobal": "d81953c2950e61c9acda59fba9c14411d2dac082a9d718a9883d58c760c364c2",
+  "components": [
+    {
+      "name": "Accordion",
+      "group": "data-display",
+      "srcSha": "991a78f09a35",
+      "sourceKey": "44aff4ae9ea0aee5",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "molecules-data-display-accordion--basic",
+          "name": "Basic",
+          "exportKey": "Basic",
+          "emitted": "Basic"
+        },
+        {
+          "id": "molecules-data-display-accordion--default-icons",
+          "name": "Default Icons",
+          "exportKey": "DefaultIcons",
+          "emitted": "DefaultIcons"
+        },
+        {
+          "id": "molecules-data-display-accordion--initially-expanded",
+          "name": "Initially Expanded",
+          "exportKey": "InitiallyExpanded",
+          "emitted": "InitiallyExpanded"
+        },
+        {
+          "id": "molecules-data-display-accordion--multiple-expanded",
+          "name": "Multiple Expanded",
+          "exportKey": "MultipleExpanded",
+          "emitted": "MultipleExpanded"
+        },
+        {
+          "id": "molecules-data-display-accordion--complex-content-story",
+          "name": "Complex content",
+          "exportKey": "ComplexContentStory",
+          "emitted": "ComplexContentStory"
+        }
+      ]
+    },
+    {
+      "name": "MAlert",
+      "group": "layout",
+      "srcSha": "7716d8ca1652",
+      "sourceKey": "8da28a987f201e19",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-layout-malert--all-modes",
+          "name": "All Modes",
+          "exportKey": "AllModes",
+          "emitted": "AllModes"
+        },
+        {
+          "id": "atoms-layout-malert--basic",
+          "name": "Basic",
+          "exportKey": "Basic",
+          "emitted": "Basic"
+        },
+        {
+          "id": "atoms-layout-malert--info",
+          "name": "Info",
+          "exportKey": "Info",
+          "emitted": "Info"
+        },
+        {
+          "id": "atoms-layout-malert--success",
+          "name": "Success",
+          "exportKey": "Success",
+          "emitted": "Success"
+        },
+        {
+          "id": "atoms-layout-malert--warning",
+          "name": "Warning",
+          "exportKey": "Warning",
+          "emitted": "Warning"
+        },
+        {
+          "id": "atoms-layout-malert--error",
+          "name": "Error",
+          "exportKey": "Error",
+          "emitted": "Error"
+        }
+      ]
+    },
+    {
+      "name": "MAvatar",
+      "group": "layout",
+      "srcSha": "55498ecb958b",
+      "sourceKey": "54b1b42e11a407c5",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-layout-mavatar--basic",
+          "name": "Basic",
+          "exportKey": "Basic",
+          "emitted": "Basic"
+        },
+        {
+          "id": "atoms-layout-mavatar--all-sizes",
+          "name": "All Sizes",
+          "exportKey": "AllSizes",
+          "emitted": "AllSizes"
+        },
+        {
+          "id": "atoms-layout-mavatar--pending",
+          "name": "Pending",
+          "exportKey": "Pending",
+          "emitted": "Pending"
+        },
+        {
+          "id": "atoms-layout-mavatar--with-fallback",
+          "name": "With Fallback",
+          "exportKey": "WithFallback",
+          "emitted": "WithFallback"
+        }
+      ]
+    },
+    {
+      "name": "MBadge",
+      "group": "visual",
+      "srcSha": "97429948a9de",
+      "sourceKey": "0b96de9ccada9556",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-visual-mbadge--all-modes",
+          "name": "All Modes",
+          "exportKey": "AllModes",
+          "emitted": "AllModes"
+        },
+        {
+          "id": "atoms-visual-mbadge--primary",
+          "name": "Primary",
+          "exportKey": "Primary",
+          "emitted": "Primary"
+        },
+        {
+          "id": "atoms-visual-mbadge--transparent",
+          "name": "Transparent",
+          "exportKey": "Transparent",
+          "emitted": "Transparent"
+        },
+        {
+          "id": "atoms-visual-mbadge--info",
+          "name": "Info",
+          "exportKey": "Info",
+          "emitted": "Info"
+        },
+        {
+          "id": "atoms-visual-mbadge--success",
+          "name": "Success",
+          "exportKey": "Success",
+          "emitted": "Success"
+        },
+        {
+          "id": "atoms-visual-mbadge--warning",
+          "name": "Warning",
+          "exportKey": "Warning",
+          "emitted": "Warning"
+        },
+        {
+          "id": "atoms-visual-mbadge--error",
+          "name": "Error",
+          "exportKey": "Error",
+          "emitted": "Error"
+        }
+      ]
+    },
+    {
+      "name": "MButton",
+      "group": "form",
+      "srcSha": "af497673bda8",
+      "sourceKey": "f00b1ad6e105fcb5",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-form-mbutton--basic",
+          "name": "Basic",
+          "exportKey": "Basic",
+          "emitted": "Basic"
+        },
+        {
+          "id": "atoms-form-mbutton--all-modes",
+          "name": "All Modes",
+          "exportKey": "AllModes",
+          "emitted": "AllModes"
+        },
+        {
+          "id": "atoms-form-mbutton--all-sizes",
+          "name": "All Sizes",
+          "exportKey": "AllSizes",
+          "emitted": "AllSizes"
+        },
+        {
+          "id": "atoms-form-mbutton--disabled",
+          "name": "Disabled",
+          "exportKey": "Disabled",
+          "emitted": "Disabled"
+        },
+        {
+          "id": "atoms-form-mbutton--link-button",
+          "name": "Link Button",
+          "exportKey": "LinkButton",
+          "emitted": "LinkButton"
+        }
+      ]
+    },
+    {
+      "name": "MCalendar",
+      "group": "calendar",
+      "srcSha": "05b7be2ab25f",
+      "sourceKey": "bf3a0226df1908c6",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-visual-calendar-mcalendar--default",
+          "name": "Default",
+          "exportKey": "Default",
+          "emitted": "Default"
+        }
+      ]
+    },
+    {
+      "name": "MCaption",
+      "group": "typography",
+      "srcSha": "58e167a9f0c2",
+      "sourceKey": "f2ec0c221b892d31",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-typography-mcaption--basic",
+          "name": "Basic",
+          "exportKey": "Basic",
+          "emitted": "Basic"
+        }
+      ]
+    },
+    {
+      "name": "MCard",
+      "group": "layout",
+      "srcSha": "8bbbf19f3281",
+      "sourceKey": "fa7928bc617bbd6c",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-layout-mcard--basic",
+          "name": "Basic",
+          "exportKey": "Basic",
+          "emitted": "Basic"
+        },
+        {
+          "id": "atoms-layout-mcard--with-dividers",
+          "name": "With Dividers",
+          "exportKey": "WithDividers",
+          "emitted": "WithDividers"
+        },
+        {
+          "id": "atoms-layout-mcard--collapsed",
+          "name": "Collapsed",
+          "exportKey": "Collapsed",
+          "emitted": "Collapsed"
+        },
+        {
+          "id": "atoms-layout-mcard--no-padding",
+          "name": "No Padding",
+          "exportKey": "NoPadding",
+          "emitted": "NoPadding"
+        },
+        {
+          "id": "atoms-layout-mcard--content-only",
+          "name": "Content Only",
+          "exportKey": "ContentOnly",
+          "emitted": "ContentOnly"
+        }
+      ]
+    },
+    {
+      "name": "MCheckbox",
+      "group": "form",
+      "srcSha": "7ac1f0a11604",
+      "sourceKey": "ba208627e09d5be6",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-form-mcheckbox--all-statuses",
+          "name": "All Statuses",
+          "exportKey": "AllStatuses",
+          "emitted": "AllStatuses"
+        },
+        {
+          "id": "atoms-form-mcheckbox--regular",
+          "name": "Regular",
+          "exportKey": "Regular",
+          "emitted": "Regular"
+        },
+        {
+          "id": "atoms-form-mcheckbox--valid",
+          "name": "Valid",
+          "exportKey": "Valid",
+          "emitted": "Valid"
+        },
+        {
+          "id": "atoms-form-mcheckbox--invalid",
+          "name": "Invalid",
+          "exportKey": "Invalid",
+          "emitted": "Invalid"
+        },
+        {
+          "id": "atoms-form-mcheckbox--disabled",
+          "name": "Disabled",
+          "exportKey": "Disabled",
+          "emitted": "Disabled"
+        }
+      ]
+    },
+    {
+      "name": "MDataGrid",
+      "group": "data-display",
+      "srcSha": "0cfb568491d9",
+      "sourceKey": "a294dcae94cc09b4",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "molecules-data-display-mdatagrid--default",
+          "name": "Default",
+          "exportKey": "Default",
+          "emitted": null
+        },
+        {
+          "id": "molecules-data-display-mdatagrid--empty",
+          "name": "Empty",
+          "exportKey": "Empty",
+          "emitted": null
+        }
+      ]
+    },
+    {
+      "name": "MDatepicker",
+      "group": "form",
+      "srcSha": "f10c2b559b88",
+      "sourceKey": "7aa52e77ea3308de",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-form-mdatepicker--regular",
+          "name": "Regular",
+          "exportKey": "Regular",
+          "emitted": "Regular"
+        },
+        {
+          "id": "atoms-form-mdatepicker--valid",
+          "name": "Valid",
+          "exportKey": "Valid",
+          "emitted": "Valid"
+        },
+        {
+          "id": "atoms-form-mdatepicker--invalid",
+          "name": "Invalid",
+          "exportKey": "Invalid",
+          "emitted": "Invalid"
+        },
+        {
+          "id": "atoms-form-mdatepicker--disabled",
+          "name": "Disabled",
+          "exportKey": "Disabled",
+          "emitted": "Disabled"
+        }
+      ]
+    },
+    {
+      "name": "MDatetime",
+      "group": "form",
+      "srcSha": "e09fce1c9101",
+      "sourceKey": "d43e2c089e98268d",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-form-mdatetime--regular",
+          "name": "Regular",
+          "exportKey": "Regular",
+          "emitted": "Regular"
+        },
+        {
+          "id": "atoms-form-mdatetime--valid",
+          "name": "Valid",
+          "exportKey": "Valid",
+          "emitted": "Valid"
+        },
+        {
+          "id": "atoms-form-mdatetime--invalid",
+          "name": "Invalid",
+          "exportKey": "Invalid",
+          "emitted": "Invalid"
+        },
+        {
+          "id": "atoms-form-mdatetime--disabled",
+          "name": "Disabled",
+          "exportKey": "Disabled",
+          "emitted": "Disabled"
+        }
+      ]
+    },
+    {
+      "name": "MDaySelector",
+      "group": "calendar",
+      "srcSha": "328ee4b3a23a",
+      "sourceKey": "403940968f0843e7",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-visual-calendar-mdayselector--default",
+          "name": "Default",
+          "exportKey": "Default",
+          "emitted": "Default"
+        }
+      ]
+    },
+    {
+      "name": "MDescriptionList",
+      "group": "layout",
+      "srcSha": "29d9176371e1",
+      "sourceKey": "af70113d05a0eaae",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-layout-mdescriptionlist--basic",
+          "name": "Basic",
+          "exportKey": "Basic",
+          "emitted": "Basic"
+        }
+      ]
+    },
+    {
+      "name": "MDivider",
+      "group": "layout",
+      "srcSha": "204f9e4f1835",
+      "sourceKey": "861365adc36f1ae4",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-layout-mdivider--basic",
+          "name": "Basic",
+          "exportKey": "Basic",
+          "emitted": "Basic"
+        }
+      ]
+    },
+    {
+      "name": "MDropdown",
+      "group": "layout",
+      "srcSha": "9a338aabdd12",
+      "sourceKey": "aca99e80d6fcbee0",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-layout-mdropdown--basic",
+          "name": "Basic",
+          "exportKey": "Basic",
+          "emitted": "Basic"
+        }
+      ]
+    },
+    {
+      "name": "MExpandableText",
+      "group": "layout",
+      "srcSha": "1eb2114c8799",
+      "sourceKey": "b7aee01f586aecba",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-layout-mexpandabletext--basic",
+          "name": "Basic",
+          "exportKey": "Basic",
+          "emitted": "Basic"
+        }
+      ]
+    },
+    {
+      "name": "MFieldDescription",
+      "group": "form",
+      "srcSha": "5819e1cfc37c",
+      "sourceKey": "1d70fa681a0fde2e",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-form-mfielddescription--basic",
+          "name": "Basic",
+          "exportKey": "Basic",
+          "emitted": "Basic"
+        }
+      ]
+    },
+    {
+      "name": "MFileInput",
+      "group": "form",
+      "srcSha": "e357ae2bd314",
+      "sourceKey": "8c3f9f76e987a853",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-form-mfileinput--regular",
+          "name": "Regular",
+          "exportKey": "Regular",
+          "emitted": "Regular"
+        },
+        {
+          "id": "atoms-form-mfileinput--valid",
+          "name": "Valid",
+          "exportKey": "Valid",
+          "emitted": "Valid"
+        },
+        {
+          "id": "atoms-form-mfileinput--invalid",
+          "name": "Invalid",
+          "exportKey": "Invalid",
+          "emitted": "Invalid"
+        },
+        {
+          "id": "atoms-form-mfileinput--disabled",
+          "name": "Disabled",
+          "exportKey": "Disabled",
+          "emitted": "Disabled"
+        }
+      ]
+    },
+    {
+      "name": "MFlex",
+      "group": "layout",
+      "srcSha": "1f1e78b79087",
+      "sourceKey": "55c0d03b7c51dcd9",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-layout-mflex--basic",
+          "name": "Basic",
+          "exportKey": "Basic",
+          "emitted": null
+        }
+      ]
+    },
+    {
+      "name": "MFormField",
+      "group": "form",
+      "srcSha": "9e4fb6daa040",
+      "sourceKey": "607c0770a9156078",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-form-mformfield--basic",
+          "name": "Basic",
+          "exportKey": "Basic",
+          "emitted": "Basic"
+        }
+      ]
+    },
+    {
+      "name": "MGallery",
+      "group": "visual",
+      "srcSha": "129832df5431",
+      "sourceKey": "b23f46e736fbeb08",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-visual-mgallery--basic",
+          "name": "Basic",
+          "exportKey": "Basic",
+          "emitted": "Basic"
+        }
+      ]
+    },
+    {
+      "name": "MGrid",
+      "group": "layout",
+      "srcSha": "51c7739f4b44",
+      "sourceKey": "0ca887ec94999dea",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-layout-mgrid--basic",
+          "name": "Basic",
+          "exportKey": "Basic",
+          "emitted": null
+        }
+      ]
+    },
+    {
+      "name": "MHeading",
+      "group": "typography",
+      "srcSha": "ac77c1aff71d",
+      "sourceKey": "ff65c428eb81ac94",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-typography-mheading--basic",
+          "name": "Basic",
+          "exportKey": "Basic",
+          "emitted": "Basic"
+        }
+      ]
+    },
+    {
+      "name": "MInput",
+      "group": "form",
+      "srcSha": "c1552c5155d6",
+      "sourceKey": "14abd967cc51c39f",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-form-minput--all-statuses",
+          "name": "All Statuses",
+          "exportKey": "AllStatuses",
+          "emitted": "AllStatuses"
+        },
+        {
+          "id": "atoms-form-minput--regular",
+          "name": "Regular",
+          "exportKey": "Regular",
+          "emitted": "Regular"
+        },
+        {
+          "id": "atoms-form-minput--valid",
+          "name": "Valid",
+          "exportKey": "Valid",
+          "emitted": "Valid"
+        },
+        {
+          "id": "atoms-form-minput--invalid",
+          "name": "Invalid",
+          "exportKey": "Invalid",
+          "emitted": "Invalid"
+        },
+        {
+          "id": "atoms-form-minput--disabled",
+          "name": "Disabled",
+          "exportKey": "Disabled",
+          "emitted": "Disabled"
+        }
+      ]
+    },
+    {
+      "name": "MLabel",
+      "group": "form",
+      "srcSha": "d2959617c608",
+      "sourceKey": "f7fc0af2bea18b30",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-form-mlabel--basic",
+          "name": "Basic",
+          "exportKey": "Basic",
+          "emitted": "Basic"
+        }
+      ]
+    },
+    {
+      "name": "MList",
+      "group": "form",
+      "srcSha": "3e18e0fa5bb6",
+      "sourceKey": "04a29f385174cbaa",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-form-mlist--basic",
+          "name": "Basic",
+          "exportKey": "Basic",
+          "emitted": "Basic"
+        }
+      ]
+    },
+    {
+      "name": "MListItem",
+      "group": "form",
+      "srcSha": "706fb48c2957",
+      "sourceKey": "10683fe2024caa17",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-form-mlistitem--basic",
+          "name": "Basic",
+          "exportKey": "Basic",
+          "emitted": "Basic"
+        }
+      ]
+    },
+    {
+      "name": "MMonthSelector",
+      "group": "calendar",
+      "srcSha": "c5585fd78b39",
+      "sourceKey": "3a20582a2685124d",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-visual-calendar-mmonthselector--primary",
+          "name": "Primary",
+          "exportKey": "Primary",
+          "emitted": "Primary"
+        }
+      ]
+    },
+    {
+      "name": "MProgressBar",
+      "group": "feedback",
+      "srcSha": "03d32fd8791c",
+      "sourceKey": "e5dbd31ef8552f09",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-feedback-mprogressbar--regular",
+          "name": "Regular",
+          "exportKey": "Regular",
+          "emitted": "Regular"
+        },
+        {
+          "id": "atoms-feedback-mprogressbar--all-variants",
+          "name": "All Variants",
+          "exportKey": "AllVariants",
+          "emitted": "AllVariants"
+        },
+        {
+          "id": "atoms-feedback-mprogressbar--sizes",
+          "name": "Sizes",
+          "exportKey": "Sizes",
+          "emitted": "Sizes"
+        }
+      ]
+    },
+    {
+      "name": "MRadio",
+      "group": "form",
+      "srcSha": "c05068dbd919",
+      "sourceKey": "1ea20164dcedaa75",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-form-mradio--all-statuses",
+          "name": "All Statuses",
+          "exportKey": "AllStatuses",
+          "emitted": "AllStatuses"
+        },
+        {
+          "id": "atoms-form-mradio--regular",
+          "name": "Regular",
+          "exportKey": "Regular",
+          "emitted": "Regular"
+        },
+        {
+          "id": "atoms-form-mradio--active",
+          "name": "Active",
+          "exportKey": "Active",
+          "emitted": "Active"
+        },
+        {
+          "id": "atoms-form-mradio--invalid",
+          "name": "Invalid",
+          "exportKey": "Invalid",
+          "emitted": "Invalid"
+        },
+        {
+          "id": "atoms-form-mradio--disabled",
+          "name": "Disabled",
+          "exportKey": "Disabled",
+          "emitted": "Disabled"
+        }
+      ]
+    },
+    {
+      "name": "MRangeSlider",
+      "group": "form",
+      "srcSha": "d92c4958c817",
+      "sourceKey": "1c57401097986199",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-form-mrangeslider--regular",
+          "name": "Regular",
+          "exportKey": "Regular",
+          "emitted": "Regular"
+        },
+        {
+          "id": "atoms-form-mrangeslider--all-variants",
+          "name": "All Variants",
+          "exportKey": "AllVariants",
+          "emitted": "AllVariants"
+        },
+        {
+          "id": "atoms-form-mrangeslider--disabled",
+          "name": "Disabled",
+          "exportKey": "Disabled",
+          "emitted": "Disabled"
+        }
+      ]
+    },
+    {
+      "name": "MSelect",
+      "group": "form",
+      "srcSha": "37f4b64f4bfd",
+      "sourceKey": "ccec88d88cdfaafc",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-form-mselect--basic",
+          "name": "Basic",
+          "exportKey": "Basic",
+          "emitted": "Basic"
+        }
+      ]
+    },
+    {
+      "name": "MSkelleton",
+      "group": "visual",
+      "srcSha": "e01ef99dbe00",
+      "sourceKey": "75ef8ee6422b23f2",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-visual-mskelleton--basic",
+          "name": "Basic",
+          "exportKey": "Basic",
+          "emitted": "Basic"
+        }
+      ]
+    },
+    {
+      "name": "MSlider",
+      "group": "form",
+      "srcSha": "0770157f90fc",
+      "sourceKey": "4de7fa4412acd0df",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-form-mslider--regular",
+          "name": "Regular",
+          "exportKey": "Regular",
+          "emitted": "Regular"
+        },
+        {
+          "id": "atoms-form-mslider--all-variants",
+          "name": "All Variants",
+          "exportKey": "AllVariants",
+          "emitted": "AllVariants"
+        },
+        {
+          "id": "atoms-form-mslider--disabled",
+          "name": "Disabled",
+          "exportKey": "Disabled",
+          "emitted": "Disabled"
+        }
+      ]
+    },
+    {
+      "name": "MSpinner",
+      "group": "layout",
+      "srcSha": "a06512c58097",
+      "sourceKey": "a950f3141dc703ba",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-layout-mspinner--regular",
+          "name": "Regular",
+          "exportKey": "Regular",
+          "emitted": "Regular"
+        },
+        {
+          "id": "atoms-layout-mspinner--all-modes",
+          "name": "All Modes",
+          "exportKey": "AllModes",
+          "emitted": "AllModes"
+        },
+        {
+          "id": "atoms-layout-mspinner--all-sizes",
+          "name": "All Sizes",
+          "exportKey": "AllSizes",
+          "emitted": "AllSizes"
+        }
+      ]
+    },
+    {
+      "name": "MStepProgress",
+      "group": "feedback",
+      "srcSha": "1defe8ca412e",
+      "sourceKey": "cd71091a41d3ea0b",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-feedback-mstepprogress--basic",
+          "name": "Basic",
+          "exportKey": "Basic",
+          "emitted": "Basic"
+        }
+      ]
+    },
+    {
+      "name": "MSwitch",
+      "group": "form",
+      "srcSha": "2a460198e5c4",
+      "sourceKey": "7b2e9aec49b4f203",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-form-mswitch--all-variants",
+          "name": "All Variants",
+          "exportKey": "AllVariants",
+          "emitted": "AllVariants"
+        },
+        {
+          "id": "atoms-form-mswitch--regular",
+          "name": "Regular",
+          "exportKey": "Regular",
+          "emitted": "Regular"
+        },
+        {
+          "id": "atoms-form-mswitch--rectangular",
+          "name": "Rectangular",
+          "exportKey": "Rectangular",
+          "emitted": "Rectangular"
+        },
+        {
+          "id": "atoms-form-mswitch--disabled",
+          "name": "Disabled",
+          "exportKey": "Disabled",
+          "emitted": "Disabled"
+        }
+      ]
+    },
+    {
+      "name": "MTab",
+      "group": "form",
+      "srcSha": "03ccdb19fa5f",
+      "sourceKey": "9d71022ce01ecbcc",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-form-mtab--basic",
+          "name": "Basic",
+          "exportKey": "Basic",
+          "emitted": "Basic"
+        }
+      ]
+    },
+    {
+      "name": "MTabs",
+      "group": "form",
+      "srcSha": "bca86933dd5f",
+      "sourceKey": "794b2eee370cacb2",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-form-mtabs--basic",
+          "name": "Basic",
+          "exportKey": "Basic",
+          "emitted": "Basic"
+        }
+      ]
+    },
+    {
+      "name": "MText",
+      "group": "typography",
+      "srcSha": "0723d17c9da4",
+      "sourceKey": "afdbe2f7300433e6",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-typography-mtext--basic",
+          "name": "Basic",
+          "exportKey": "Basic",
+          "emitted": "Basic"
+        }
+      ]
+    },
+    {
+      "name": "MTextarea",
+      "group": "form",
+      "srcSha": "4a96f5ae162d",
+      "sourceKey": "99ca4031f39be3a9",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-form-mtextarea--all-statuses",
+          "name": "All Statuses",
+          "exportKey": "AllStatuses",
+          "emitted": "AllStatuses"
+        },
+        {
+          "id": "atoms-form-mtextarea--regular",
+          "name": "Regular",
+          "exportKey": "Regular",
+          "emitted": "Regular"
+        },
+        {
+          "id": "atoms-form-mtextarea--valid",
+          "name": "Valid",
+          "exportKey": "Valid",
+          "emitted": "Valid"
+        },
+        {
+          "id": "atoms-form-mtextarea--invalid",
+          "name": "Invalid",
+          "exportKey": "Invalid",
+          "emitted": "Invalid"
+        },
+        {
+          "id": "atoms-form-mtextarea--disabled",
+          "name": "Disabled",
+          "exportKey": "Disabled",
+          "emitted": "Disabled"
+        }
+      ]
+    },
+    {
+      "name": "MTheme",
+      "group": "utils",
+      "srcSha": "55238ed02853",
+      "sourceKey": "75ac64252420c8fc",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-utils-mtheme--basic",
+          "name": "Basic",
+          "exportKey": "Basic",
+          "emitted": null
+        }
+      ]
+    },
+    {
+      "name": "MThemeSelector",
+      "group": "layout",
+      "srcSha": "c10e69e7f611",
+      "sourceKey": "c508272240b564c9",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-layout-mthemeselector--basic",
+          "name": "Basic",
+          "exportKey": "Basic",
+          "emitted": "Basic"
+        }
+      ]
+    },
+    {
+      "name": "MTimepicker",
+      "group": "form",
+      "srcSha": "24c50178aeee",
+      "sourceKey": "1428183eac2589fc",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-form-mtimepicker--regular",
+          "name": "Regular",
+          "exportKey": "Regular",
+          "emitted": "Regular"
+        },
+        {
+          "id": "atoms-form-mtimepicker--valid",
+          "name": "Valid",
+          "exportKey": "Valid",
+          "emitted": "Valid"
+        },
+        {
+          "id": "atoms-form-mtimepicker--invalid",
+          "name": "Invalid",
+          "exportKey": "Invalid",
+          "emitted": "Invalid"
+        },
+        {
+          "id": "atoms-form-mtimepicker--disabled",
+          "name": "Disabled",
+          "exportKey": "Disabled",
+          "emitted": "Disabled"
+        }
+      ]
+    },
+    {
+      "name": "MWeekdays",
+      "group": "calendar",
+      "srcSha": "c073d8985725",
+      "sourceKey": "729122ee829b721c",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-visual-calendar-mweekdays--default",
+          "name": "Default",
+          "exportKey": "Default",
+          "emitted": "Default"
+        }
+      ]
+    },
+    {
+      "name": "MYearSelector",
+      "group": "calendar",
+      "srcSha": "137b4b21714b",
+      "sourceKey": "c31271d1effa67ef",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": [
+        {
+          "id": "atoms-visual-calendar-myearselector--default",
+          "name": "Default",
+          "exportKey": "Default",
+          "emitted": "Default"
+        }
+      ]
+    }
+  ]
+}
