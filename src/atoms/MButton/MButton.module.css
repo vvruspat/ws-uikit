@@ -9,8 +9,6 @@
 		--_px: var(--button-px, var(--padding-control-x-m));
 		--_py: var(--button-py, var(--padding-control-y-m));
 		--_font-size: var(--button-font-size, var(--font-size-md));
-		--_focus-width: var(--button-focus-width, var(--focus-ring-width));
-		--_focus-offset: var(--button-focus-offset, var(--focus-ring-offset));
 	}
 
 	.s {
@@ -159,8 +157,8 @@
 	.round:focus-visible,
 	.outlined:focus-visible,
 	.transparent:focus-visible {
-		outline: var(--_focus-width) solid var(--color-focus-ring);
-		outline-offset: var(--_focus-offset);
+		outline: var(--focus-ring-width) solid var(--color-focus-ring);
+		outline-offset: var(--focus-ring-offset);
 	}
 
 	.round span {
