@@ -1,88 +1,197 @@
-import { useEffect, useState } from "react";
-import { MDivider } from "../MDivider";
+import { CalendarDate } from "@internationalized/date";
+import clsx from "clsx";
+import { useContext } from "react";
+import {
+	Button,
+	Calendar,
+	CalendarCell,
+	CalendarGrid,
+	CalendarStateContext,
+	RangeCalendar,
+	RangeCalendarStateContext,
+} from "react-aria-components";
 import { MFlex } from "../MFlex";
+import { MIconCaretLeft, MIconCaretRight } from "../MIcon";
+import { MCalendarMonthYearControls } from "./MCalendarMonthYearControls";
 import styles from "./MCalendar.module.css";
-import { MDaySelector } from "./MDaySelector";
-import { MMonthSelector } from "./MMonthSelector";
-import { MYearSelector } from "./MYearSelector";
+
+export type MDateRange = {
+	start: Date;
+	end: Date;
+};
 
 type MCalendarProps = {
-	startDate?: Date;
-	endDate?: Date;
+	mode?: "single" | "range";
+	minDate?: Date;
+	maxDate?: Date;
 	defaultValue?: Date;
 	date?: Date;
 	onChange?: (date: Date) => void;
+	defaultRangeValue?: MDateRange;
+	rangeValue?: MDateRange;
+	onRangeChange?: (range: MDateRange) => void;
+};
+
+const dateToCalendarDate = (date: Date) => {
+	return new CalendarDate(
+		date.getFullYear(),
+		date.getMonth() + 1,
+		date.getDate(),
+	);
+};
+
+const calendarDateToDate = (date: CalendarDate) => {
+	return new Date(date.year, date.month - 1, date.day);
+};
+
+const monthYearClassNames = {
+	container: styles.calendarMonthYear,
+	button: styles.monthYearButton,
+	value: styles.monthYearValue,
+	popover: styles.monthYearPopover,
+	listBox: styles.monthYearListBox,
+	option: styles.monthYearOption,
+};
+
+type MCalendarHeaderProps = {
+	minDate?: Date;
+	maxDate?: Date;
+};
+
+const MCalendarHeader = ({ minDate, maxDate }: MCalendarHeaderProps) => {
+	const state = useContext(CalendarStateContext);
+
+	if (!state) {
+		return null;
+	}
+
+	return (
+		<MFlex
+			direction="row"
+			align="center"
+			justify="space-between"
+			className={styles.calendarHeader}
+		>
+			<Button slot="previous" className={styles.calendarNavButton}>
+				<MIconCaretLeft mode="regular" width={20} />
+			</Button>
+			<MCalendarMonthYearControls
+				state={state}
+				minDate={minDate}
+				maxDate={maxDate}
+				classNames={monthYearClassNames}
+			/>
+			<Button slot="next" className={styles.calendarNavButton}>
+				<MIconCaretRight mode="regular" width={20} />
+			</Button>
+		</MFlex>
+	);
+};
+
+const MRangeCalendarHeader = ({ minDate, maxDate }: MCalendarHeaderProps) => {
+	const state = useContext(RangeCalendarStateContext);
+
+	if (!state) {
+		return null;
+	}
+
+	return (
+		<MFlex
+			direction="row"
+			align="center"
+			justify="space-between"
+			className={styles.calendarHeader}
+		>
+			<Button slot="previous" className={styles.calendarNavButton}>
+				<MIconCaretLeft mode="regular" width={20} />
+			</Button>
+			<MCalendarMonthYearControls
+				state={state}
+				minDate={minDate}
+				maxDate={maxDate}
+				classNames={monthYearClassNames}
+			/>
+			<Button slot="next" className={styles.calendarNavButton}>
+				<MIconCaretRight mode="regular" width={20} />
+			</Button>
+		</MFlex>
+	);
 };
 
 export const MCalendar = ({
-	startDate,
-	endDate,
+	mode = "single",
+	minDate,
+	maxDate,
 	defaultValue = new Date(),
 	date: currentDate,
 	onChange,
+	defaultRangeValue,
+	rangeValue,
+	onRangeChange,
 }: MCalendarProps) => {
-	const [currentMonth, setCurrentMonth] = useState<number>(
-		defaultValue.getMonth(),
-	);
-	const [currentYear, setCurrentYear] = useState<number>(
-		defaultValue.getFullYear(),
-	);
-	const [currentDay, setCurrentDay] = useState<number>(defaultValue.getDate());
+	const minValue = minDate ? dateToCalendarDate(minDate) : undefined;
+	const maxValue = maxDate ? dateToCalendarDate(maxDate) : undefined;
 
-	const onDateChange = (year: number, month: number, day: number) => {
-		const date = new Date(year, month, day + 1);
-		onChange?.(date);
-	};
+	if (mode === "range") {
+		return (
+			<RangeCalendar
+				className={styles.calendar}
+				value={
+					rangeValue
+						? {
+								start: dateToCalendarDate(rangeValue.start),
+								end: dateToCalendarDate(rangeValue.end),
+							}
+						: undefined
+				}
+				defaultValue={
+					defaultRangeValue
+						? {
+								start: dateToCalendarDate(defaultRangeValue.start),
+								end: dateToCalendarDate(defaultRangeValue.end),
+							}
+						: undefined
+				}
+				minValue={minValue}
+				maxValue={maxValue}
+				onChange={(range) =>
+					onRangeChange?.({
+						start: calendarDateToDate(range.start),
+						end: calendarDateToDate(range.end),
+					})
+				}
+			>
+				<MRangeCalendarHeader minDate={minDate} maxDate={maxDate} />
 
-	const onMonthChange = (month: number) => {
-		setCurrentMonth(month);
-		onDateChange(currentYear, month, currentDay);
-	};
-
-	const onYearChange = (year: number) => {
-		setCurrentYear(year);
-		onDateChange(year, currentMonth, currentDay);
-	};
-
-	const onDayChange = (day: number) => {
-		setCurrentDay(day);
-		onDateChange(currentYear, currentMonth, day);
-	};
-
-	useEffect(() => {
-		if (currentDate) {
-			const month = currentDate.getMonth();
-			const year = currentDate.getFullYear();
-			const day = currentDate.getDate();
-
-			!Number.isNaN(month) && setCurrentMonth(currentDate.getMonth());
-			!Number.isNaN(year) && setCurrentYear(currentDate.getFullYear());
-			!Number.isNaN(day) && setCurrentDay(currentDate.getDate());
-		}
-	}, [currentDate]);
+				<CalendarGrid
+					className={clsx(styles.calendarGrid, styles.calendarGridRange)}
+					weekdayStyle="short"
+				>
+					{(date) => (
+						<CalendarCell date={date} className={styles.calendarCell} />
+					)}
+				</CalendarGrid>
+			</RangeCalendar>
+		);
+	}
 
 	return (
-		<MFlex direction="column" className={styles.calendar} gap="none">
-			<MFlex direction="row" gap="xl" className={styles.calendarHeader}>
-				<MMonthSelector month={currentMonth} onChange={onMonthChange} />
-				<MYearSelector
-					year={currentYear}
-					onChange={onYearChange}
-					startYear={startDate?.getFullYear()}
-					endYear={endDate?.getFullYear()}
-				/>
-			</MFlex>
+		<Calendar
+			className={styles.calendar}
+			value={currentDate ? dateToCalendarDate(currentDate) : undefined}
+			defaultValue={dateToCalendarDate(defaultValue)}
+			minValue={minValue}
+			maxValue={maxValue}
+			onChange={(value) => onChange?.(calendarDateToDate(value))}
+		>
+			<MCalendarHeader minDate={minDate} maxDate={maxDate} />
 
-			<MDivider />
-
-			<MDaySelector
-				className={styles.calendarDaySelector}
-				day={currentDay}
-				year={currentYear}
-				month={currentMonth}
-				onChange={onDayChange}
-			/>
-		</MFlex>
+			<CalendarGrid className={styles.calendarGrid} weekdayStyle="short">
+				{(date) => (
+					<CalendarCell date={date} className={styles.calendarCell} />
+				)}
+			</CalendarGrid>
+		</Calendar>
 	);
 };
 

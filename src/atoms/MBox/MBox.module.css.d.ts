@@ -1,4 +1,5 @@
 declare const styles: {
-	readonly weekday: string;
+  readonly "box": string;
 };
 export = styles;
+

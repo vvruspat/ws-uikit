@@ -20,6 +20,8 @@ type MDatepickerProps = InputProps & {
 		InputProps["type"],
 		"date" | "datetime-local" | "month" | "week"
 	>;
+	minDate?: Date;
+	maxDate?: Date;
 };
 
 export const MDatepicker = ({
@@ -28,6 +30,8 @@ export const MDatepicker = ({
 	defaultValue,
 	onChange,
 	onFocus,
+	minDate,
+	maxDate,
 	...inputProps
 }: MDatepickerProps) => {
 	const [open, setOpen] = useState(false);
@@ -59,6 +63,7 @@ export const MDatepicker = ({
 		try {
 			setDateValue(date.toISOString().split("T")[0]);
 			triggerOnChange(date);
+			setOpen(false);
 		} catch (e) {
 			console.error("Invalid date format", e);
 		}
@@ -83,7 +88,14 @@ export const MDatepicker = ({
 		<MDropdown
 			open={open}
 			onClose={() => setOpen(false)}
-			dropdownContent={<MCalendar onChange={onDateChange} date={date} />}
+			dropdownContent={
+				<MCalendar
+					onChange={onDateChange}
+					date={date}
+					minDate={minDate}
+					maxDate={maxDate}
+				/>
+			}
 			className={styles.datepicker}
 			stretch={false}
 			align="right"
