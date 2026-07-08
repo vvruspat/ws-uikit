@@ -102,7 +102,7 @@
   --color-divider-strong: var(--palette-base-300);
 
   /* ── Overlay / Focus / Card shadow ─────────────────── */
-  --color-overlay:    rgba(0, 0, 0, 0.6);
+  --color-overlay:    var(--palette-alpha-black-60);
   --color-focus-ring: var(--palette-primary-500);
   --shadow-card:
     0px 0px 1px rgba(0, 0, 0, 0.3),

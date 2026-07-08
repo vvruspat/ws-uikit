@@ -29,6 +29,11 @@ component  →  --<comp>-*        (component token — per-component knob)
 > `--<comp>-*` is the public, overridable API. `--_*` (underscore) is **private** —
 > internal to a component, do not set it.
 
+> **Raw values (hex, `rgb`, `px`, `rem`) live only in the primitive tier.** Semantic and
+> component tokens always _reference_ a primitive (`var(--palette-*)`, `var(--space-*)`) —
+> never a hardcoded literal. So you recolor/resize a brand by overriding **primitives**, and
+> everything above follows.
+
 ---
 
 ## The three altitudes of override
@@ -77,7 +82,7 @@ Set a component token on a wrapper. Applies to everything inside it.
 Set the token inline (or via a className) on the single element:
 
 ```jsx
-<MButton style={{ "--button-radius": "999px" }}>Pill</MButton>
+<MButton style={{ "--button-radius": "var(--radius-pill)" }}>Pill</MButton>
 ```
 
 ---

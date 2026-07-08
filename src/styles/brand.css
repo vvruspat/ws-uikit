@@ -106,4 +106,9 @@
   --palette-info-800:  rgba(2, 125, 179, 1);
   --palette-info-900:  rgba(0, 94, 140, 1);
   --palette-info-1000: rgba(0, 65, 102, 1);
+
+  /* ── Alpha — translucent black (scrims, hairline borders) ── */
+  --palette-alpha-black-12: rgba(0, 0, 0, 0.12);
+  --palette-alpha-black-40: rgba(0, 0, 0, 0.4);
+  --palette-alpha-black-60: rgba(0, 0, 0, 0.6);
 }

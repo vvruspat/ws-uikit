@@ -24,7 +24,7 @@
   --color-text-link-visited:   var(--palette-primary-1000);
 
   /* ── Border ───────────────────────────────────────── */
-  --color-border-default: rgba(0, 0, 0, 0.12);
+  --color-border-default: var(--palette-alpha-black-12);
   --color-border-strong:  var(--palette-base-300);
   --color-border-focus:   var(--palette-primary-600);
   --color-border-error:   var(--palette-error-600);
@@ -75,7 +75,7 @@
   /* ── Input ────────────────────────────────────────── */
   --color-input-bg:                var(--palette-base-0);
   --color-input-bg-disabled:       var(--palette-base-100);
-  --color-input-border:            rgba(0, 0, 0, 0.12);
+  --color-input-border:            var(--palette-alpha-black-12);
   --color-input-border-hover:      var(--palette-base-200);
   --color-input-border-focus:      var(--palette-primary-600);
   --color-input-text:              var(--palette-base-400);
@@ -104,7 +104,7 @@
   --color-divider-strong: var(--palette-base-600);
 
   /* ── Overlay / Focus / Card shadow ─────────────────── */
-  --color-overlay:  rgba(0, 0, 0, 0.4);
+  --color-overlay:  var(--palette-alpha-black-40);
   --color-focus-ring: var(--palette-primary-700);
   --shadow-card:
     0px 0px 1px rgba(68, 80, 95, 0.08),

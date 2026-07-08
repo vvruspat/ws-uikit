@@ -74,10 +74,11 @@ per-button token by design): `--color-action-*` families, and `--focus-ring-widt
   --button-gap: var(--space-2);
 }
 
-/* recolor via the shared action role (also affects links etc.) */
+/* recolor by retuning the PALETTE — action colors reference it, so every button
+   (and link, etc.) follows. Never hardcode a raw value into a semantic token. */
 :root[data-brand="acme"] {
-  --color-action-rest: #6d28d9;
-  --color-action-hover: #7c3aed;
+  --palette-primary-700: #5b21b6;  /* → --color-action-rest  */
+  --palette-primary-600: #6d28d9;  /* → --color-action-hover */
 }
 ```
 
