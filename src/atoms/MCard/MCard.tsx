@@ -7,7 +7,7 @@ import MHeading from "../MHeading/MHeading";
 import style from "./MCard.module.css";
 
 type CardProps = ComponentProps<"div"> &
-	MFlexProps & {
+	Omit<MFlexProps, "gap"> & {
 		header?: ReactNode;
 		footer?: ReactNode;
 		headerClassName?: string;
@@ -65,7 +65,6 @@ export const MCard = forwardRef<HTMLDivElement, CardProps>(
 			shadow = true,
 			collapsed = false,
 			direction = "column",
-			gap = "l",
 			justify = "stretch",
 			align = "start",
 			...htmlProps
@@ -76,7 +75,6 @@ export const MCard = forwardRef<HTMLDivElement, CardProps>(
 			<MFlex
 				ref={ref}
 				direction={direction}
-				gap={gap}
 				justify={justify}
 				align={align}
 				wrap="nowrap"
@@ -96,7 +94,12 @@ export const MCard = forwardRef<HTMLDivElement, CardProps>(
 			>
 				{header && (
 					<header className={clsx(style.header, headerClassName)}>
-						<MFlex direction="column" justify="end" gap="l" align="stretch">
+						<MFlex
+							direction="column"
+							justify="end"
+							align="stretch"
+							className={style.sectionGap}
+						>
 							{typeof header === "string" ? (
 								<MHeading mode="h3">{header}</MHeading>
 							) : (
@@ -116,7 +119,12 @@ export const MCard = forwardRef<HTMLDivElement, CardProps>(
 				</div>
 				{footer && (
 					<footer className={clsx(style.footer, footerClassName)}>
-						<MFlex direction="column" justify="end" gap="l" align="stretch">
+						<MFlex
+							direction="column"
+							justify="end"
+							align="stretch"
+							className={style.sectionGap}
+						>
 							{showFooterDivider && <MDivider />}
 							{footer}
 						</MFlex>

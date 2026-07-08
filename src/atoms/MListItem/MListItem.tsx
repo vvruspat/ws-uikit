@@ -19,7 +19,7 @@ export type ListItemProps = DetailedHTMLProps<
 	before?: ReactNode;
 } & Pick<
 		ComponentProps<typeof MFlex>,
-		"direction" | "align" | "justify" | "wrap" | "gap"
+		"direction" | "align" | "justify" | "wrap"
 	>;
 export const MListItem = ({
 	children,
@@ -33,7 +33,6 @@ export const MListItem = ({
 	align = "center",
 	justify = "start",
 	wrap = "nowrap",
-	gap = "m",
 	...props
 }: ListItemProps) => {
 	const content = (
@@ -42,7 +41,7 @@ export const MListItem = ({
 			align={align}
 			justify={justify}
 			wrap={wrap}
-			gap={gap}
+			className={styles.itemContent}
 		>
 			{before && <div>{before}</div>}
 			{children}
