@@ -1,87 +1,104 @@
-.spinner {
-	width: 48px;
-	height: 48px;
-	border-style: solid;
-	border-bottom-color: transparent;
-	border-radius: 50%;
-	display: inline-block;
-	box-sizing: border-box;
-	animation: rotation 1s linear infinite;
-}
-
-@keyframes rotation {
-	0% {
-		transform: rotate(0deg);
+@layer components {
+	.spinner {
+		--_radius: var(--spinner-radius, 50%);
+		border-style: solid;
+		border-bottom-color: transparent;
+		border-radius: var(--_radius);
+		display: inline-block;
+		box-sizing: border-box;
+		animation: rotation 1s linear infinite;
 	}
-	100% {
-		transform: rotate(360deg);
+
+	@keyframes rotation {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
 	}
-}
 
-.spinner-size-xs {
-	border-width: calc(var(--space-2) * 0.15);
-	width: calc(var(--space-2) * 2);
-	height: calc(var(--space-2) * 2);
-}
+	.spinner-size-xs {
+		--_border-width: var(--spinner-border-width, calc(var(--gap-xs) * 0.15));
+		--_size: var(--spinner-size, calc(var(--gap-xs) * 2));
+		border-width: var(--_border-width);
+		width: var(--_size);
+		height: var(--_size);
+	}
 
-.spinner-size-s {
-	border-width: calc(var(--space-4) * 0.15);
-	width: calc(var(--space-4) * 2);
-	height: calc(var(--space-4) * 2);
-}
+	.spinner-size-s {
+		--_border-width: var(--spinner-border-width, calc(var(--gap-s) * 0.15));
+		--_size: var(--spinner-size, calc(var(--gap-s) * 2));
+		border-width: var(--_border-width);
+		width: var(--_size);
+		height: var(--_size);
+	}
 
-.spinner-size-m {
-	border-width: calc(var(--space-6) * 0.15);
-	width: calc(var(--space-6) * 2);
-	height: calc(var(--space-6) * 2);
-}
+	.spinner-size-m {
+		--_border-width: var(--spinner-border-width, calc(var(--gap-m) * 0.15));
+		--_size: var(--spinner-size, calc(var(--gap-m) * 2));
+		border-width: var(--_border-width);
+		width: var(--_size);
+		height: var(--_size);
+	}
 
-.spinner-size-l {
-	border-width: calc(var(--space-8) * 0.15);
-	width: calc(var(--space-8) * 2);
-	height: calc(var(--space-8) * 2);
-}
+	.spinner-size-l {
+		--_border-width: var(--spinner-border-width, calc(var(--gap-l) * 0.15));
+		--_size: var(--spinner-size, calc(var(--gap-l) * 2));
+		border-width: var(--_border-width);
+		width: var(--_size);
+		height: var(--_size);
+	}
 
-.spinner-size-xl {
-	border-width: calc(var(--space-10) * 0.15);
-	width: calc(var(--space-10) * 2);
-	height: calc(var(--space-10) * 2);
-}
+	.spinner-size-xl {
+		--_border-width: var(--spinner-border-width, calc(var(--gap-xl) * 0.15));
+		--_size: var(--spinner-size, calc(var(--gap-xl) * 2));
+		border-width: var(--_border-width);
+		width: var(--_size);
+		height: var(--_size);
+	}
 
-.spinner-size-2xl {
-	border-width: calc(var(--space-12) * 0.15);
-	width: calc(var(--space-12) * 2);
-	height: calc(var(--space-12) * 2);
-}
+	.spinner-size-2xl {
+		--_border-width: var(--spinner-border-width, calc(var(--gap-2xl) * 0.15));
+		--_size: var(--spinner-size, calc(var(--gap-2xl) * 2));
+		border-width: var(--_border-width);
+		width: var(--_size);
+		height: var(--_size);
+	}
 
-.spinner-size-3xl {
-	border-width: calc(var(--space-14) * 0.15);
-	width: calc(var(--space-14) * 2);
-	height: calc(var(--space-14) * 2);
-}
+	.spinner-size-3xl {
+		--_border-width: var(--spinner-border-width, calc(var(--gap-3xl) * 0.15));
+		--_size: var(--spinner-size, calc(var(--gap-3xl) * 2));
+		border-width: var(--_border-width);
+		width: var(--_size);
+		height: var(--_size);
+	}
 
-.spinner-size-4xl {
-	border-width: calc(var(--space-16) * 0.15);
-	width: calc(var(--space-16) * 2);
-	height: calc(var(--space-16) * 2);
-}
+	.spinner-size-4xl {
+		--_border-width: var(--spinner-border-width, calc(var(--gap-4xl) * 0.15));
+		--_size: var(--spinner-size, calc(var(--gap-4xl) * 2));
+		border-width: var(--_border-width);
+		width: var(--_size);
+		height: var(--_size);
+	}
 
-.spinner-mode-base {
-	border-color: var(--color-text-secondary);
-	border-bottom-color: transparent;
-}
+	.spinner-mode-base {
+		border-color: var(--color-text-secondary);
+		border-bottom-color: transparent;
+	}
 
-.spinner-mode-primary {
-	border-color: var(--color-action-rest);
-	border-bottom-color: transparent;
-}
+	.spinner-mode-primary {
+		border-color: var(--color-action-rest);
+		border-bottom-color: transparent;
+	}
 
-.spinner-mode-secondary {
-	border-color: var(--color-action-secondary-rest);
-	border-bottom-color: transparent;
-}
+	.spinner-mode-secondary {
+		border-color: var(--color-action-secondary-rest);
+		border-bottom-color: transparent;
+	}
 
-.spinner-mode-tertiary {
-	border-color: var(--color-action-subtle-foreground);
-	border-bottom-color: transparent;
+	.spinner-mode-tertiary {
+		border-color: var(--color-action-subtle-foreground);
+		border-bottom-color: transparent;
+	}
 }

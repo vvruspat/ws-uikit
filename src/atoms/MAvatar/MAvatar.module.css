@@ -1,59 +1,77 @@
-.avatar {
-	background-size: cover;
-	background-position: center center;
-	overflow: hidden;
-}
+@layer components {
+	.avatar {
+		background-size: cover;
+		background-position: center center;
+		overflow: hidden;
+	}
 
-.image {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-}
+	.image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
 
-.avatar-size-xs {
-	border-radius: var(--space-2);
-	width: calc(var(--space-2) * 2);
-	height: calc(var(--space-2) * 2);
-}
+	.avatar-size-xs {
+		--_radius: var(--avatar-radius, var(--gap-xs));
+		--_size: var(--avatar-size, calc(var(--gap-xs) * 2));
+		border-radius: var(--_radius);
+		width: var(--_size);
+		height: var(--_size);
+	}
 
-.avatar-size-s {
-	border-radius: var(--space-4);
-	width: calc(var(--space-4) * 2);
-	height: calc(var(--space-4) * 2);
-}
+	.avatar-size-s {
+		--_radius: var(--avatar-radius, var(--gap-s));
+		--_size: var(--avatar-size, calc(var(--gap-s) * 2));
+		border-radius: var(--_radius);
+		width: var(--_size);
+		height: var(--_size);
+	}
 
-.avatar-size-m {
-	border-radius: var(--space-6);
-	width: calc(var(--space-6) * 2);
-	height: calc(var(--space-6) * 2);
-}
+	.avatar-size-m {
+		--_radius: var(--avatar-radius, var(--gap-m));
+		--_size: var(--avatar-size, calc(var(--gap-m) * 2));
+		border-radius: var(--_radius);
+		width: var(--_size);
+		height: var(--_size);
+	}
 
-.avatar-size-l {
-	border-radius: var(--space-8);
-	width: calc(var(--space-8) * 2);
-	height: calc(var(--space-8) * 2);
-}
+	.avatar-size-l {
+		--_radius: var(--avatar-radius, var(--gap-l));
+		--_size: var(--avatar-size, calc(var(--gap-l) * 2));
+		border-radius: var(--_radius);
+		width: var(--_size);
+		height: var(--_size);
+	}
 
-.avatar-size-xl {
-	border-radius: var(--space-10);
-	width: calc(var(--space-10) * 2);
-	height: calc(var(--space-10) * 2);
-}
+	.avatar-size-xl {
+		--_radius: var(--avatar-radius, var(--gap-xl));
+		--_size: var(--avatar-size, calc(var(--gap-xl) * 2));
+		border-radius: var(--_radius);
+		width: var(--_size);
+		height: var(--_size);
+	}
 
-.avatar-size-2xl {
-	border-radius: var(--space-12);
-	width: calc(var(--space-12) * 2);
-	height: calc(var(--space-12) * 2);
-}
+	.avatar-size-2xl {
+		--_radius: var(--avatar-radius, var(--gap-2xl));
+		--_size: var(--avatar-size, calc(var(--gap-2xl) * 2));
+		border-radius: var(--_radius);
+		width: var(--_size);
+		height: var(--_size);
+	}
 
-.avatar-size-3xl {
-	border-radius: var(--space-14);
-	width: calc(var(--space-14) * 2);
-	height: calc(var(--space-14) * 2);
-}
+	.avatar-size-3xl {
+		--_radius: var(--avatar-radius, var(--gap-3xl));
+		--_size: var(--avatar-size, calc(var(--gap-3xl) * 2));
+		border-radius: var(--_radius);
+		width: var(--_size);
+		height: var(--_size);
+	}
 
-.avatar-size-4xl {
-	border-radius: var(--space-16);
-	width: calc(var(--space-16) * 2);
-	height: calc(var(--space-16) * 2);
+	.avatar-size-4xl {
+		--_radius: var(--avatar-radius, var(--gap-4xl));
+		--_size: var(--avatar-size, calc(var(--gap-4xl) * 2));
+		border-radius: var(--_radius);
+		width: var(--_size);
+		height: var(--_size);
+	}
 }
