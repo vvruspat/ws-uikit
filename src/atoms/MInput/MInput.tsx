@@ -1,6 +1,7 @@
 "use client";
 import clsx from "clsx";
 import type { ReactNode } from "react";
+import { Input } from "react-aria-components";
 import MFlex from "../MFlex/MFlex";
 
 import type { BasicInputProps } from "../../types/BasicInputProps";
@@ -57,7 +58,7 @@ export const MInput = ({
 			>
 				{before && <MFlex align="center">{before}</MFlex>}
 				<MFlex justify="stretch" direction="row" className={styles.inputField}>
-					<input
+					<Input
 						className={clsx(styles.input, className)}
 						{...restClearableProps}
 					/>

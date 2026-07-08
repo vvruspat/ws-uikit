@@ -1,4 +1,5 @@
 declare const styles: {
-	readonly dropdownContainer: string;
+  readonly "themeSelector": string;
 };
 export = styles;
+

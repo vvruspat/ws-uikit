@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { vi } from "vitest";
 import { MFileInputModal } from "./MFileInputModal";
 
@@ -11,13 +11,8 @@ describe("MFileInputModal", () => {
 	const onRemoved = vi.fn();
 	const onReset = vi.fn();
 	const onClose = vi.fn();
-	const fakeRef = { current: document.createElement("input") };
-	fakeRef.current.type = "file";
-	fakeRef.current.accept = "text/plain,image/png";
-	fakeRef.current.multiple = true;
-
 	it("is hidden when open=false", () => {
-		const { container } = render(
+		render(
 			<MFileInputModal
 				open={false}
 				files={files}
@@ -25,11 +20,9 @@ describe("MFileInputModal", () => {
 				onFileRemoved={onRemoved}
 				onFilesReset={onReset}
 				onClose={onClose}
-				inputRef={fakeRef}
 			/>,
 		);
-		const overlay = container.querySelector(".overlay");
-		expect(overlay).not.toHaveClass("open");
+		expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
 	});
 
 	it("shows files and calls onFileRemoved", () => {
@@ -41,7 +34,7 @@ describe("MFileInputModal", () => {
 				onFileRemoved={onRemoved}
 				onFilesReset={onReset}
 				onClose={onClose}
-				inputRef={fakeRef}
+				accept="text/plain,image/png"
 			/>,
 		);
 
@@ -50,7 +43,7 @@ describe("MFileInputModal", () => {
 		expect(screen.getByText("two.png")).toBeInTheDocument();
 	});
 
-	it("calls onFilesDropped when files are dropped", () => {
+	it("calls onFilesDropped when files are dropped", async () => {
 		render(
 			<MFileInputModal
 				open
@@ -59,15 +52,26 @@ describe("MFileInputModal", () => {
 				onFileRemoved={onRemoved}
 				onFilesReset={onReset}
 				onClose={onClose}
-				inputRef={fakeRef}
+				accept="text/plain,image/png"
 			/>,
 		);
 		const dropArea = screen.getByTestId("drop-area");
 		const dt = {
-			dataTransfer: { files: [files[0]] },
+			dataTransfer: {
+				files: [files[0]],
+				types: ["Files"],
+				items: [
+					{
+						kind: "file",
+						type: files[0].type,
+						getAsFile: () => files[0],
+					},
+				],
+				getData: () => "",
+			},
 		};
 		fireEvent.drop(dropArea, dt);
-		expect(onDropped).toHaveBeenCalledWith([files[0]]);
+		await waitFor(() => expect(onDropped).toHaveBeenCalledWith([files[0]]));
 	});
 
 	it("calls onFileRemoved when its remove button is clicked", () => {
@@ -79,7 +83,6 @@ describe("MFileInputModal", () => {
 				onFileRemoved={onRemoved}
 				onFilesReset={onReset}
 				onClose={onClose}
-				inputRef={fakeRef}
 			/>,
 		);
 

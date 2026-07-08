@@ -140,7 +140,8 @@ export const MFileInput = ({
 			<MFileInputModal
 				open={openModal}
 				onClose={handleModalClose}
-				inputRef={inputRef}
+				accept={fileInputProps?.accept}
+				multiple={fileInputProps?.multiple ?? true}
 				files={files}
 				onFilesDropped={handleFilesDropped}
 				onFileRemoved={handleFileRemoved}

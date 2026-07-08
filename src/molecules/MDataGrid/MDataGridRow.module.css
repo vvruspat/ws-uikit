@@ -1,8 +1,36 @@
-.checkboxCell {
-	width: 100%;
-	height: 100%;
+.selectionCell {
+	width: var(--size-24);
+	padding: var(--space-4);
 }
 
-.selected {
-	background-color: var(--color-surface-overlay);
+.checkboxCell {
+	width: 100%;
+	min-height: var(--size-12);
+}
+
+.cell {
+	padding: var(--space-5) var(--space-6);
+	color: var(--color-text-secondary);
+	font-size: var(--font-size-sm);
+	font-weight: 400;
+	line-height: var(--line-height-sm);
+	text-align: left;
+	vertical-align: middle;
+	word-break: break-word;
+}
+
+.rowHeaderCell {
+	color: var(--color-text-primary);
+	font-weight: 500;
+}
+
+.visuallyHidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
 }

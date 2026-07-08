@@ -14,6 +14,7 @@ export type ListItemProps = DetailedHTMLProps<
 > & {
 	showDivider?: boolean;
 	noPadding?: boolean;
+	onAction?: () => void;
 	after?: ReactNode;
 	before?: ReactNode;
 } & Pick<
@@ -25,6 +26,7 @@ export const MListItem = ({
 	className,
 	showDivider,
 	noPadding = false,
+	onAction,
 	after,
 	before,
 	direction = "row",
@@ -34,6 +36,20 @@ export const MListItem = ({
 	gap = "m",
 	...props
 }: ListItemProps) => {
+	const content = (
+		<MFlex
+			direction={direction}
+			align={align}
+			justify={justify}
+			wrap={wrap}
+			gap={gap}
+		>
+			{before && <div>{before}</div>}
+			{children}
+			{after && <div>{after}</div>}
+		</MFlex>
+	);
+
 	return (
 		<li
 			className={clsx(styles.item, className, {
@@ -42,17 +58,13 @@ export const MListItem = ({
 			})}
 			{...props}
 		>
-			<MFlex
-				direction={direction}
-				align={align}
-				justify={justify}
-				wrap={wrap}
-				gap={gap}
-			>
-				{before && <div>{before}</div>}
-				{children}
-				{after && <div>{after}</div>}
-			</MFlex>
+			{onAction ? (
+				<button type="button" className={styles.itemButton} onClick={onAction}>
+					{content}
+				</button>
+			) : (
+				content
+			)}
 		</li>
 	);
 };

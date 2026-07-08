@@ -30,6 +30,11 @@
 	background-color: var(--color-control-checked);
 }
 
+.inputContainer input[type="radio"]:focus-visible {
+	outline: var(--space-1) solid var(--color-focus-ring);
+	outline-offset: var(--space-2);
+}
+
 /* Show the indicator (dot/circle) when checked */
 .inputContainer input[type="radio"]:not(:disabled):checked:before {
 	display: flex;

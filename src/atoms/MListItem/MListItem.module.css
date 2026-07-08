@@ -2,9 +2,24 @@
 .item {
 	padding: var(--space-4) var(--space-8);
 	list-style-type: none;
-	cursor: pointer;
 	font-weight: normal;
 	font-style: normal;
+}
+
+.itemButton {
+	width: 100%;
+	border: 0;
+	background: transparent;
+	color: inherit;
+	cursor: pointer;
+	font: inherit;
+	padding: 0;
+	text-align: inherit;
+}
+
+.itemButton:focus-visible {
+	outline: var(--space-1) solid var(--color-focus-ring);
+	outline-offset: var(--space-2);
 }
 
 .item.noPadding {
@@ -34,11 +49,21 @@
 }
 
 /*hover*/
-.item:hover {
+.item:hover,
+.item:has(.itemButton:focus-visible),
+.item[data-focused],
+.item[data-hovered] {
 	background: var(--color-surface-overlay);
 }
 
+.item[data-focus-visible] {
+	outline: var(--space-1) solid var(--color-focus-ring);
+	outline-offset: var(--space-2);
+}
+
 /*active*/
-.item:active {
+.item:active,
+.item:has(.itemButton:active),
+.item[data-pressed] {
 	background: var(--color-surface-sunken);
 }

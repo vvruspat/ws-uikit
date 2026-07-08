@@ -1,76 +1,125 @@
 "use client";
 
 import clsx from "clsx";
-import type React from "react";
-import { type ReactNode, useMemo, useState } from "react";
+import { type ReactNode, useMemo } from "react";
+import {
+	Button,
+	Disclosure,
+	DisclosureGroup,
+	DisclosurePanel,
+	Heading,
+	type Key,
+} from "react-aria-components";
 import MCard from "../../atoms/MCard/MCard";
-import MDivider from "../../atoms/MDivider/MDivider";
 import MFlex from "../../atoms/MFlex/MFlex";
+import { MIconCaretDown } from "../../atoms/MIcon/icons/MIconCaretDown";
+import { MIconCaretRight } from "../../atoms/MIcon/icons/MIconCaretRight";
 import style from "./MAccordion.module.css";
 
 export type AccordionItemProps = {
-	key: number;
+	key: Key;
 	title: ReactNode;
 	children: ReactNode;
 	collapsed?: boolean;
+	disabled?: boolean;
 };
 
-type AccordionProps = {
+export type AccordionProps = {
 	items: AccordionItemProps[];
 	iconOpen?: ReactNode;
 	iconClosed?: ReactNode;
+	allowsMultipleExpanded?: boolean;
+	defaultExpandedKeys?: Iterable<Key>;
+	expandedKeys?: Iterable<Key>;
+	onExpandedChange?: (keys: Set<Key>) => void;
+	isDisabled?: boolean;
+	headingLevel?: number;
+	className?: string;
 };
 
-export const MAccordion: React.FC<AccordionProps> = ({
+const getInitialExpandedKeys = (
+	items: AccordionItemProps[],
+	allowsMultipleExpanded: boolean,
+) => {
+	const expandedItems = items
+		.filter((item) => item.collapsed === false)
+		.map((item) => item.key);
+
+	if (allowsMultipleExpanded) {
+		return expandedItems;
+	}
+
+	return expandedItems.slice(0, 1);
+};
+
+export const MAccordion = ({
 	items,
 	iconOpen,
 	iconClosed,
-}) => {
-	const [openIndex, setOpenIndex] = useState(-1);
-	const accordionItems = useMemo(
-		() =>
-			items.map((item, index) => {
-				return {
-					...item,
-					collapsed: openIndex !== index,
-				};
-			}),
-		[items, openIndex],
+	allowsMultipleExpanded = false,
+	defaultExpandedKeys,
+	expandedKeys,
+	onExpandedChange,
+	isDisabled,
+	headingLevel = 3,
+	className,
+}: AccordionProps) => {
+	const initialExpandedKeys = useMemo(
+		() => getInitialExpandedKeys(items, allowsMultipleExpanded),
+		[allowsMultipleExpanded, items],
 	);
+	const openIcon = iconOpen ?? <MIconCaretDown mode="regular" width={20} />;
+	const closedIcon = iconClosed ?? <MIconCaretRight mode="regular" width={20} />;
+	const resolvedDefaultExpandedKeys =
+		expandedKeys === undefined ? defaultExpandedKeys ?? initialExpandedKeys : undefined;
 
-	const toggleAccordion = (index: number) => {
-		setOpenIndex((prevIndex) => (prevIndex === index ? -1 : index));
-	};
-
-	const getIcon = (isCollapsed: boolean) => {
-		return isCollapsed ? iconClosed : iconOpen;
-	};
-
-	const getHeader = (item: AccordionItemProps, index: number) => (
-		<MFlex onClick={() => toggleAccordion(index)}>
-			{getIcon(!!item.collapsed)}
-			{item.title}
-		</MFlex>
-	);
 	return (
-		<MCard className={style.container}>
-			{accordionItems.map((item, index) => (
-				<div key={item.key}>
-					<MCard
-						header={getHeader(item, index)}
-						headerClassName={clsx(style.itemHeader, {
-							[style.collapsedIcon]: item.collapsed,
-						})}
+		<MCard noPadding className={clsx(style.container, className)}>
+			<DisclosureGroup
+				allowsMultipleExpanded={allowsMultipleExpanded}
+				defaultExpandedKeys={resolvedDefaultExpandedKeys}
+				expandedKeys={expandedKeys}
+				onExpandedChange={onExpandedChange}
+				isDisabled={isDisabled}
+				className={style.group}
+			>
+				{items.map((item) => (
+					<Disclosure
+						key={item.key}
+						id={item.key}
+						isDisabled={item.disabled}
 						className={style.item}
-						showHeaderDivider
-						shadow={false}
-						collapsed={item.collapsed}
 					>
-						{item.children}
-					</MCard>
-					{index !== items.length - 1 && <MDivider />}
-				</div>
-			))}
+						{({ isExpanded }) => (
+							<>
+								<Heading level={headingLevel} className={style.itemHeading}>
+									<Button slot="trigger" className={style.itemHeader}>
+										<MFlex
+											align="center"
+											justify="space-between"
+											gap="m"
+											wrap="nowrap"
+											className={style.headerContent}
+										>
+											<span className={style.title}>{item.title}</span>
+											<span className={style.icon} aria-hidden="true">
+												{isExpanded ? openIcon : closedIcon}
+											</span>
+										</MFlex>
+									</Button>
+								</Heading>
+								<DisclosurePanel
+									className={style.itemPanel}
+									role="region"
+									inert={!isExpanded}
+								>
+									<div className={style.itemPanelContent}>{item.children}</div>
+								</DisclosurePanel>
+							</>
+						)}
+					</Disclosure>
+				))}
+			</DisclosureGroup>
 		</MCard>
 	);
 };

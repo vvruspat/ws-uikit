@@ -2,103 +2,74 @@
 	pointer-events: all;
 }
 
-.checkboxWrapper input[type="checkbox"] {
-	position: absolute;
-	height: 1px;
-	width: 1px;
-	overflow: hidden;
-	clip: rect(1px, 1px, 1px, 1px);
+.checkboxContainer {
+	position: relative;
 }
 
-.checkboxWrapper label {
-	display: flex;
+.Checkbox {
+	display: inline-flex;
 	align-items: center;
 	gap: var(--space-6);
 	cursor: pointer;
 }
 
-.checkboxContainer {
-	position: relative;
+.customCheckboxBox {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: var(--space-8);
+	height: var(--space-8);
+	border: 1px solid var(--color-control-outline);
+	border-radius: var(--radius-2);
+	box-sizing: border-box;
 }
 
 .customCheckboxIcon {
 	display: none;
+	color: var(--color-control-thumb);
 	pointer-events: none;
 }
 
-.checkboxContainer
-	input[type="checkbox"]:checked
-	+ label
-	+ .customCheckboxIcon {
-	display: inline-block;
-	position: absolute;
-	left: 3px;
-	color: var(--color-control-thumb);
+.Checkbox[data-selected] .customCheckboxIcon,
+.Checkbox[data-indeterminate] .customCheckboxIcon {
+	display: inline-flex;
 }
 
-.checkboxWrapper input[type="checkbox"] + label:before {
-	content: "";
-	display: flex;
-	justify-content: center;
-	width: 15px;
-	height: 15px;
-	border: 1px solid var(--color-control-outline);
-	border-radius: var(--radius-2);
+.Checkbox[data-focus-visible] .customCheckboxBox {
+	outline: var(--space-1) solid var(--color-focus-ring);
+	outline-offset: var(--space-2);
 }
 
-.checkboxWrapper .Checkbox:checked + label:before {
-	color: var(--color-control-thumb);
+.checkboxWrapper.regular .Checkbox[data-hovered] .customCheckboxBox {
+	border-color: var(--color-control-outline-hover);
 }
 
-.checkboxWrapper input[type="checkbox"]:focus + label:before {
-	outline: var(--focus-outline);
-	outline-offset: var(--focus-outline-offset);
-}
-
-/** States */
-
-/** regular */
-.checkboxWrapper.regular .Checkbox:hover + label:before {
-	border: 1px solid var(--color-control-outline-hover);
-}
-
-.checkboxWrapper.regular .Checkbox:checked + label:before {
+.checkboxWrapper.regular .Checkbox[data-selected] .customCheckboxBox {
 	background-color: var(--color-control-checked);
-	border: 1px solid var(--color-control-checked);
+	border-color: var(--color-control-checked);
 }
 
-.checkboxWrapper.regular .Checkbox:checked:hover + label:before {
+.checkboxWrapper.regular
+	.Checkbox[data-selected][data-hovered]
+	.customCheckboxBox {
 	background-color: var(--color-control-checked-hover);
-	border: 1px solid var(--color-control-checked-hover);
+	border-color: var(--color-control-checked-hover);
 }
 
-/** valid */
-
-.checkboxWrapper.valid .Checkbox + label:before {
-	border: 1px solid var(--color-control-checked);
+.checkboxWrapper.valid .customCheckboxBox {
+	border-color: var(--color-control-checked);
 }
 
-.checkboxWrapper.valid .Checkbox:checked + label:before {
+.checkboxWrapper.valid .Checkbox[data-selected] .customCheckboxBox {
 	background-color: var(--color-control-checked);
-	border: 1px solid var(--color-control-checked);
+	border-color: var(--color-control-checked);
 }
 
-.checkboxWrapper .Checkbox:disabled + label:before {
-	background-color: var(--color-action-disabled);
+.checkboxWrapper.invalid .customCheckboxBox {
+	border-color: var(--color-border-error);
 }
 
-.checkboxWrapper.valid .customCheckboxIcon {
-	color: var(--color-control-thumb);
-}
-
-/* invalid */
-
-.checkboxWrapper.invalid .Checkbox + label:before {
-	border: 1px solid var(--color-border-error);
-	color: var(--color-status-error);
-}
-
-.checkboxWrapper.invalid .Checkbox:checked + label:before {
+.checkboxWrapper.invalid .Checkbox[data-selected] .customCheckboxBox {
 	background-color: transparent;
 }
 
@@ -106,21 +77,12 @@
 	color: var(--color-status-error);
 }
 
-/* disabled */
-
-.checkboxWrapper .Checkbox:checked:disabled + label:before {
-	background-color: var(--color-action-disabled);
-	border: 1px solid transparent;
-}
-
-.checkboxWrapper .Checkbox:checked:disabled:hover + label:before {
-	border: 1px solid transparent;
-}
-
-.checkboxWrapper.regular .Checkbox:checked:disabled:hover + label:before {
-	background-color: var(--color-action-disabled);
-}
-
-.checkboxWrapper .Checkbox:disabled + label {
+.Checkbox[data-disabled] {
 	cursor: default;
+}
+
+.Checkbox[data-disabled] .customCheckboxBox,
+.Checkbox[data-selected][data-disabled] .customCheckboxBox {
+	background-color: var(--color-action-disabled);
+	border-color: transparent;
 }

@@ -10,42 +10,50 @@ import type {
 
 type MDataGridRowProps = {
 	row: MDataGridRowType;
+	rowLabel: string;
 	headers: MDataGridHeaderType[];
 	selected: boolean;
 	onCheckboxChange?: (row: MDataGridRowType, checked: boolean) => void;
 };
 
+const renderDefaultCell = (cell: MDataGridCellValue | undefined) => {
+	if (cell === undefined) {
+		return "";
+	}
+
+	if (
+		typeof cell === "string" ||
+		typeof cell === "number" ||
+		typeof cell === "boolean"
+	) {
+		return String(cell);
+	}
+
+	return Object.prototype.toString.call(cell);
+};
+
 export const MDataGridRow = ({
 	row,
+	rowLabel,
 	headers,
 	selected,
 	onCheckboxChange,
 }: MDataGridRowProps) => {
-	const renderCell = useCallback(
-		(
-			header: MDataGridHeaderType,
-			rowId: string | number,
-			cell?: MDataGridCellValue,
-		) => {
-			return (
-				<td
-					key={`${header.key ?? "cell"}-${header.field}-${rowId}`}
-					className={clsx({ [styles.selected]: selected })}
-				>
-					{cell ? (header.renderCell?.(cell, row) ?? cell.toString()) : ""}
-				</td>
-			);
+	const renderCellContent = useCallback(
+		(header: MDataGridHeaderType, cell?: MDataGridCellValue) => {
+			return cell !== undefined
+				? (header.renderCell?.(cell, row) ?? renderDefaultCell(cell))
+				: "";
 		},
-		[selected, row],
+		[row],
 	);
 
-	const isSkeletonRow =
-		typeof row === "object" && row !== null && "__skeleton" in row;
+	const isSkeletonRow = "__skeleton" in row;
 
 	return (
-		<tr>
+		<tr data-selected={selected || undefined}>
 			{onCheckboxChange && (
-				<td className={clsx({ [styles.selected]: selected })}>
+				<td className={styles.selectionCell}>
 					<MFlex
 						align="center"
 						justify="center"
@@ -53,17 +61,39 @@ export const MDataGridRow = ({
 					>
 						{isSkeletonRow ? null : (
 							<MCheckbox
-								label={""}
-								onChange={(event) =>
-									onCheckboxChange(row, event.target.checked)
+								label={
+									<span className={styles.visuallyHidden}>
+										Select {rowLabel}
+									</span>
 								}
-								defaultChecked={selected}
+								checked={selected}
+								onCheckedChange={(checked) => onCheckboxChange(row, checked)}
 							/>
 						)}
 					</MFlex>
 				</td>
 			)}
-			{headers.map((header) => renderCell(header, row.id, row[header.field]))}
+			{headers.map((header, index) => {
+				const key = `${header.key ?? "cell"}-${header.field}-${row.id}`;
+				const className = clsx(styles.cell, {
+					[styles.rowHeaderCell]: index === 0,
+				});
+				const content = renderCellContent(header, row[header.field]);
+
+				if (index === 0) {
+					return (
+						<th key={key} scope="row" className={className}>
+							{content}
+						</th>
+					);
+				}
+
+				return (
+					<td key={key} className={className}>
+						{content}
+					</td>
+				);
+			})}
 		</tr>
 	);
 };

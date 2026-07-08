@@ -14,66 +14,48 @@
 
 .progressBar {
 	width: 100%;
-	border: 0;
+}
+
+.progressTrack {
+	width: 100%;
 	border-radius: var(--radius-full);
-	appearance: none;
 	overflow: hidden;
 	background-color: var(--color-control-track);
 }
 
-.progressBar::-webkit-progress-bar {
-	border-radius: var(--radius-full);
-	background-color: var(--color-control-track);
-}
-
-.progressBar::-webkit-progress-value {
+.progressValue {
+	height: 100%;
 	border-radius: var(--radius-full);
 	background-color: var(--color-control-checked);
-	transition: background-color 0.2s ease-in-out;
-}
-
-.progressBar::-moz-progress-bar {
-	border-radius: var(--radius-full);
-	background-color: var(--color-control-checked);
-	transition: background-color 0.2s ease-in-out;
+	transition:
+		background-color 0.2s ease-in-out,
+		width 0.2s ease-in-out;
 }
 
 .regular {
 	color: inherit;
 }
 
-.size-s {
+.size-s .progressTrack {
 	height: var(--space-2);
 }
 
-.size-m {
+.size-m .progressTrack {
 	height: var(--space-3);
 }
 
-.size-l {
+.size-l .progressTrack {
 	height: var(--space-4);
 }
 
-.valid .progressBar::-webkit-progress-value {
+.valid .progressValue {
 	background-color: var(--color-status-success-border);
 }
 
-.valid .progressBar::-moz-progress-bar {
-	background-color: var(--color-status-success-border);
-}
-
-.invalid .progressBar::-webkit-progress-value {
+.invalid .progressValue {
 	background-color: var(--color-status-error-border);
 }
 
-.invalid .progressBar::-moz-progress-bar {
-	background-color: var(--color-status-error-border);
-}
-
-.progressBar:indeterminate::-webkit-progress-bar {
-	background-color: var(--color-control-track);
-}
-
-.progressBar:indeterminate::-moz-progress-bar {
+.progressBar:not([aria-valuenow]) .progressTrack {
 	background-color: var(--color-control-track-hover);
 }

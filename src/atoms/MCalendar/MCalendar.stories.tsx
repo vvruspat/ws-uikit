@@ -15,3 +15,11 @@ export const Default: Story = {
 
 	argTypes: {},
 };
+
+export const Range: Story = {
+	args: {
+		mode: "range",
+	},
+
+	argTypes: {},
+};

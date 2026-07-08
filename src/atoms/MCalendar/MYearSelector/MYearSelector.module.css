@@ -1,9 +1,0 @@
-.dropdownContent {
-	overflow-y: scroll;
-	max-height: var(--space-64);
-}
-
-.yearSelector {
-	font-size: var(--font-size-lg);
-	font-weight: 500;
-}

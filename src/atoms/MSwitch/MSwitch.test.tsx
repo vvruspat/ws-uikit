@@ -5,13 +5,13 @@ describe("MSwitch", () => {
 	test("should render switch", () => {
 		render(<MSwitch />);
 
-		expect(screen.getByRole("checkbox")).toBeInTheDocument();
+		expect(screen.getByRole("switch")).toBeInTheDocument();
 	});
 
 	test("should be disabled when disabled is true", () => {
 		render(<MSwitch disabled={true} />);
 
-		const switchElement = screen.getByRole("checkbox");
+		const switchElement = screen.getByRole("switch");
 
 		expect(switchElement).toBeDisabled();
 	});
@@ -19,7 +19,7 @@ describe("MSwitch", () => {
 	test("should change checked state from false to true on click", () => {
 		render(<MSwitch />);
 
-		const switchElement = screen.getByRole("checkbox");
+		const switchElement = screen.getByRole("switch");
 
 		expect(switchElement).not.toBeChecked();
 

@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { MInput } from "../../atoms";
-import { MDataGrid } from "./MDataGrid";
+import { useState } from "react";
+import { MInput, MText } from "../../atoms";
+import { MDataGrid, type MDataGridProps } from "./MDataGrid";
 import type { MDataGridHeaderType, MDataGridRowType } from "./types";
 
 const meta: Meta<typeof MDataGrid> = {
@@ -11,65 +12,113 @@ const meta: Meta<typeof MDataGrid> = {
 export default meta;
 type Story = StoryObj<typeof MDataGrid>;
 
-export const headers: MDataGridHeaderType[] = [
+const dateFormatter = new Intl.DateTimeFormat("en", {
+	year: "numeric",
+	month: "short",
+	day: "numeric",
+});
+
+const headers: MDataGridHeaderType[] = [
 	{
 		field: "name",
-		label: "Name",
+		label: "Customer",
 		sortable: true,
 		renderFilter: (props) => (
-			<MInput placeholder="Search user by name" {...props} />
+			<MInput placeholder="Search customer" {...props} />
 		),
 	},
 	{
-		field: "age",
-		label: "Age",
+		field: "status",
+		label: "Status",
 		sortable: true,
-		renderFilter: (props) => (
-			<MInput placeholder="Filter by age" type="number" {...props} />
+		renderFilter: (props) => <MInput placeholder="Filter status" {...props} />,
+		renderCell: (value) => (
+			<MText mode={value === "Active" ? "primary" : "secondary"}>
+				{String(value)}
+			</MText>
 		),
 	},
 	{
-		field: "dateOfBirth",
-		label: "Birth day",
+		field: "plan",
+		label: "Plan",
 		sortable: true,
-		renderCell: (value) => new Date(value as number).toString(),
+	},
+	{
+		field: "revenue",
+		label: "Revenue",
+		sortable: true,
+		renderCell: (value) =>
+			typeof value === "number" ? `$${value.toLocaleString("en")}` : "",
+	},
+	{
+		field: "renewalDate",
+		label: "Renewal",
+		sortable: true,
+		renderCell: (value) =>
+			typeof value === "number" ? dateFormatter.format(new Date(value)) : "",
 	},
 ];
 
-export const initialRows: MDataGridRowType[] = Array.from(
-	{ length: 20 },
-	(_, i) => ({
-		id: i,
-		name: `User ${i + 1}`,
-		age: 20 + (i % 10),
-		dateOfBirth: Date.now() - (20 + (i % 10)) * 1000 * 60 * 60 * 24 * 365,
-	}),
+const initialRows: MDataGridRowType[] = Array.from(
+	{ length: 32 },
+	(_, index) => {
+		const plan = index % 3 === 0 ? "Enterprise" : index % 3 === 1 ? "Team" : "Pro";
+		const status = index % 5 === 0 ? "Paused" : "Active";
+
+		return {
+			id: index,
+			name: `Northwind account ${index + 1}`,
+			status,
+			plan,
+			revenue: 2400 + index * 375,
+			renewalDate: Date.now() + (index + 4) * 1000 * 60 * 60 * 24 * 14,
+		};
+	},
 );
 
-export const pagination = {
-	total: 1000,
-	limit: 10,
-	onLoadMore: (offset: number, limit: number) => {
-		const promise = new Promise<MDataGridRowType[]>((resolve) => {
-			const newRows = Array.from({ length: limit }, (_, i) => ({
-				fieldId: offset + i,
-				id: offset + i,
-				name: `User ${offset + i + 1}`,
-				age: 20 + ((offset + i) % 100),
-				dateOfBirth: Date.now() - (20 + (i % 10)) * 1000 * 60 * 60 * 24 * 365,
-			}));
-			setTimeout(() => resolve(newRows), 3000);
-		});
+const StatefulDataGrid = (args: MDataGridProps) => {
+	const rows = args.rows ?? initialRows;
+	const [offset, setOffset] = useState(0);
+	const [limit, setLimit] = useState(10);
+	const pageRows = rows.slice(offset, offset + limit);
 
-		return promise;
-	},
+	return (
+		<MDataGrid
+			{...args}
+			rows={pageRows}
+			pagination={{
+				total: rows.length,
+				limit,
+				offset,
+				rowsPerPageOptions: [5, 10, 25],
+				onNextPage: (nextOffset) => setOffset(nextOffset),
+				onPreviousPage: (nextOffset) => setOffset(nextOffset),
+				onRowsPerPageChange: (nextLimit) => {
+					setLimit(nextLimit);
+					setOffset(0);
+				},
+			}}
+		/>
+	);
 };
 
 export const Default: Story = {
 	args: {
+		caption: "Customer accounts",
 		headers,
 		rows: initialRows,
-		onSelect: (selected) => console.log("Selected rows:", selected),
-		pagination,
+		emptyMessage: "No customer accounts match the current filters.",
+		onSelect: () => {},
 	},
+	render: (args) => <StatefulDataGrid {...args} />,
+};
+
+export const Empty: Story = {
+	args: {
+		caption: "Customer accounts",
+		headers,
+		rows: [],
+		emptyMessage: "No customer accounts match the current filters.",
+	},
+	render: (args) => <StatefulDataGrid {...args} />,
 };

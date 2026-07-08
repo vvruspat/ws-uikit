@@ -84,12 +84,14 @@
 	gap: var(--space-4);
 }
 
-.primary:focus,
-.secondary:focus,
-.tertiary:focus,
-.round:focus {
-	outline: var(--focus-outline);
-	outline-offset: var(--focus-outline-offset);
+.primary:focus-visible,
+.secondary:focus-visible,
+.tertiary:focus-visible,
+.round:focus-visible,
+.outlined:focus-visible,
+.transparent:focus-visible {
+	outline: var(--space-1) solid var(--color-focus-ring);
+	outline-offset: var(--space-2);
 }
 
 .round span {

@@ -1,13 +1,26 @@
 import clsx from "clsx";
 import { type ReactNode, useId, useMemo } from "react";
-import type { BasicInputProps } from "../../types/BasicInputProps";
+import {
+	Switch,
+	type SwitchProps as AriaSwitchProps,
+} from "react-aria-components";
+import type { TComponentStatus } from "../../types/TComponentStatus";
 import MFlex from "../MFlex/MFlex";
 import styles from "./MSwitch.module.css";
 
-type SwitchProps = BasicInputProps & {
+type SwitchProps = Omit<
+	AriaSwitchProps,
+	"children" | "className" | "isDisabled" | "isSelected" | "defaultSelected"
+> &
+	Partial<TComponentStatus> & {
 	leftIcon?: ReactNode;
 	rightIcon?: ReactNode;
 	borderType?: "round" | "rectangular";
+	className?: string;
+	checked?: boolean;
+	defaultChecked?: boolean;
+	disabled?: boolean;
+	onCheckedChange?: (checked: boolean) => void;
 };
 
 export const MSwitch = ({
@@ -18,6 +31,9 @@ export const MSwitch = ({
 	rightIcon,
 	className,
 	borderType = "round",
+	onCheckedChange,
+	checked,
+	defaultChecked,
 	...restProps
 }: SwitchProps) => {
 	const uuid = useId();
@@ -25,15 +41,16 @@ export const MSwitch = ({
 
 	return (
 		<MFlex className={clsx(styles.switchWrapper, className)}>
-			<label className={styles.switch}>
-				<input
-					type="checkbox"
-					id={fieldId}
-					name={name}
-					disabled={disabled}
-					{...restProps}
-				/>
-
+			<Switch
+				className={styles.switch}
+				id={fieldId}
+				name={name}
+				isSelected={checked}
+				defaultSelected={defaultChecked}
+				isDisabled={disabled}
+				onChange={onCheckedChange}
+				{...restProps}
+			>
 				<span className={clsx(styles.slider, styles[borderType])}>
 					<span className={clsx(styles.control)}>
 						{leftIcon && (
@@ -49,7 +66,7 @@ export const MSwitch = ({
 						)}
 					</span>
 				</span>
-			</label>
+			</Switch>
 		</MFlex>
 	);
 };
