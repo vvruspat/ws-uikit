@@ -45,6 +45,44 @@ All modes at a glance.
 
 ---
 
+## Customization
+
+MButton is styled with CSS variables. See **Guides/Theming & Customization** for the
+override mechanism (global / zonal / instance). Below is the component's public token API.
+
+**Geometry — component tokens** (override per-component; default falls to a semantic role):
+
+| Token | Controls | Default |
+|-------|----------|---------|
+| `--button-radius` | Corner radius (all modes except `round`) | `--radius-control` · outlined: `--radius-control-sm` |
+| `--button-radius-round` | `round` mode radius | `50%` |
+| `--button-gap` | Gap between icon and label | `--gap-control` |
+| `--button-px` | Horizontal padding | `--padding-control-x-{s,m,l}` |
+| `--button-py` | Vertical padding | `--padding-control-y-{s,m,l}` |
+| `--button-font-size` | Label size | `--font-size-{sm,md,lg}` |
+| `--button-icon-size` | `round` width/height | `--size-control-{s,m,l}` |
+| `--button-icon-padding` | `round` inner padding | `--padding-icon-{s,m,l}` |
+
+**Colors & focus** are bound to global semantics (retune once, all controls follow — no
+per-button token by design): `--color-action-*` families, and `--focus-ring-width` /
+`--focus-ring-offset` / `--color-focus-ring`.
+
+```css
+/* square, tighter buttons everywhere */
+:root {
+  --button-radius: var(--radius-2);
+  --button-gap: var(--space-2);
+}
+
+/* recolor via the shared action role (also affects links etc.) */
+:root[data-brand="acme"] {
+  --color-action-rest: #6d28d9;
+  --color-action-hover: #7c3aed;
+}
+```
+
+---
+
 ## Playground
 
 <Canvas of={ButtonStories.Basic} />
