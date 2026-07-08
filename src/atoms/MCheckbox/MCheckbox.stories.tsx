@@ -1,6 +1,6 @@
+import { CodeBracketSquareIcon } from "@heroicons/react/24/outline";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import MFlex from "../MFlex/MFlex";
-import { MIconBracketsSquare } from "../MIcon/icons/MIconBracketsSquare";
 import MText from "../MText/MText";
 import MCheckbox from "./MCheckbox";
 
@@ -13,21 +13,21 @@ export default meta;
 
 const labelComponentContent = () => (
 	<MFlex gap="s">
-		<MIconBracketsSquare mode="regular" width={24} />
+		<CodeBracketSquareIcon width={24} />
 		<MText>Label</MText>
 	</MFlex>
 );
 
 const descriptionComponentContent = () => (
 	<MFlex gap="s">
-		<MIconBracketsSquare mode="regular" width={16} />
+		<CodeBracketSquareIcon width={16} />
 		<MText>Description</MText>
 	</MFlex>
 );
 
 const errorComponentContent = () => (
 	<MFlex gap="s">
-		<MIconBracketsSquare mode="regular" width={16} />
+		<CodeBracketSquareIcon width={16} />
 		<MText>Error</MText>
 	</MFlex>
 );

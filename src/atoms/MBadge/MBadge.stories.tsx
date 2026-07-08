@@ -1,6 +1,6 @@
+import { StarIcon } from "@heroicons/react/24/outline";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { MIconStar } from "../MIcon/icons/MIconStar";
 import MBadge from "./MBadge";
 
 const meta: Meta<typeof MBadge> = {
@@ -26,7 +26,7 @@ export const AllModes: Story = {
 		<div style={{ display: "flex", gap: "10px", flexWrap: "wrap", alignItems: "center" }}>
 			{allModes.map((mode) => (
 				<MBadge key={mode} mode={mode}>
-					<MIconStar mode="regular" width={14} />
+					<StarIcon width={14} />
 					{mode}
 				</MBadge>
 			))}
@@ -39,7 +39,7 @@ export const Primary: Story = {
 	args: {
 		children: (
 			<>
-				<MIconStar mode="regular" width={20} />
+				<StarIcon width={20} />
 				4.8
 			</>
 		),
@@ -52,7 +52,7 @@ export const Transparent: Story = {
 	args: {
 		children: (
 			<>
-				<MIconStar mode="regular" width={16} />
+				<StarIcon width={16} />
 				4.8
 			</>
 		),

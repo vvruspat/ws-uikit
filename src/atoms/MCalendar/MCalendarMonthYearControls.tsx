@@ -1,3 +1,4 @@
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import type { CalendarDate } from "@internationalized/date";
 import { useMemo } from "react";
 import {
@@ -9,7 +10,6 @@ import {
 	SelectValue,
 } from "react-aria-components";
 import { MFlex } from "../MFlex";
-import { MIconCaretDown } from "../MIcon";
 
 type FocusableCalendarState = {
 	focusedDate: CalendarDate;
@@ -81,7 +81,7 @@ export const MCalendarMonthYearControls = ({
 			>
 				<Button className={classNames.button}>
 					<SelectValue className={classNames.value} />
-					<MIconCaretDown mode="regular" width={14} />
+					<ChevronDownIcon width={14} />
 				</Button>
 				<Popover className={classNames.popover}>
 					<ListBox className={classNames.listBox}>
@@ -109,7 +109,7 @@ export const MCalendarMonthYearControls = ({
 			>
 				<Button className={classNames.button}>
 					<SelectValue className={classNames.value} />
-					<MIconCaretDown mode="regular" width={14} />
+					<ChevronDownIcon width={14} />
 				</Button>
 				<Popover className={classNames.popover}>
 					<ListBox className={classNames.listBox}>

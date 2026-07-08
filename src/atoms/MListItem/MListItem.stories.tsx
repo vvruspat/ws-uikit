@@ -1,6 +1,6 @@
+import { CodeBracketSquareIcon } from "@heroicons/react/24/outline";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import MFlex from "../MFlex/MFlex";
-import { MIconBracketsSquare } from "../MIcon/icons/MIconBracketsSquare";
 import MText from "../MText/MText";
 import MListItem from "./MListItem";
 
@@ -13,7 +13,7 @@ export default meta;
 type Story = StoryObj<typeof MListItem>;
 const item = () => (
 	<MFlex gap="s">
-		<MIconBracketsSquare mode="regular" width={20} />
+		<CodeBracketSquareIcon width={20} />
 		<MText>List Item</MText>
 	</MFlex>
 );

@@ -16,13 +16,13 @@ export const AllModes: Story = {
 		<>
 			<MFlex gap="s" wrap="wrap">
 				<MButton
-					mode="tertiary"
+					mode="outlined"
 					onClick={() => mToast.info("Heads up", "A new version is available.")}
 				>
 					Info
 				</MButton>
 				<MButton
-					mode="primary"
+					mode="outlined"
 					onClick={() =>
 						mToast.success("Saved", "Your changes were saved successfully.")
 					}
@@ -38,7 +38,7 @@ export const AllModes: Story = {
 					Warning
 				</MButton>
 				<MButton
-					mode="secondary"
+					mode="outlined"
 					onClick={() =>
 						mToast.error("Something went wrong", "Please try again.")
 					}

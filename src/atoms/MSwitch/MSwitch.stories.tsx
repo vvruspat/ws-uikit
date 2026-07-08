@@ -1,6 +1,6 @@
+import { CheckIcon } from "@heroicons/react/24/solid";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { MIconCheck } from "../MIcon/icons/MIconCheck";
 import MSwitch from "./MSwitch";
 
 const meta: Meta<typeof MSwitch> = {
@@ -10,7 +10,7 @@ const meta: Meta<typeof MSwitch> = {
 
 export default meta;
 
-const leftIconContent = () => <MIconCheck mode="bold" width={10} />;
+const leftIconContent = () => <CheckIcon width={10} />;
 
 const argTypes = {
 	borderType: {

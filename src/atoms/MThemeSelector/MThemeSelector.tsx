@@ -1,8 +1,7 @@
 "use client";
 
+import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
-import { MIconMoon } from "../MIcon/icons/MIconMoon";
-import { MIconSun } from "../MIcon/icons/MIconSun";
 import { MSelect, type MSelectOption } from "../MSelect";
 import styles from "./MThemeSelector.module.css";
 
@@ -50,9 +49,9 @@ export const MThemeSelector = ({
 				...option,
 				before:
 					option.key === "light" ? (
-						<MIconSun mode="regular" width={24} />
+						<SunIcon width={24} />
 					) : (
-						<MIconMoon mode="regular" width={24} />
+						<MoonIcon width={24} />
 					),
 			}))}
 			onValueChange={onThemeChoose}

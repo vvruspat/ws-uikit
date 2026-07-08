@@ -1,4 +1,5 @@
 declare const styles: {
-	readonly required: string;
+  readonly "required": string;
 };
 export = styles;
+

@@ -1,7 +1,7 @@
+import { CodeBracketSquareIcon } from "@heroicons/react/24/outline";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import MFlex from "../MFlex/MFlex";
-import { MIconBracketsSquare } from "../MIcon/icons/MIconBracketsSquare";
 import MText from "../MText/MText";
 import MRadio from "./MRadio";
 
@@ -14,14 +14,14 @@ export default meta;
 
 const descriptionComponentContent = () => (
 	<MFlex gap="s">
-		<MIconBracketsSquare mode="regular" width={20} />
+		<CodeBracketSquareIcon width={20} />
 		<MText>Description</MText>
 	</MFlex>
 );
 
 const errorComponentContent = () => (
 	<MFlex gap="s">
-		<MIconBracketsSquare mode="regular" width={20} />
+		<CodeBracketSquareIcon width={20} />
 		<MText>Error</MText>
 	</MFlex>
 );

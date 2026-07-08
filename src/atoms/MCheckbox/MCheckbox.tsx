@@ -1,5 +1,6 @@
 "use client";
 
+import { CheckIcon } from "@heroicons/react/24/solid";
 import clsx from "clsx";
 import { type ReactNode, useId, useMemo } from "react";
 import {
@@ -11,7 +12,6 @@ import MFieldDescription from "../MFieldDescription/MFieldDescription";
 import MFlex from "../MFlex/MFlex";
 
 import styles from "./MCheckbox.module.css";
-import { MIconCheck } from "../MIcon/icons/MIconCheck";
 
 type CheckboxProps = Omit<
 	AriaCheckboxProps,
@@ -68,7 +68,7 @@ export const MCheckbox = ({
 				>
 					<span className={clsx(styles.customCheckboxBox)}>
 						<span className={clsx(styles.customCheckboxIcon)}>
-							{icon ? icon : <MIconCheck mode="bold" width={10} />}
+							{icon ? icon : <CheckIcon width={10} />}
 						</span>
 					</span>
 					<span>{label}</span>

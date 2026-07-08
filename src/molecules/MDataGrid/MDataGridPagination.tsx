@@ -1,8 +1,7 @@
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
 import type { ComponentProps } from "react";
 import { MButton, MFlex, MSelect, MText } from "../../atoms";
-import { MIconCaretLeft } from "../../atoms/MIcon/icons/MIconCaretLeft";
-import { MIconCaretRight } from "../../atoms/MIcon/icons/MIconCaretRight";
 import type { MSelectOption } from "../../atoms/MSelect/MSelect";
 import styles from "./MDataGridPagination.module.css";
 
@@ -92,7 +91,7 @@ export const MDataGridPagination = ({
 							onClick={onPrevPageClick}
 							disabled={isPreviousDisabled}
 						>
-							<MIconCaretLeft mode="regular" width={18} />
+							<ChevronLeftIcon width={18} />
 						</MButton>
 						<MButton
 							mode="round"
@@ -101,7 +100,7 @@ export const MDataGridPagination = ({
 							onClick={onNextPageClick}
 							disabled={isNextDisabled}
 						>
-							<MIconCaretRight mode="regular" width={18} />
+							<ChevronRightIcon width={18} />
 						</MButton>
 					</MFlex>
 				</MFlex>

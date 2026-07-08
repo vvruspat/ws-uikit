@@ -1,11 +1,11 @@
 "use client";
 
+import { XMarkIcon } from "@heroicons/react/24/outline";
 import type { ChangeEvent } from "react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { BasicInputProps } from "../../types/BasicInputProps";
 
 import { MButton } from "../MButton";
-import { MIconX } from "../MIcon";
 
 type ClearableProps = BasicInputProps & {
 	clearable?: boolean;
@@ -50,7 +50,7 @@ export const useClearable = ({
 		<>
 			{localValue && clearable && (
 				<MButton mode="transparent" onClick={onClear} noPadding>
-					<MIconX mode="regular" width="16" />
+					<XMarkIcon width={16} />
 				</MButton>
 			)}
 		</>

@@ -1,4 +1,5 @@
 declare const styles: {
-	readonly timepickerInput: string;
+  readonly "timepickerInput": string;
 };
 export = styles;
+

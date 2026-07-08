@@ -1,6 +1,6 @@
+import { CodeBracketSquareIcon } from "@heroicons/react/24/outline";
 import type { ArgTypes, Meta, StoryObj } from "@storybook/react-vite";
 
-import { MIconBracketsSquare } from "../MIcon/icons/MIconBracketsSquare";
 import MDatepicker from "./MDatepicker";
 
 const meta: Meta<typeof MDatepicker> = {
@@ -39,7 +39,7 @@ export const Regular: Story = {
 		type: "date",
 		status: "regular",
 		disabled: false,
-		before: <MIconBracketsSquare mode="regular" width={24} />,
+		before: <CodeBracketSquareIcon width={24} />,
 		placeholder: "Choose your birthday",
 	},
 
@@ -50,7 +50,7 @@ export const Valid: Story = {
 	args: {
 		status: "valid",
 		disabled: false,
-		before: <MIconBracketsSquare mode="regular" width={24} />,
+		before: <CodeBracketSquareIcon width={24} />,
 		placeholder: "Choose your birthday",
 	},
 
@@ -61,7 +61,7 @@ export const Invalid: Story = {
 	args: {
 		status: "invalid",
 		disabled: false,
-		before: <MIconBracketsSquare mode="regular" width={24} />,
+		before: <CodeBracketSquareIcon width={24} />,
 		placeholder: "Choose your birthday",
 	},
 
@@ -72,7 +72,7 @@ export const Disabled: Story = {
 	args: {
 		status: "regular",
 		disabled: true,
-		before: <MIconBracketsSquare mode="regular" width={24} />,
+		before: <CodeBracketSquareIcon width={24} />,
 		placeholder: "Choose your birthday",
 	},
 

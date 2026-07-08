@@ -1,9 +1,8 @@
+import { ChevronDownIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import MButton from "../../atoms/MButton/MButton";
 import MCaption from "../../atoms/MCaption/MCaption";
 import MFlex from "../../atoms/MFlex/MFlex";
-import { MIconCaretDown } from "../../atoms/MIcon/icons/MIconCaretDown";
-import { MIconCaretRight } from "../../atoms/MIcon/icons/MIconCaretRight";
 import MText from "../../atoms/MText/MText";
 import MAccordion from "./MAccordion";
 
@@ -15,8 +14,8 @@ const meta: Meta<typeof MAccordion> = {
 export default meta;
 type Story = StoryObj<typeof MAccordion>;
 
-const iconClosed = <MIconCaretRight mode="regular" width={20} />;
-const iconOpen = <MIconCaretDown mode="regular" width={20} />;
+const iconClosed = <ChevronRightIcon width={20} />;
+const iconOpen = <ChevronDownIcon width={20} />;
 
 const LongTextContent = () => (
 	<MFlex direction="column" align="stretch" gap="m">

@@ -1,8 +1,6 @@
+import { RectangleGroupIcon, Squares2X2Icon, TableCellsIcon } from "@heroicons/react/24/outline";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { MIconDiceOne } from "../MIcon/icons/MIconDiceOne";
-import { MIconDiceThree } from "../MIcon/icons/MIconDiceThree";
-import { MIconDiceTwo } from "../MIcon/icons/MIconDiceTwo";
 import MGrid from "./MGrid";
 
 const meta: Meta<typeof MGrid> = {
@@ -25,18 +23,18 @@ export const Basic: Story = {
 		display: "inline-grid",
 		children: (
 			<>
-				<MIconDiceOne mode="regular" width={24} />
-				<MIconDiceTwo mode="regular" width={24} />
-				<MIconDiceThree mode="regular" width={24} />
-				<MIconDiceOne mode="regular" width={24} />
-				<MIconDiceTwo mode="regular" width={24} />
-				<MIconDiceThree mode="regular" width={24} />
-				<MIconDiceOne mode="regular" width={24} />
-				<MIconDiceTwo mode="regular" width={24} />
-				<MIconDiceThree mode="regular" width={24} />
-				<MIconDiceOne mode="regular" width={24} />
-				<MIconDiceTwo mode="regular" width={24} />
-				<MIconDiceThree mode="regular" width={24} />
+				<Squares2X2Icon width={24} />
+				<RectangleGroupIcon width={24} />
+				<TableCellsIcon width={24} />
+				<Squares2X2Icon width={24} />
+				<RectangleGroupIcon width={24} />
+				<TableCellsIcon width={24} />
+				<Squares2X2Icon width={24} />
+				<RectangleGroupIcon width={24} />
+				<TableCellsIcon width={24} />
+				<Squares2X2Icon width={24} />
+				<RectangleGroupIcon width={24} />
+				<TableCellsIcon width={24} />
 			</>
 		),
 	},

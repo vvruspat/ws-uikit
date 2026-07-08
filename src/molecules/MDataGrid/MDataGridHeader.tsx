@@ -1,7 +1,7 @@
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
 import { MButton, MFlex, MText } from "../../atoms";
 import styles from "./MDataGridHeader.module.css";
-import { SortIcon } from "./SortIcon";
 import type { MDataGridHeaderType, MDataGridSortDirection } from "./types";
 
 type MDataGridHeaderProps = MDataGridHeaderType & {
@@ -66,7 +66,8 @@ export const MDataGridHeader = ({
 						justify="space-between"
 						aria-label={`Sort ${headerLabel} ${nextSortDirection}`}
 						after={
-							<SortIcon
+							<ChevronDownIcon
+								width={16}
 								aria-hidden="true"
 								className={clsx(
 									styles.sort,
