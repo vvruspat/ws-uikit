@@ -20,7 +20,28 @@
   --padding-control-x: var(--space-8);
   --padding-control-y: var(--space-4);
 
-  --radius-control: var(--radius-8);     /* buttons, inputs, checkboxes */
-  --radius-surface: var(--radius-12);    /* cards, popovers, sheets */
-  --radius-pill:    var(--radius-full);
+  --radius-control:    var(--radius-8);  /* buttons, inputs, checkboxes */
+  --radius-control-sm: var(--radius-4);  /* tighter controls (outlined button) */
+  --radius-surface:    var(--radius-12); /* cards, popovers, sheets */
+  --radius-pill:       var(--radius-full);
+
+  /* control padding by size (shared: button, input, select) */
+  --padding-control-x-s: var(--space-6);
+  --padding-control-x-m: var(--space-8);
+  --padding-control-x-l: var(--space-8);
+  --padding-control-y-s: var(--space-3);
+  --padding-control-y-m: var(--space-4);
+  --padding-control-y-l: var(--space-5);
+
+  /* square icon-control size + inner padding by size (round/icon button) */
+  --size-control-s: var(--size-12);
+  --size-control-m: var(--size-16);
+  --size-control-l: var(--size-24);
+  --padding-icon-s: var(--space-2);
+  --padding-icon-m: var(--space-3);
+  --padding-icon-l: var(--space-4);
+
+  /* focus ring geometry (color lives in themes: --color-focus-ring) */
+  --focus-ring-width:  var(--space-1);
+  --focus-ring-offset: var(--space-2);
 }
