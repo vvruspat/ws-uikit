@@ -8,9 +8,9 @@
 }
 
 :root[data-theme="light"] {
-	--dropdown-overlay-background-color: rgba(0, 0, 0, 0.5);
+	--dropdown-overlay-background-color: var(--palette-alpha-black-50);
 }
 
 :root[data-theme="dark"] {
-	--dropdown-overlay-background-color: rgba(255, 255, 255, 0.3);
+	--dropdown-overlay-background-color: var(--palette-alpha-white-30);
 }
